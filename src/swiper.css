@@ -1,0 +1,42 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@media (min-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 50px;
+    height: 50px;
+    margin-left: 1;
+    margin-right: 1;
+  }
+}
+
+@media (max-width: 425px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 30px;
+    height: 30px;
+    margin-left: 1;
+    margin-right: 1;
+  }
+}
+
+.swiper-button-prev {
+  background-image: url("./assets//E-commerceAssets//eComerceProductsAssets//prev.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swiper-button-next {
+  background-image: url("./assets//E-commerceAssets//eComerceProductsAssets/next.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: "";
+}

@@ -11,15 +11,15 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer class="bg-[#0099CC] text-white mt-10">
-      <div class="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div class="max-w-7xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            <div class="md:col-span-2 lg:col-span-1">
-              <h2 class="font-bold text-xl sm:text-2xl mb-4">
+    <footer className="bg-[#0099CC] text-white mt-10">
+      <div className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            <div className="md:col-span-2 lg:col-span-1">
+              <h2 className="font-bold text-xl sm:text-2xl mb-4">
                 CitizensRatings.Com
               </h2>
-              <p class="text-sm sm:text-base leading-relaxed mb-6 text-gray-100">
+              <p className="text-sm sm:text-base leading-relaxed mb-6 text-gray-100">
                 We are a public platform built on the belief that citizens have
                 the right to be heard — not just during elections, but every
                 day. At CitizensRatings.com, we empower individuals to rate and
@@ -27,7 +27,7 @@ function Footer() {
                 and government agencies to local businesses, NGOs, and academic
                 institutions.
               </p>
-              <div class="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3">
                 <div className="flex gap-3">
                   <span className="p-2 rounded-full bg-[#1AA3D1]">
                     <FaFacebook className="w-5 h-5" />
@@ -47,12 +47,12 @@ function Footer() {
                 </div>
               </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 md:col-span-2 lg:col-span-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 md:col-span-2 lg:col-span-3">
               <div>
-                <h3 class="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
+                <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
                   CitizensRatings
                 </h3>
-                <ul class="space-y-2 sm:space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   <Link to="/">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -80,8 +80,8 @@ function Footer() {
                 </ul>
               </div>
               <div>
-                <h3 class="font-bold text-lg sm:text-xl mb-4 sm:mb-6">Legal</h3>
-                <ul class="space-y-2 sm:space-y-3">
+                <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">Legal</h3>
+                <ul className="space-y-2 sm:space-y-3">
                   <Link to="/code-of-conduct">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -109,10 +109,10 @@ function Footer() {
                 </ul>
               </div>
               <div>
-                <h3 class="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
+                <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
                   Help & Support
                 </h3>
-                <ul class="space-y-2 sm:space-y-3">
+                <ul className="space-y-2 sm:space-y-3">
                   <Link to="/faqs">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
@@ -143,10 +143,10 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div class="border-t border-white/30">
-        <div class="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-          <div class="max-w-7xl mx-auto">
-            <p class="text-center text-sm sm:text-base lg:text-lg text-gray-200 font-medium">
+      <div className="border-t border-white/30">
+        <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-center text-sm sm:text-base lg:text-lg text-gray-200 font-medium">
               © 2025 Lispira. All rights reserved.{" "}
               <Link to="/" className="hover:underline">
                 CitizensRatings.com
