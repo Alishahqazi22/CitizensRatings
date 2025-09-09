@@ -22,19 +22,19 @@
   }
 }
 
-.swiper-button-prev {
+/* .swiper-button-prev {
   background-image: url("./assets//E-commerceAssets//eComerceProductsAssets//prev.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
-.swiper-button-next {
+/* .swiper-button-next {
   background-image: url("./assets//E-commerceAssets//eComerceProductsAssets/next.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
