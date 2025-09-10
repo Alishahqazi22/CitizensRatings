@@ -21,13 +21,13 @@ function TopRatedInstitutions() {
         {/* Custom Buttons */}
         <button
           ref={prevRef}
-          className="absolute left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary p-2"
+          className="absolute left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
         >
           <BiSolidLeftArrowAlt size={20} />
         </button>
         <button
           ref={nextRef}
-          className="absolute right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary p-2"
+          className="absolute right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
         >
           <BiSolidRightArrowAlt size={20} />
         </button>
