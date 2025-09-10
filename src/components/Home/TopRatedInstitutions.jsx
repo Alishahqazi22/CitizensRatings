@@ -48,7 +48,7 @@ function TopRatedInstitutions() {
         >
           <SwiperSlide>
             <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden">
+              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                 <img
                   src={profile01}
                   alt="profile"
@@ -61,7 +61,7 @@ function TopRatedInstitutions() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden">
+              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                 <img
                   src={profile02}
                   alt="profile"
@@ -73,7 +73,7 @@ function TopRatedInstitutions() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden">
+              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                 <img
                   src={profile01}
                   alt="profile"
@@ -85,7 +85,7 @@ function TopRatedInstitutions() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden">
+              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                 <img
                   src={profile02}
                   alt="profile"
