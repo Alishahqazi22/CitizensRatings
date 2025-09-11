@@ -12,15 +12,15 @@ function RateAndReview() {
           {RateAndReviewProfiles.map((card, index) => (
             <div
               key={index}
-              class=" group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer"
+              className=" group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer"
             >
               {/* <div className="absolute inset-0 bg-[#3989A4] bg-opacity-70"></div> */}
               <img
                 alt="Polls & Public Opinion"
-                class="size-full object-cover brightness-75"
+                className="size-full object-cover brightness-75"
                 src={card.value}
               />
-              <div class="absolute bottom-3 left-3 group-hover:left-1 transition-all duration-300 text-white text-lg font-semibold z-10">
+              <div className="absolute bottom-3 left-3 group-hover:left-1 transition-all duration-300 text-white text-lg font-semibold z-10">
                 {card.label}
               </div>
             </div>

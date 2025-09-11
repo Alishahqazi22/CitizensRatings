@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/HomeAssets/homelogo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
 
 function Header() {
@@ -37,9 +37,11 @@ function Header() {
 
         <div className="flex space-x-4">
           <div className="inline-block p-[1px] bg-white rounded-lg">
-            <button className="btn-primary bg-primary border-double border-black border-2 text-white">
-              Sign Up
-            </button>
+            <Link to="/signup">
+              <button className="btn-primary bg-primary border-double border-black border-2 text-white">
+                Sign Up
+              </button>
+            </Link>
           </div>
           <button className="btn-primary bg-white text-primary border border-primary">
             Login
