@@ -1,4 +1,4 @@
-    // useToast.js
+// useToast.js
 import { toast } from "react-toastify";
 
 // Success Toast
@@ -12,7 +12,7 @@ export const showSuccess = (message) =>
 // Error Toast
 export const showError = (message) =>
   toast.error(message, {
-    className: "bg-red-500 text-white border border-red-600",
+    className: "text-black border border-red-600",
     bodyClassName: "text-white",
     progressClassName: "bg-white",
   });

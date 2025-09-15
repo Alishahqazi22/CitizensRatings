@@ -53,25 +53,25 @@ function Footer() {
                   CitizensRatings
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/">
+                  <Link to="/"target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Home</p>
                     </li>
                   </Link>
-                  <Link to="/about-us">
+                  <Link to="/about-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>About us</p>
                     </li>
                   </Link>
-                  <Link to="/blogs">
+                  <Link to="/blogs" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Blog</p>
                     </li>
                   </Link>
-                  <Link to="/polls">
+                  <Link to="/poll" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Polls</p>
@@ -82,25 +82,25 @@ function Footer() {
               <div>
                 <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">Legal</h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/code-of-conduct">
+                  <Link to="/code-of-conduct" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Code Of Conduct</p>
                     </li>
                   </Link>
-                  <Link to="/site-guidelines">
+                  <Link to="/site-guidelines" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Site Guidelines</p>
                     </li>
                   </Link>
-                  <Link to="/privacy-policy">
+                  <Link to="/privacy-policy" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Privacy policy</p>
                     </li>
                   </Link>
-                  <Link to="/term-of-use">
+                  <Link to="/term-of-use" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Term of Use</p>
@@ -113,25 +113,25 @@ function Footer() {
                   Help & Support
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/faqs">
+                  <Link to="/faqs" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>FAQs</p>
                     </li>
                   </Link>
-                  <Link to="/contact-us">
+                  <Link to="/contact-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Contact Us</p>
                     </li>
                   </Link>
-                  <Link to="/email-us">
+                  <Link to="/email-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Email Us</p>
                     </li>
                   </Link>
-                  <Link to="/whatsapp-us">
+                  <Link to="/whatsapp-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>WhatsApp Us</p>

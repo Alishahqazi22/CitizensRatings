@@ -39,13 +39,13 @@ function RateAndReview() {
                 key={index}
                 className="group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer"
               >
-                {/* <Link to={`/users?category=${encodeURIComponent(category)}`}> */}
+                <Link to={`/users/${category}`}>
                   <img
                     alt={category}
                     className="size-full object-cover brightness-75"
                     src={categoryImages[normalized] || "/fallback.jpg"}
                   />
-                {/* </Link> */}
+                </Link>
                 <div className="absolute bottom-3 left-3 group-hover:left-1 transition-all duration-300 text-white text-lg font-semibold z-10">
                   {category}
                 </div>

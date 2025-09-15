@@ -1,16 +1,16 @@
 // src/components/UserProfile/UserFilterBar.jsx
 import React, { useState } from "react";
 
-function UserFilterBar({ onApply, onCancel }) {
+function UserFilterBar({ onApply, onCancel, onSearchChange }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [minStars, setMinStars] = useState(""); // e.g., 1-5
-  const [sortOrder, setSortOrder] = useState(""); // "low" or "high"
+  const [minStars, setMinStars] = useState("");
+  const [sortOrder, setSortOrder] = useState("");
 
   const handleApply = () => {
     onApply({ searchTerm, minStars, sortOrder });
   };
 
-  const handleCancel = () => {
+  const handleReset = () => {
     setSearchTerm("");
     setMinStars("");
     setSortOrder("");
@@ -18,60 +18,70 @@ function UserFilterBar({ onApply, onCancel }) {
   };
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 items-end mb-4">
-      
-      {/* 1. Search Bar */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-7 items-end mb-4">
+      {/* Search Bar */}
       <div>
         <label className="text-sm font-medium">Search</label>
         <input
           type="text"
-          placeholder="Search by name or category"
+          placeholder="Search anythings..."
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+            onSearchChange(e.target.value);
+          }}
+          className="w-full border border-gray-300 rounded-md py-2 px-3 mt-2 focus:outline-none focus:ring-2 focus:ring-primary shadow"
         />
       </div>
 
-      {/* 2. Star Rating Dropdown */}
+      {/* Star Rating Dropdown */}
       <div>
-        <label className="text-sm font-medium">Minimum Star</label>
+        <label className="text-sm font-medium">Star Rating</label>
         <select
           value={minStars}
-          onChange={(e) => setMinStars(e.target.value)}
-          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          onChange={(e) => {
+            setMinStars(e.target.value);
+            onSearchChange(e.target.value);
+          }}
+          className="w-full border border-gray-300 rounded-md p-2 mt-2 focus:outline-none focus:ring-1 focus:ring-primary shadow"
         >
-          <option value="">Select stars</option>
-          {[1,2,3,4,5].map((star) => (
-            <option key={star} value={star}>{star} ★</option>
+          <option value="">Select star</option>
+          {[1, 2, 3, 4, 5].map((star) => (
+            <option key={star} value={star}>
+              <span>
+                {star}{" "}
+                {star === 1 ? "Star" : "Stars"}
+              </span>
+            </option>
           ))}
         </select>
       </div>
 
-      {/* 3. Low/High Rated Dropdown */}
+      {/* Low/High Rated Dropdown */}
       <div>
-        <label className="text-sm font-medium">Sort By Rating</label>
+        <label className="text-sm font-medium">Sort</label>
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
-          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full border border-gray-300 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-primary shadow"
         >
-          <option value="">Select order</option>
+          <option value="">Sort by</option>
           <option value="low">Low Rated</option>
           <option value="high">High Rated</option>
         </select>
       </div>
 
-      {/* 4. Cancel / Apply Buttons */}
-      <div className="flex gap-2">
+      {/* Reset / Apply Buttons */}
+      <div className="flex gap-2 text-sm mb-1">
         <button
-          onClick={handleCancel}
-          className="w-1/2 bg-gray-300 text-gray-700 rounded-md p-2 hover:bg-gray-400"
+          onClick={handleReset}
+          className="w-1/2 p-2 bg-gray-300 text-gray-700 rounded"
         >
-          Cancel
+          Reset
         </button>
         <button
           onClick={handleApply}
-          className="w-1/2 bg-blue-600 text-white rounded-md p-2 hover:bg-blue-700"
+          className="w-1/2 bg-primary p-2 text-white rounded"
         >
           Apply
         </button>

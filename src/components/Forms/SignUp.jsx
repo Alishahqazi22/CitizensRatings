@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import axios from "axios";
 
 const SignUpSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -21,21 +21,39 @@ const SignUpSchema = Yup.object().shape({
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const { signupWithEmail, loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle } = useContext(AuthContext);
 
-  const handleEmailSignUp = async (values, { resetForm }) => {
-    try {
-      await signupWithEmail(values.email, values.password);
-      alert("Account created successfully!");
-      resetForm();
-    } catch (error) {
-      alert(error.message);
-    }
+  const handleSignup = async (values) => {
+  const userData = {
+    email: values.email,
+    password: values.password,
   };
+
+  localStorage.setItem("userData", JSON.stringify(userData));
+
+  try {
+    await axios.post("http://localhost:5000/api/users/signup", userData);
+  } catch (error) {
+    console.error("Signup API error:", error);
+  }
+};
+
 
   const handleGoogleSignUp = async () => {
     try {
-      await loginWithGoogle();
+      const userCredential = await loginWithGoogle();
+      const user = userCredential.user;
+
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        createdAt: new Date().toISOString(),
+        provider: "google",
+      };
+
+      localStorage.setItem("userData", JSON.stringify(userData));
+      await axios.post("http://localhost:5173/api/users", userData);
+
       alert("Signed up with Google!");
     } catch (error) {
       alert(error.message);
@@ -74,7 +92,7 @@ function SignUp() {
             terms: false,
           }}
           validationSchema={SignUpSchema}
-          onSubmit={handleEmailSignUp}
+          onSubmit={handleSignup}
         >
           {({ isSubmitting, values }) => (
             <Form className="space-y-4">
@@ -151,7 +169,7 @@ function SignUp() {
                   I agree to the{" "}
                   <Link to="/" className="text-primary underline">
                     Terms of Use
-                  </Link>{" "}
+                  </Link>
                   ,{" "}
                   <Link to="/" className="text-primary underline">
                     Privacy Policy

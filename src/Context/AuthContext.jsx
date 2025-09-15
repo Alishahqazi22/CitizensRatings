@@ -8,8 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "../firebase";
-import axios from "axios";
+import { auth } from "../firebase"; 
 
 const AuthContext = createContext();
 
@@ -20,20 +19,15 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
       if (currentUser) {
+        setUser(currentUser);
         const idToken = await currentUser.getIdToken();
         setToken(idToken);
-
-        try {
-          await axios.post("http://localhost:5173/api/auth/verify", {
-            token: idToken,
-          });
-        } catch (err) {
-          console.error("Backend verify error:", err);
-        }
+        localStorage.setItem("token", idToken); 
       } else {
+        setUser(null);
         setToken(null);
+        localStorage.removeItem("token");
       }
       setLoading(false);
     });
@@ -41,22 +35,18 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  const loginWithEmail = async (email, password) => {
-    return await signInWithEmailAndPassword(auth, email, password);
-  };
+  const loginWithEmail = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
 
-  const signupWithEmail = async (email, password) => {
-    return await createUserWithEmailAndPassword(auth, email, password);
-  };
+  const signupWithEmail = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password);
 
-  const loginWithGoogle = async () => {
+  const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
-    return await signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider);
   };
 
-  const logout = async () => {
-    return await signOut(auth);
-  };
+  const logout = () => signOut(auth);
 
   return (
     <AuthContext.Provider

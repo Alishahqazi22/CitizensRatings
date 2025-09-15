@@ -20,7 +20,7 @@ function App() {
         <Route path="/compare/:category/:id" element={<UserComparePage />}/>
         <Route path="/:category/:id/addratting" element={<AddRatingPage />}/>
         <Route path="/poll" element={<Poll />}/>
-        <Route path="/user" element={<UserList />}/>
+        <Route path="/users/:category" element={<UserList />}/>
         <Route path="/poll/:id" element={<PollDetail />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/login" element={<Login />}/>
