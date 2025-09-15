@@ -1,0 +1,4703 @@
+[
+  {
+    "id": 1,
+    "name": "Julie Cardenas",
+    "position": "Government social research officer",
+    "district": "North Michaelport",
+    "region": "Maine",
+    "category": "NA-Media House",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "vision": 3.8,
+      "policyImplementation": 1.3,
+      "accountability": 2.8,
+      "responsiveness": 1.3,
+      "resourceManagement": 2.9,
+      "stakeholderEngagement": 4.1,
+      "nationalDevelopment": 4.8,
+      "antiCorruption": 3.6,
+      "antiGalamsey": 4.5,
+      "overallPerformance": 3.1
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Disconnected from the People",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.7,
+        "comment": "Station though national treatment city turn.",
+        "date": "2022-12-28"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Angel Taylor",
+    "position": "Police officer",
+    "district": "New Luisstad",
+    "region": "New Jersey",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "vision": 1.4,
+      "policyImplementation": 1.3,
+      "accountability": 2.0,
+      "responsiveness": 2.8,
+      "resourceManagement": 1.7,
+      "stakeholderEngagement": 3.6,
+      "nationalDevelopment": 3.1,
+      "antiCorruption": 3.4,
+      "antiGalamsey": 4.8,
+      "overallPerformance": 2.3
+    },
+    "tags": ["Disconnected from the People", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "Item include responsibility high Democrat include.",
+        "date": "2025-01-05"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Justin Smith",
+    "position": "Ergonomist",
+    "district": "Washingtonfort",
+    "region": "New Jersey",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "vision": 1.6,
+      "policyImplementation": 2.7,
+      "accountability": 2.9,
+      "responsiveness": 2.4,
+      "resourceManagement": 1.2,
+      "stakeholderEngagement": 1.3,
+      "nationalDevelopment": 4.0,
+      "antiCorruption": 1.4,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 1.5
+    },
+    "tags": ["Active in Community Development", "Weak Accountability"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.2,
+        "comment": "Area sometimes join change likely could often.",
+        "date": "2025-02-20"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Ryan Zhang",
+    "position": "Designer, interior/spatial",
+    "district": "Riosborough",
+    "region": "Utah",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "vision": 4.0,
+      "policyImplementation": 4.3,
+      "accountability": 2.8,
+      "responsiveness": 3.3,
+      "resourceManagement": 1.1,
+      "stakeholderEngagement": 1.2,
+      "nationalDevelopment": 3.6,
+      "antiCorruption": 4.4,
+      "antiGalamsey": 3.8,
+      "overallPerformance": 1.8
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Active in Community Development",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.3,
+        "comment": "Of war cold increase everybody run consider.",
+        "date": "2025-08-09"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mary Sanders",
+    "position": "Mining engineer",
+    "district": "Leberg",
+    "region": "Arkansas",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "vision": 1.1,
+      "policyImplementation": 1.2,
+      "accountability": 2.7,
+      "responsiveness": 2.0,
+      "resourceManagement": 4.4,
+      "stakeholderEngagement": 3.7,
+      "nationalDevelopment": 3.6,
+      "antiCorruption": 1.1,
+      "antiGalamsey": 3.9,
+      "overallPerformance": 4.5
+    },
+    "tags": ["Transparent Governance", "Weak Accountability"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.4,
+        "comment": "Policy building voice nation treat commercial former.",
+        "date": "2023-08-30"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Tina Weaver",
+    "position": "Pharmacist, community",
+    "district": "East Samuel",
+    "region": "South Carolina",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "vision": 4.8,
+      "policyImplementation": 4.4,
+      "accountability": 1.1,
+      "responsiveness": 4.8,
+      "resourceManagement": 5.0,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 2.7,
+      "antiCorruption": 4.4,
+      "antiGalamsey": 3.7,
+      "overallPerformance": 3.9
+    },
+    "tags": ["Disconnected from the People", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": [
+          "Local resident",
+          "Community leader",
+          "Government official"
+        ],
+        "answer": "Local resident"
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.3,
+        "comment": "Likely author matter firm realize between.",
+        "date": "2025-04-30"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Becky Whitney",
+    "position": "Civil Service fast streamer",
+    "district": "Perezville",
+    "region": "Utah",
+    "category": "NA-Media House",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "vision": 2.7,
+      "policyImplementation": 4.2,
+      "accountability": 1.9,
+      "responsiveness": 4.5,
+      "resourceManagement": 1.8,
+      "stakeholderEngagement": 3.3,
+      "nationalDevelopment": 4.9,
+      "antiCorruption": 1.0,
+      "antiGalamsey": 2.5,
+      "overallPerformance": 4.2
+    },
+    "tags": [
+      "Transparent Governance",
+      "Weak Accountability",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.5,
+        "comment": "Impact Republican cost with in.",
+        "date": "2024-08-16"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Christine Krueger",
+    "position": "Nutritional therapist",
+    "district": "Sarahmouth",
+    "region": "Ohio",
+    "category": "NA-Media House",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "vision": 1.9,
+      "policyImplementation": 3.3,
+      "accountability": 3.8,
+      "responsiveness": 4.0,
+      "resourceManagement": 4.7,
+      "stakeholderEngagement": 4.8,
+      "nationalDevelopment": 4.3,
+      "antiCorruption": 4.8,
+      "antiGalamsey": 5.0,
+      "overallPerformance": 1.5
+    },
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.0,
+        "comment": "Good listen anything create especially also.",
+        "date": "2023-08-23"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Andrew Martin",
+    "position": "Engineer, manufacturing systems",
+    "district": "Jasonmouth",
+    "region": "Louisiana",
+    "category": "NA-Media House",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "vision": 3.2,
+      "policyImplementation": 2.6,
+      "accountability": 1.9,
+      "responsiveness": 3.8,
+      "resourceManagement": 4.1,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 4.3,
+      "antiCorruption": 2.6,
+      "antiGalamsey": 4.1,
+      "overallPerformance": 3.4
+    },
+    "tags": ["Weak Accountability", "Transparent Governance"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.5,
+        "comment": "Subject service project member actually.",
+        "date": "2020-10-03"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Kelly Kim",
+    "position": "Merchandiser, retail",
+    "district": "East Dylan",
+    "region": "New Mexico",
+    "category": "NA-Media House",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "vision": 1.6,
+      "policyImplementation": 4.7,
+      "accountability": 2.1,
+      "responsiveness": 3.7,
+      "resourceManagement": 1.4,
+      "stakeholderEngagement": 4.5,
+      "nationalDevelopment": 4.4,
+      "antiCorruption": 2.7,
+      "antiGalamsey": 4.3,
+      "overallPerformance": 4.9
+    },
+    "tags": ["Disconnected from the People", "Active in Community Development"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"],
+        "answer": "Yes"
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.3,
+        "comment": "Fund next none single position.",
+        "date": "2020-04-22"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Gregory Campbell",
+    "position": "Health promotion specialist",
+    "district": "Jennystad",
+    "region": "Hawaii",
+    "category": "NA-Media House",
+    "institutionLogo": "https://api.citizensratings.com/storage/page/Page-1757413150-1648348521.jpg",
+    "ratings": {
+      "vision": 4.7,
+      "policyImplementation": 2.3,
+      "accountability": 1.4,
+      "responsiveness": 2.2,
+      "resourceManagement": 3.6,
+      "stakeholderEngagement": 1.0,
+      "nationalDevelopment": 1.2,
+      "antiCorruption": 2.7,
+      "antiGalamsey": 4.8,
+      "overallPerformance": 4.9
+    },
+    "tags": [
+      "Transparent Governance",
+      "Active in Community Development",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.2,
+        "comment": "Professional say behind.",
+        "date": "2021-06-10"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Kimberly Clark",
+    "position": "Engineer, chemical",
+    "district": "Fredfurt",
+    "region": "Georgia",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "vision": 4.5,
+      "policyImplementation": 1.0,
+      "accountability": 2.1,
+      "responsiveness": 1.1,
+      "resourceManagement": 3.6,
+      "stakeholderEngagement": 4.1,
+      "nationalDevelopment": 4.4,
+      "antiCorruption": 4.6,
+      "antiGalamsey": 2.0,
+      "overallPerformance": 2.8
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Transparent Governance",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Suffer control better director must difference campaign.",
+        "date": "2021-07-12"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Kelly Watson",
+    "position": "Engineer, mining",
+    "district": "Coxmouth",
+    "region": "Tennessee",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "vision": 4.8,
+      "policyImplementation": 4.3,
+      "accountability": 3.8,
+      "responsiveness": 2.2,
+      "resourceManagement": 1.3,
+      "stakeholderEngagement": 1.4,
+      "nationalDevelopment": 3.8,
+      "antiCorruption": 1.4,
+      "antiGalamsey": 4.9,
+      "overallPerformance": 1.8
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Focus on Youth Empowerment",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.4,
+        "comment": "Particular music whose move focus past piece.",
+        "date": "2020-09-29"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Mrs. Alexandra Rice DVM",
+    "position": "Administrator, sports",
+    "district": "Romeroport",
+    "region": "Missouri",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "vision": 4.1,
+      "policyImplementation": 2.1,
+      "accountability": 3.1,
+      "responsiveness": 2.1,
+      "resourceManagement": 5.0,
+      "stakeholderEngagement": 2.7,
+      "nationalDevelopment": 2.2,
+      "antiCorruption": 4.3,
+      "antiGalamsey": 1.4,
+      "overallPerformance": 2.8
+    },
+    "tags": ["Focus on Youth Empowerment", "Disconnected from the People"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.1,
+        "comment": "Will cup someone.",
+        "date": "2023-04-17"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "John Torres",
+    "position": "Media planner",
+    "district": "Williamsmouth",
+    "region": "South Dakota",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "vision": 3.8,
+      "policyImplementation": 2.0,
+      "accountability": 3.7,
+      "responsiveness": 1.5,
+      "resourceManagement": 3.3,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 1.8,
+      "antiCorruption": 4.8,
+      "antiGalamsey": 3.8,
+      "overallPerformance": 1.6
+    },
+    "tags": ["Active in Community Development", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.6,
+        "comment": "Indeed student simply local.",
+        "date": "2025-03-29"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Bobby Hawkins",
+    "position": "Information officer",
+    "district": "East Ericfort",
+    "region": "Michigan",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "vision": 4.4,
+      "policyImplementation": 2.3,
+      "accountability": 2.7,
+      "responsiveness": 2.6,
+      "resourceManagement": 2.5,
+      "stakeholderEngagement": 2.4,
+      "nationalDevelopment": 2.2,
+      "antiCorruption": 3.3,
+      "antiGalamsey": 3.0,
+      "overallPerformance": 3.9
+    },
+    "tags": [
+      "Weak Accountability",
+      "Transparent Governance",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.0,
+        "comment": "Professional close your describe charge fish.",
+        "date": "2022-10-26"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Kathryn Garcia",
+    "position": "Communications engineer",
+    "district": "Gonzaleztown",
+    "region": "Minnesota",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "vision": 2.9,
+      "policyImplementation": 4.4,
+      "accountability": 4.7,
+      "responsiveness": 2.2,
+      "resourceManagement": 2.2,
+      "stakeholderEngagement": 3.3,
+      "nationalDevelopment": 3.9,
+      "antiCorruption": 3.2,
+      "antiGalamsey": 4.8,
+      "overallPerformance": 4.8
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Active in Community Development",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "House open specific management summer.",
+        "date": "2025-04-15"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Sharon Morrison",
+    "position": "Ophthalmologist",
+    "district": "Andersonbury",
+    "region": "Idaho",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "vision": 3.1,
+      "policyImplementation": 4.4,
+      "accountability": 3.1,
+      "responsiveness": 3.2,
+      "resourceManagement": 4.5,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 2.0,
+      "antiCorruption": 1.8,
+      "antiGalamsey": 1.8,
+      "overallPerformance": 4.3
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Transparent Governance",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.7,
+        "comment": "Fall whose range here top blood himself.",
+        "date": "2021-09-20"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "David Smith",
+    "position": "Engineer, broadcasting (operations)",
+    "district": "Jerrytown",
+    "region": "West Virginia",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "vision": 4.2,
+      "policyImplementation": 4.8,
+      "accountability": 2.4,
+      "responsiveness": 1.7,
+      "resourceManagement": 2.6,
+      "stakeholderEngagement": 3.9,
+      "nationalDevelopment": 1.9,
+      "antiCorruption": 1.8,
+      "antiGalamsey": 2.2,
+      "overallPerformance": 3.2
+    },
+    "tags": [
+      "Transparent Governance",
+      "Disconnected from the People",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Measure question power adult network successful.",
+        "date": "2024-03-12"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Mrs. Megan Sanchez",
+    "position": "Teacher, adult education",
+    "district": "Lamberthaven",
+    "region": "Washington",
+    "category": "MMDAs",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "vision": 2.5,
+      "policyImplementation": 1.8,
+      "accountability": 4.5,
+      "responsiveness": 4.9,
+      "resourceManagement": 4.0,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 2.4,
+      "antiCorruption": 2.4,
+      "antiGalamsey": 4.0,
+      "overallPerformance": 3.5
+    },
+    "tags": ["Disconnected from the People", "Active in Community Development"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Nation fund one prove their fight.",
+        "date": "2024-06-02"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Kimberly Woods",
+    "position": "Community arts worker",
+    "district": "South Joshua",
+    "region": "Kansas",
+    "category": "MMDAs",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "vision": 4.9,
+      "policyImplementation": 4.3,
+      "accountability": 3.1,
+      "responsiveness": 1.1,
+      "resourceManagement": 4.2,
+      "stakeholderEngagement": 3.0,
+      "nationalDevelopment": 4.5,
+      "antiCorruption": 4.1,
+      "antiGalamsey": 3.5,
+      "overallPerformance": 2.9
+    },
+    "tags": ["Transparent Governance", "Active in Community Development"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.3,
+        "comment": "Table remain training hand safe least citizen.",
+        "date": "2024-11-24"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Sarah Rodriguez",
+    "position": "Advertising copywriter",
+    "district": "New Anthony",
+    "region": "Minnesota",
+    "category": "MMDAs",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "vision": 4.4,
+      "policyImplementation": 1.7,
+      "accountability": 4.5,
+      "responsiveness": 3.5,
+      "resourceManagement": 2.2,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 3.8,
+      "antiCorruption": 1.2,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 4.6
+    },
+    "tags": [
+      "Active in Community Development",
+      "Focus on Youth Empowerment",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.6,
+        "comment": "Live design economic every.",
+        "date": "2022-06-18"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Susan White",
+    "position": "Energy engineer",
+    "district": "Larrychester",
+    "region": "Minnesota",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "vision": 4.8,
+      "policyImplementation": 2.9,
+      "accountability": 4.5,
+      "responsiveness": 3.4,
+      "resourceManagement": 2.4,
+      "stakeholderEngagement": 2.0,
+      "nationalDevelopment": 1.1,
+      "antiCorruption": 1.5,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 4.0
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.7,
+        "comment": "Save toward site turn drug ready change high.",
+        "date": "2023-01-01"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Kenneth Duran",
+    "position": "Television/film/video producer",
+    "district": "New Madisonland",
+    "region": "Massachusetts",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "vision": 1.6,
+      "policyImplementation": 4.5,
+      "accountability": 1.8,
+      "responsiveness": 3.0,
+      "resourceManagement": 4.9,
+      "stakeholderEngagement": 3.8,
+      "nationalDevelopment": 2.7,
+      "antiCorruption": 1.7,
+      "antiGalamsey": 2.8,
+      "overallPerformance": 3.3
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.7,
+        "comment": "Fish serious left he unit.",
+        "date": "2021-12-03"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Lauren West",
+    "position": "Chief of Staff",
+    "district": "West Tinaland",
+    "region": "Illinois",
+    "category": "MCEs & DCEs",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "vision": 4.4,
+      "policyImplementation": 2.2,
+      "accountability": 4.6,
+      "responsiveness": 4.4,
+      "resourceManagement": 1.1,
+      "stakeholderEngagement": 2.8,
+      "nationalDevelopment": 3.3,
+      "antiCorruption": 1.3,
+      "antiGalamsey": 4.3,
+      "overallPerformance": 3.9
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Focus on Youth Empowerment",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.0,
+        "comment": "Drug son present no in matter either.",
+        "date": "2023-11-01"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Donald Little",
+    "position": "Designer, exhibition/display",
+    "district": "North Angelahaven",
+    "region": "New Mexico",
+    "category": "MCEs & DCEs",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "vision": 3.3,
+      "policyImplementation": 5.0,
+      "accountability": 4.7,
+      "responsiveness": 1.8,
+      "resourceManagement": 4.4,
+      "stakeholderEngagement": 3.3,
+      "nationalDevelopment": 4.0,
+      "antiCorruption": 4.1,
+      "antiGalamsey": 2.3,
+      "overallPerformance": 4.7
+    },
+    "tags": ["Disconnected from the People", "Transparent Governance"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.6,
+        "comment": "Age station something radio science stay hope.",
+        "date": "2025-06-05"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Dr. Hannah Wright",
+    "position": "Ambulance person",
+    "district": "New Kimberly",
+    "region": "Oregon",
+    "category": "Member of Parliament",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "vision": 3.7,
+      "policyImplementation": 1.5,
+      "accountability": 3.0,
+      "responsiveness": 3.0,
+      "resourceManagement": 4.3,
+      "stakeholderEngagement": 4.3,
+      "nationalDevelopment": 2.1,
+      "antiCorruption": 4.3,
+      "antiGalamsey": 1.6,
+      "overallPerformance": 3.8
+    },
+    "tags": [
+      "Transparent Governance",
+      "Focus on Youth Empowerment",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.7,
+        "comment": "Per policy member story whose make.",
+        "date": "2025-04-17"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Patricia Webster",
+    "position": "Librarian, academic",
+    "district": "South Samuelstad",
+    "region": "Mississippi",
+    "category": "Member of Parliament",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "vision": 3.4,
+      "policyImplementation": 4.9,
+      "accountability": 4.7,
+      "responsiveness": 1.9,
+      "resourceManagement": 1.7,
+      "stakeholderEngagement": 3.5,
+      "nationalDevelopment": 3.4,
+      "antiCorruption": 2.7,
+      "antiGalamsey": 1.4,
+      "overallPerformance": 2.1
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.0,
+        "comment": "Leg despite state professor spring usually.",
+        "date": "2020-03-28"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Leah Zavala",
+    "position": "Herbalist",
+    "district": "New Joshualand",
+    "region": "Nevada",
+    "category": "Member of Parliament",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "vision": 2.5,
+      "policyImplementation": 4.1,
+      "accountability": 3.0,
+      "responsiveness": 2.1,
+      "resourceManagement": 3.5,
+      "stakeholderEngagement": 1.8,
+      "nationalDevelopment": 2.8,
+      "antiCorruption": 2.5,
+      "antiGalamsey": 2.2,
+      "overallPerformance": 1.1
+    },
+    "tags": ["Active in Community Development", "Disconnected from the People"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.9,
+        "comment": "Approach area discover.",
+        "date": "2024-11-10"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Michelle Bates",
+    "position": "Geoscientist",
+    "district": "Lake Timothytown",
+    "region": "Alabama",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "vision": 3.8,
+      "policyImplementation": 3.7,
+      "accountability": 1.1,
+      "responsiveness": 4.8,
+      "resourceManagement": 2.4,
+      "stakeholderEngagement": 2.1,
+      "nationalDevelopment": 2.6,
+      "antiCorruption": 2.9,
+      "antiGalamsey": 1.5,
+      "overallPerformance": 4.1
+    },
+    "tags": ["Active in Community Development", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.8,
+        "comment": "Common believe lawyer fire husband.",
+        "date": "2022-04-09"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Kristin Gregory",
+    "position": "Exhibition designer",
+    "district": "Michelleburgh",
+    "region": "Mississippi",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "vision": 3.0,
+      "policyImplementation": 4.4,
+      "accountability": 1.3,
+      "responsiveness": 3.6,
+      "resourceManagement": 4.1,
+      "stakeholderEngagement": 4.4,
+      "nationalDevelopment": 4.0,
+      "antiCorruption": 3.2,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 3.2
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Weak Accountability",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Law garden degree decade lay company significant receive.",
+        "date": "2024-02-19"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Melissa Stewart",
+    "position": "Engineer, biomedical",
+    "district": "Mcconnellmouth",
+    "region": "Ohio",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "vision": 4.6,
+      "policyImplementation": 3.5,
+      "accountability": 1.7,
+      "responsiveness": 4.0,
+      "resourceManagement": 3.0,
+      "stakeholderEngagement": 3.0,
+      "nationalDevelopment": 1.2,
+      "antiCorruption": 1.2,
+      "antiGalamsey": 4.9,
+      "overallPerformance": 2.5
+    },
+    "tags": ["Disconnected from the People", "Transparent Governance"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "Part college north science site charge for.",
+        "date": "2020-07-31"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Jerry Stephenson",
+    "position": "Broadcast engineer",
+    "district": "Leeland",
+    "region": "Maryland",
+    "category": "Agencies & SOEs",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 4.5,
+      "vision": 1.5,
+      "policyImplementation": 2.7,
+      "accountability": 2.5,
+      "responsiveness": 1.4,
+      "resourceManagement": 1.8,
+      "stakeholderEngagement": 1.5,
+      "nationalDevelopment": 1.7,
+      "antiCorruption": 4.8,
+      "antiGalamsey": 2.2,
+      "overallPerformance": 4.3
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.8,
+        "comment": "Seek hair agree nation whether other possible.",
+        "date": "2021-10-07"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Sarah Brooks",
+    "position": "Designer, textile",
+    "district": "Lake Marilyn",
+    "region": "Pennsylvania",
+    "category": "MMDAs",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 1.3,
+      "vision": 1.2,
+      "policyImplementation": 4.7,
+      "accountability": 2.6,
+      "responsiveness": 4.9,
+      "resourceManagement": 2.3,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 3.0,
+      "antiCorruption": 4.1,
+      "antiGalamsey": 2.4,
+      "overallPerformance": 3.6
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Focus on Youth Empowerment",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Senior his stay usually likely season gas.",
+        "date": "2025-03-18"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Susan Johnson",
+    "position": "Pharmacist, hospital",
+    "district": "Lake Caitlinland",
+    "region": "Georgia",
+    "category": "MMDAs",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 1.6,
+      "vision": 5.0,
+      "policyImplementation": 3.1,
+      "accountability": 4.3,
+      "responsiveness": 1.6,
+      "resourceManagement": 1.2,
+      "stakeholderEngagement": 1.6,
+      "nationalDevelopment": 3.9,
+      "antiCorruption": 2.6,
+      "antiGalamsey": 3.7,
+      "overallPerformance": 2.5
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.2,
+        "comment": "Receive central certainly radio.",
+        "date": "2025-03-26"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Mr. Anthony Schwartz",
+    "position": "Company secretary",
+    "district": "Smithberg",
+    "region": "Texas",
+    "category": "MMDAs",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 4.6,
+      "vision": 2.7,
+      "policyImplementation": 1.7,
+      "accountability": 4.7,
+      "responsiveness": 3.9,
+      "resourceManagement": 4.1,
+      "stakeholderEngagement": 1.1,
+      "nationalDevelopment": 4.7,
+      "antiCorruption": 4.9,
+      "antiGalamsey": 3.9,
+      "overallPerformance": 3.9
+    },
+    "tags": ["Active in Community Development", "Transparent Governance"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Million case too enjoy need standard.",
+        "date": "2024-10-07"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Kathleen Peterson",
+    "position": "Corporate investment banker",
+    "district": "South Michaelberg",
+    "region": "Texas",
+    "category": "MMDAs",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 2.6,
+      "vision": 4.5,
+      "policyImplementation": 3.4,
+      "accountability": 4.3,
+      "responsiveness": 1.8,
+      "resourceManagement": 1.9,
+      "stakeholderEngagement": 3.5,
+      "nationalDevelopment": 2.5,
+      "antiCorruption": 1.5,
+      "antiGalamsey": 4.3,
+      "overallPerformance": 3.6
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.9,
+        "comment": "Source tree entire possible police society evening.",
+        "date": "2025-07-01"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Richard Fields",
+    "position": "Art therapist",
+    "district": "Lindafurt",
+    "region": "Michigan",
+    "category": "MMDAs",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 3.2,
+      "vision": 4.1,
+      "policyImplementation": 3.8,
+      "accountability": 4.3,
+      "responsiveness": 4.1,
+      "resourceManagement": 3.7,
+      "stakeholderEngagement": 3.8,
+      "nationalDevelopment": 3.8,
+      "antiCorruption": 4.2,
+      "antiGalamsey": 2.6,
+      "overallPerformance": 4.0
+    },
+    "tags": ["Focus on Youth Empowerment", "Weak Accountability"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.9,
+        "comment": "Talk determine attorney about responsibility.",
+        "date": "2022-03-29"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Janet Ross",
+    "position": "Warden/ranger",
+    "district": "Brandystad",
+    "region": "Illinois",
+    "category": "MMDAs",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 2.6,
+      "vision": 2.9,
+      "policyImplementation": 1.8,
+      "accountability": 3.6,
+      "responsiveness": 4.1,
+      "resourceManagement": 3.6,
+      "stakeholderEngagement": 1.7,
+      "nationalDevelopment": 1.5,
+      "antiCorruption": 1.3,
+      "antiGalamsey": 4.4,
+      "overallPerformance": 2.5
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.8,
+        "comment": "Owner environmental product.",
+        "date": "2023-05-05"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Andrew Mckay",
+    "position": "Manufacturing engineer",
+    "district": "Rodriguezshire",
+    "region": "Illinois",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 3.2,
+      "vision": 2.1,
+      "policyImplementation": 1.8,
+      "accountability": 3.9,
+      "responsiveness": 1.2,
+      "resourceManagement": 4.9,
+      "stakeholderEngagement": 2.8,
+      "nationalDevelopment": 2.4,
+      "antiCorruption": 1.7,
+      "antiGalamsey": 3.5,
+      "overallPerformance": 4.7
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Focus on Youth Empowerment",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.8,
+        "comment": "Site chance have together series tell old.",
+        "date": "2022-01-30"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Miguel Hamilton",
+    "position": "Environmental education officer",
+    "district": "Port Jenny",
+    "region": "Texas",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 1.8,
+      "vision": 3.8,
+      "policyImplementation": 3.9,
+      "accountability": 3.8,
+      "responsiveness": 2.6,
+      "resourceManagement": 3.5,
+      "stakeholderEngagement": 1.8,
+      "nationalDevelopment": 4.9,
+      "antiCorruption": 4.7,
+      "antiGalamsey": 1.8,
+      "overallPerformance": 2.8
+    },
+    "tags": [
+      "Active in Community Development",
+      "Transparent Governance",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.9,
+        "comment": "Several your far government hit world.",
+        "date": "2021-08-02"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Dr. Michael Berry MD",
+    "position": "Data processing manager",
+    "district": "South Jeremy",
+    "region": "Delaware",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 2.3,
+      "vision": 2.6,
+      "policyImplementation": 2.1,
+      "accountability": 2.2,
+      "responsiveness": 2.0,
+      "resourceManagement": 3.9,
+      "stakeholderEngagement": 1.2,
+      "nationalDevelopment": 4.2,
+      "antiCorruption": 2.9,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 3.9
+    },
+    "tags": [
+      "Transparent Governance",
+      "Focus on Youth Empowerment",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.5,
+        "comment": "A financial particularly work article various model foot.",
+        "date": "2025-07-20"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Kristine Smith",
+    "position": "Engineer, manufacturing systems",
+    "district": "Stevensstad",
+    "region": "Arkansas",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 3.4,
+      "vision": 1.1,
+      "policyImplementation": 4.3,
+      "accountability": 1.3,
+      "responsiveness": 3.6,
+      "resourceManagement": 4.3,
+      "stakeholderEngagement": 4.4,
+      "nationalDevelopment": 2.5,
+      "antiCorruption": 3.5,
+      "antiGalamsey": 1.1,
+      "overallPerformance": 4.0
+    },
+    "tags": ["Weak Accountability", "Active in Community Development"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.2,
+        "comment": "And rock mind budget deal national finally.",
+        "date": "2023-08-30"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Eddie Pittman",
+    "position": "Special educational needs teacher",
+    "district": "Hallton",
+    "region": "Delaware",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 4.4,
+      "vision": 3.9,
+      "policyImplementation": 1.8,
+      "accountability": 2.4,
+      "responsiveness": 3.1,
+      "resourceManagement": 4.5,
+      "stakeholderEngagement": 1.8,
+      "nationalDevelopment": 2.6,
+      "antiCorruption": 1.9,
+      "antiGalamsey": 5.0,
+      "overallPerformance": 2.1
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.8,
+        "comment": "Focus education reach.",
+        "date": "2024-04-06"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Phillip Aguilar",
+    "position": "Building services engineer",
+    "district": "Wallsside",
+    "region": "Mississippi",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 2.0,
+      "vision": 1.6,
+      "policyImplementation": 2.3,
+      "accountability": 3.5,
+      "responsiveness": 3.8,
+      "resourceManagement": 2.0,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 3.7,
+      "antiCorruption": 3.8,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 4.1
+    },
+    "tags": [
+      "Transparent Governance",
+      "Weak Accountability",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.1,
+        "comment": "Why wife write.",
+        "date": "2020-03-21"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Roy Nielsen",
+    "position": "Corporate investment banker",
+    "district": "Ramostown",
+    "region": "North Carolina",
+    "category": "Govt. Appointees",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 1.5,
+      "vision": 4.3,
+      "policyImplementation": 2.2,
+      "accountability": 2.0,
+      "responsiveness": 4.9,
+      "resourceManagement": 4.0,
+      "stakeholderEngagement": 4.8,
+      "nationalDevelopment": 3.6,
+      "antiCorruption": 1.4,
+      "antiGalamsey": 2.6,
+      "overallPerformance": 1.6
+    },
+    "tags": [
+      "Weak Accountability",
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.9,
+        "comment": "Leave join painting page source try.",
+        "date": "2021-03-30"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Rachel Kelly",
+    "position": "Editor, commissioning",
+    "district": "Port Adrianachester",
+    "region": "West Virginia",
+    "category": "Rate- judiciary",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 2.4,
+      "vision": 2.4,
+      "policyImplementation": 3.5,
+      "accountability": 4.8,
+      "responsiveness": 1.6,
+      "resourceManagement": 4.4,
+      "stakeholderEngagement": 4.9,
+      "nationalDevelopment": 4.9,
+      "antiCorruption": 2.9,
+      "antiGalamsey": 2.3,
+      "overallPerformance": 2.4
+    },
+    "tags": ["Promotes Peace and Unity", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Beyond instead prevent.",
+        "date": "2021-04-15"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Jason Hess",
+    "position": "Equities trader",
+    "district": "East Jamesborough",
+    "region": "Wisconsin",
+    "category": "Rate- judiciary",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 4.7,
+      "vision": 1.5,
+      "policyImplementation": 2.4,
+      "accountability": 2.8,
+      "responsiveness": 4.7,
+      "resourceManagement": 2.3,
+      "stakeholderEngagement": 3.0,
+      "nationalDevelopment": 4.1,
+      "antiCorruption": 1.3,
+      "antiGalamsey": 1.2,
+      "overallPerformance": 4.6
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Transparent Governance",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.4,
+        "comment": "Anything whom group here foreign necessary none.",
+        "date": "2022-10-21"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Stanley Stafford",
+    "position": "Nutritional therapist",
+    "district": "East Chadmouth",
+    "region": "Montana",
+    "category": "Rate- judiciary",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 4.2,
+      "vision": 3.2,
+      "policyImplementation": 1.6,
+      "accountability": 3.7,
+      "responsiveness": 3.1,
+      "resourceManagement": 2.6,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 4.0,
+      "antiCorruption": 3.8,
+      "antiGalamsey": 4.4,
+      "overallPerformance": 4.8
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Weak Accountability",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.2,
+        "comment": "Left market truth learn hope.",
+        "date": "2024-08-18"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Ashley Vasquez",
+    "position": "Information officer",
+    "district": "West Cheryl",
+    "region": "Wisconsin",
+    "category": "Rate- judiciary",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 1.5,
+      "vision": 4.3,
+      "policyImplementation": 2.2,
+      "accountability": 4.5,
+      "responsiveness": 4.2,
+      "resourceManagement": 1.3,
+      "stakeholderEngagement": 1.5,
+      "nationalDevelopment": 4.9,
+      "antiCorruption": 4.3,
+      "antiGalamsey": 1.5,
+      "overallPerformance": 2.9
+    },
+    "tags": ["Weak Accountability", "Disconnected from the People"],
+    "questions": [
+      {
+        "id": "WhatsYourRelationshipWithThisLeader",
+        "question": "What's your relationship with this leader?",
+        "options": ["Local resident", "Community leader", "Government official"]
+      },
+      {
+        "id": "HasThisLeaderShowFairnessInHandlingIssues",
+        "question": "Has this leader shown fairness in handling issues?",
+        "options": ["Yes", "No"]
+      },
+      {
+        "id": "isThisLeaderApproachable",
+        "question": "Is this leader approachable?",
+        "options": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.8,
+        "comment": "Open although everyone billion job describe.",
+        "date": "2022-07-22"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Kristen Williams",
+    "position": "Psychologist, forensic",
+    "district": "Fergusonfurt",
+    "region": "Wisconsin",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 4.3,
+      "vision": 3.8,
+      "policyImplementation": 3.9,
+      "accountability": 1.7,
+      "responsiveness": 3.6,
+      "resourceManagement": 2.0,
+      "stakeholderEngagement": 3.9,
+      "nationalDevelopment": 4.6,
+      "antiCorruption": 2.8,
+      "antiGalamsey": 4.3,
+      "overallPerformance": 4.7
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.8,
+        "comment": "White apply protect season on.",
+        "date": "2020-04-03"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Brittany Ward",
+    "position": "Tourism officer",
+    "district": "New Stacymouth",
+    "region": "Wyoming",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 2.5,
+      "vision": 4.2,
+      "policyImplementation": 1.3,
+      "accountability": 3.6,
+      "responsiveness": 2.2,
+      "resourceManagement": 3.8,
+      "stakeholderEngagement": 1.4,
+      "nationalDevelopment": 1.5,
+      "antiCorruption": 4.2,
+      "antiGalamsey": 4.1,
+      "overallPerformance": 2.0
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Transparent Governance",
+      "Focus on Youth Empowerment"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "Note actually these activity.",
+        "date": "2021-10-05"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "John Harper",
+    "position": "Set designer",
+    "district": "New Wendy",
+    "region": "Wisconsin",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 4.0,
+      "vision": 1.2,
+      "policyImplementation": 3.8,
+      "accountability": 1.2,
+      "responsiveness": 3.5,
+      "resourceManagement": 5.0,
+      "stakeholderEngagement": 1.3,
+      "nationalDevelopment": 4.6,
+      "antiCorruption": 2.3,
+      "antiGalamsey": 4.5,
+      "overallPerformance": 1.2
+    },
+    "tags": [
+      "Active in Community Development",
+      "Transparent Governance",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Party leader six catch task give firm.",
+        "date": "2024-03-16"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Tamara Shaw",
+    "position": "Herpetologist",
+    "district": "Matthewland",
+    "region": "Colorado",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 4.0,
+      "vision": 3.8,
+      "policyImplementation": 4.0,
+      "accountability": 1.8,
+      "responsiveness": 2.7,
+      "resourceManagement": 1.5,
+      "stakeholderEngagement": 2.0,
+      "nationalDevelopment": 4.2,
+      "antiCorruption": 4.8,
+      "antiGalamsey": 3.2,
+      "overallPerformance": 4.5
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Weak Accountability",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.7,
+        "comment": "Century discussion she national institution.",
+        "date": "2022-04-25"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Amy Washington",
+    "position": "Best boy",
+    "district": "New Brianton",
+    "region": "North Dakota",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 4.2,
+      "vision": 3.8,
+      "policyImplementation": 2.6,
+      "accountability": 4.9,
+      "responsiveness": 4.0,
+      "resourceManagement": 4.9,
+      "stakeholderEngagement": 1.6,
+      "nationalDevelopment": 5.0,
+      "antiCorruption": 2.5,
+      "antiGalamsey": 3.3,
+      "overallPerformance": 3.1
+    },
+    "tags": ["Disconnected from the People", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.6,
+        "comment": "Threat size administration citizen take begin in strong.",
+        "date": "2020-05-20"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Bryan Mckee",
+    "position": "Scientist, marine",
+    "district": "South Tyler",
+    "region": "Pennsylvania",
+    "category": "Rate - Supreme Court Judges",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 2.6,
+      "vision": 2.0,
+      "policyImplementation": 3.6,
+      "accountability": 4.8,
+      "responsiveness": 1.6,
+      "resourceManagement": 3.9,
+      "stakeholderEngagement": 4.0,
+      "nationalDevelopment": 3.2,
+      "antiCorruption": 3.7,
+      "antiGalamsey": 1.3,
+      "overallPerformance": 3.0
+    },
+    "tags": ["Promotes Peace and Unity", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.1,
+        "comment": "Role field form paper.",
+        "date": "2022-01-18"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Mr. Derrick Larson",
+    "position": "Engineer, mining",
+    "district": "South Lorraine",
+    "region": "Oklahoma",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 4.9,
+      "vision": 4.7,
+      "policyImplementation": 2.1,
+      "accountability": 4.9,
+      "responsiveness": 1.2,
+      "resourceManagement": 1.0,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 4.8,
+      "antiCorruption": 4.9,
+      "antiGalamsey": 4.9,
+      "overallPerformance": 4.1
+    },
+    "tags": ["Active in Community Development", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.8,
+        "comment": "Suddenly worry economic place necessary level.",
+        "date": "2020-08-23"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Cynthia Allen",
+    "position": "Planning and development surveyor",
+    "district": "West Angel",
+    "region": "New York",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 4.0,
+      "vision": 1.0,
+      "policyImplementation": 2.2,
+      "accountability": 4.6,
+      "responsiveness": 4.3,
+      "resourceManagement": 2.1,
+      "stakeholderEngagement": 1.8,
+      "nationalDevelopment": 4.7,
+      "antiCorruption": 2.4,
+      "antiGalamsey": 2.3,
+      "overallPerformance": 2.7
+    },
+    "tags": [
+      "Weak Accountability",
+      "Focus on Youth Empowerment",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.3,
+        "comment": "Whom peace less boy I week such consider.",
+        "date": "2021-05-07"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Sandra Pena",
+    "position": "Engineer, petroleum",
+    "district": "East Debbiebury",
+    "region": "Vermont",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 1.7,
+      "vision": 1.6,
+      "policyImplementation": 4.2,
+      "accountability": 1.9,
+      "responsiveness": 4.7,
+      "resourceManagement": 4.0,
+      "stakeholderEngagement": 2.6,
+      "nationalDevelopment": 4.4,
+      "antiCorruption": 4.0,
+      "antiGalamsey": 1.0,
+      "overallPerformance": 1.6
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Weak Accountability",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.0,
+        "comment": "Specific agree wall ok.",
+        "date": "2021-03-03"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Donald Maynard",
+    "position": "Materials engineer",
+    "district": "Lake Jasonborough",
+    "region": "Oregon",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 1.8,
+      "vision": 4.4,
+      "policyImplementation": 2.4,
+      "accountability": 2.2,
+      "responsiveness": 4.8,
+      "resourceManagement": 1.5,
+      "stakeholderEngagement": 1.7,
+      "nationalDevelopment": 4.3,
+      "antiCorruption": 3.6,
+      "antiGalamsey": 2.1,
+      "overallPerformance": 3.7
+    },
+    "tags": ["Weak Accountability", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.6,
+        "comment": "Professor debate best there quite name create.",
+        "date": "2022-03-24"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Christopher Moss",
+    "position": "Furniture conservator/restorer",
+    "district": "West Staceyton",
+    "region": "Florida",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 2.3,
+      "vision": 1.4,
+      "policyImplementation": 3.7,
+      "accountability": 1.9,
+      "responsiveness": 3.4,
+      "resourceManagement": 3.2,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 1.9,
+      "antiCorruption": 4.6,
+      "antiGalamsey": 3.2,
+      "overallPerformance": 1.4
+    },
+    "tags": [
+      "Transparent Governance",
+      "Active in Community Development",
+      "Focus on Youth Empowerment"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.8,
+        "comment": "Thus trial scene talk suffer.",
+        "date": "2024-05-12"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Dr. Matthew Nielsen",
+    "position": "Doctor, hospital",
+    "district": "Petersonstad",
+    "region": "California",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 1.4,
+      "vision": 2.5,
+      "policyImplementation": 4.2,
+      "accountability": 4.0,
+      "responsiveness": 4.3,
+      "resourceManagement": 4.3,
+      "stakeholderEngagement": 2.1,
+      "nationalDevelopment": 4.6,
+      "antiCorruption": 5.0,
+      "antiGalamsey": 4.0,
+      "overallPerformance": 2.5
+    },
+    "tags": ["Promotes Peace and Unity", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "Several everyone lead close mean.",
+        "date": "2021-07-30"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Michael Day",
+    "position": "Engineer, manufacturing",
+    "district": "North Vickiland",
+    "region": "Indiana",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 1.2,
+      "vision": 2.4,
+      "policyImplementation": 2.3,
+      "accountability": 2.0,
+      "responsiveness": 1.2,
+      "resourceManagement": 3.5,
+      "stakeholderEngagement": 2.3,
+      "nationalDevelopment": 2.7,
+      "antiCorruption": 3.4,
+      "antiGalamsey": 1.7,
+      "overallPerformance": 3.2
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Open page radio physical chair.",
+        "date": "2024-03-25"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Nathan Lee",
+    "position": "Best boy",
+    "district": "Brendanchester",
+    "region": "Oklahoma",
+    "category": "Ministers and Deputies",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 4.3,
+      "vision": 2.8,
+      "policyImplementation": 4.4,
+      "accountability": 1.5,
+      "responsiveness": 4.3,
+      "resourceManagement": 4.3,
+      "stakeholderEngagement": 1.1,
+      "nationalDevelopment": 4.3,
+      "antiCorruption": 4.9,
+      "antiGalamsey": 2.9,
+      "overallPerformance": 4.5
+    },
+    "tags": ["Weak Accountability", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.5,
+        "comment": "Word risk mission sit.",
+        "date": "2025-04-23"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Anthony Gentry",
+    "position": "Warehouse manager",
+    "district": "Myersstad",
+    "region": "Louisiana",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 3.1,
+      "vision": 4.5,
+      "policyImplementation": 4.0,
+      "accountability": 5.0,
+      "responsiveness": 4.0,
+      "resourceManagement": 4.7,
+      "stakeholderEngagement": 1.8,
+      "nationalDevelopment": 2.3,
+      "antiCorruption": 1.6,
+      "antiGalamsey": 2.1,
+      "overallPerformance": 5.0
+    },
+    "tags": ["Transparent Governance", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.3,
+        "comment": "Not east determine within hotel care.",
+        "date": "2025-03-23"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Tony Jones",
+    "position": "Charity officer",
+    "district": "Port Jeremymouth",
+    "region": "New Mexico",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 3.0,
+      "vision": 4.5,
+      "policyImplementation": 2.5,
+      "accountability": 3.9,
+      "responsiveness": 3.2,
+      "resourceManagement": 2.3,
+      "stakeholderEngagement": 3.7,
+      "nationalDevelopment": 3.3,
+      "antiCorruption": 1.6,
+      "antiGalamsey": 1.5,
+      "overallPerformance": 2.9
+    },
+    "tags": ["Focus on Youth Empowerment", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.7,
+        "comment": "Civil raise medical.",
+        "date": "2024-03-25"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Terry Thornton",
+    "position": "Broadcast engineer",
+    "district": "North Maureenland",
+    "region": "Maryland",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 4.4,
+      "vision": 1.5,
+      "policyImplementation": 2.0,
+      "accountability": 4.2,
+      "responsiveness": 1.9,
+      "resourceManagement": 2.8,
+      "stakeholderEngagement": 2.9,
+      "nationalDevelopment": 3.6,
+      "antiCorruption": 3.3,
+      "antiGalamsey": 4.8,
+      "overallPerformance": 3.9
+    },
+    "tags": [
+      "Transparent Governance",
+      "Promotes Peace and Unity",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.9,
+        "comment": "Personal wrong nor science.",
+        "date": "2020-09-23"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Tammy Adkins",
+    "position": "Surveyor, building",
+    "district": "South Cindy",
+    "region": "Connecticut",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 2.0,
+      "vision": 4.9,
+      "policyImplementation": 4.3,
+      "accountability": 1.9,
+      "responsiveness": 3.6,
+      "resourceManagement": 1.1,
+      "stakeholderEngagement": 2.0,
+      "nationalDevelopment": 3.5,
+      "antiCorruption": 4.1,
+      "antiGalamsey": 4.2,
+      "overallPerformance": 4.4
+    },
+    "tags": ["Weak Accountability", "Active in Community Development"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.1,
+        "comment": "Citizen campaign near yeah fire win.",
+        "date": "2021-10-19"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Diana Jackson",
+    "position": "Ship broker",
+    "district": "Clarkeville",
+    "region": "West Virginia",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 5.0,
+      "vision": 2.6,
+      "policyImplementation": 2.0,
+      "accountability": 3.2,
+      "responsiveness": 1.1,
+      "resourceManagement": 3.7,
+      "stakeholderEngagement": 1.7,
+      "nationalDevelopment": 2.3,
+      "antiCorruption": 2.8,
+      "antiGalamsey": 1.5,
+      "overallPerformance": 1.9
+    },
+    "tags": [
+      "Transparent Governance",
+      "Focus on Youth Empowerment",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.1,
+        "comment": "Really recent bed figure high dark expert.",
+        "date": "2024-07-13"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "name": "James Short",
+    "position": "Agricultural consultant",
+    "district": "North Patriciatown",
+    "region": "New Jersey",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 3.7,
+      "vision": 1.3,
+      "policyImplementation": 4.9,
+      "accountability": 1.4,
+      "responsiveness": 1.8,
+      "resourceManagement": 2.3,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 4.2,
+      "antiCorruption": 2.9,
+      "antiGalamsey": 4.2,
+      "overallPerformance": 1.8
+    },
+    "tags": ["Active in Community Development", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.7,
+        "comment": "Fall rich shoulder song recognize country.",
+        "date": "2025-04-07"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Jose Chen",
+    "position": "Herpetologist",
+    "district": "Brendaside",
+    "region": "Minnesota",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 2.5,
+      "policyImplementation": 1.8,
+      "accountability": 1.2,
+      "responsiveness": 2.6,
+      "resourceManagement": 1.8,
+      "stakeholderEngagement": 1.0,
+      "nationalDevelopment": 2.9,
+      "antiCorruption": 2.2,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 3.0
+    },
+    "tags": [
+      "Promotes Peace and Unity",
+      "Disconnected from the People",
+      "Focus on Youth Empowerment"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Write whom someone evidence player sport.",
+        "date": "2025-04-24"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Steven Morrow",
+    "position": "Animal technologist",
+    "district": "Port Scottmouth",
+    "region": "Utah",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 3.1,
+      "vision": 4.3,
+      "policyImplementation": 2.4,
+      "accountability": 3.8,
+      "responsiveness": 1.4,
+      "resourceManagement": 3.3,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 1.2,
+      "antiCorruption": 4.4,
+      "antiGalamsey": 4.7,
+      "overallPerformance": 3.6
+    },
+    "tags": [
+      "Transparent Governance",
+      "Disconnected from the People",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.6,
+        "comment": "Enough particular candidate strong ok.",
+        "date": "2021-02-18"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Laura Klein",
+    "position": "Careers information officer",
+    "district": "West Markmouth",
+    "region": "Maryland",
+    "category": "Rate- Ministries & Depts",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 3.2,
+      "vision": 4.5,
+      "policyImplementation": 3.2,
+      "accountability": 3.3,
+      "responsiveness": 2.3,
+      "resourceManagement": 3.2,
+      "stakeholderEngagement": 3.6,
+      "nationalDevelopment": 2.5,
+      "antiCorruption": 3.4,
+      "antiGalamsey": 3.6,
+      "overallPerformance": 2.3
+    },
+    "tags": ["Disconnected from the People", "Active in Community Development"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.0,
+        "comment": "Skill sound building election.",
+        "date": "2022-12-26"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Kenneth Atkinson Jr.",
+    "position": "Pharmacist, hospital",
+    "district": "Brittanyshire",
+    "region": "Kansas",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 3.2,
+      "vision": 2.7,
+      "policyImplementation": 5.0,
+      "accountability": 3.5,
+      "responsiveness": 1.1,
+      "resourceManagement": 1.8,
+      "stakeholderEngagement": 2.4,
+      "nationalDevelopment": 1.7,
+      "antiCorruption": 2.0,
+      "antiGalamsey": 1.0,
+      "overallPerformance": 5.0
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Focus on Youth Empowerment",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.9,
+        "comment": "Situation charge let purpose buy win.",
+        "date": "2024-09-07"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Timothy Moon",
+    "position": "Soil scientist",
+    "district": "New Robert",
+    "region": "Washington",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 1.1,
+      "vision": 2.0,
+      "policyImplementation": 1.9,
+      "accountability": 4.4,
+      "responsiveness": 1.0,
+      "resourceManagement": 1.3,
+      "stakeholderEngagement": 1.7,
+      "nationalDevelopment": 3.7,
+      "antiCorruption": 4.7,
+      "antiGalamsey": 4.6,
+      "overallPerformance": 3.4
+    },
+    "tags": ["Focus on Youth Empowerment", "Active in Community Development"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.4,
+        "comment": "Focus member Congress hold class religious.",
+        "date": "2022-01-17"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Eric Saunders",
+    "position": "Veterinary surgeon",
+    "district": "North Michaelton",
+    "region": "Georgia",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 3.4,
+      "vision": 3.7,
+      "policyImplementation": 3.8,
+      "accountability": 3.9,
+      "responsiveness": 2.0,
+      "resourceManagement": 3.8,
+      "stakeholderEngagement": 4.1,
+      "nationalDevelopment": 3.5,
+      "antiCorruption": 2.3,
+      "antiGalamsey": 2.1,
+      "overallPerformance": 3.2
+    },
+    "tags": ["Disconnected from the People", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.8,
+        "comment": "Especially company anything this always network account.",
+        "date": "2024-10-08"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Kimberly Werner",
+    "position": "Charity officer",
+    "district": "North Lisafort",
+    "region": "Nevada",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 4.6,
+      "vision": 1.8,
+      "policyImplementation": 4.2,
+      "accountability": 1.3,
+      "responsiveness": 3.3,
+      "resourceManagement": 3.7,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 4.3,
+      "antiCorruption": 3.9,
+      "antiGalamsey": 2.3,
+      "overallPerformance": 4.4
+    },
+    "tags": ["Weak Accountability", "Active in Community Development"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.7,
+        "comment": "Decide method challenge sound physical current forward.",
+        "date": "2020-05-16"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Morgan Adams",
+    "position": "Telecommunications researcher",
+    "district": "Jonathanside",
+    "region": "Colorado",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 2.5,
+      "vision": 1.9,
+      "policyImplementation": 4.6,
+      "accountability": 4.9,
+      "responsiveness": 2.8,
+      "resourceManagement": 4.6,
+      "stakeholderEngagement": 3.0,
+      "nationalDevelopment": 2.7,
+      "antiCorruption": 2.2,
+      "antiGalamsey": 2.2,
+      "overallPerformance": 1.5
+    },
+    "tags": ["Transparent Governance", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.5,
+        "comment": "Cover probably argue dark most lot spend.",
+        "date": "2022-08-16"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Matthew Peterson",
+    "position": "Training and development officer",
+    "district": "East Kimberlyport",
+    "region": "Montana",
+    "category": "Rate- Gov. Appointees",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 3.2,
+      "vision": 2.5,
+      "policyImplementation": 4.3,
+      "accountability": 4.6,
+      "responsiveness": 3.8,
+      "resourceManagement": 3.4,
+      "stakeholderEngagement": 3.9,
+      "nationalDevelopment": 4.7,
+      "antiCorruption": 2.2,
+      "antiGalamsey": 1.9,
+      "overallPerformance": 1.0
+    },
+    "tags": [
+      "Weak Accountability",
+      "Disconnected from the People",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.4,
+        "comment": "Building paper away across represent west yeah.",
+        "date": "2025-05-02"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Keith Klein",
+    "position": "Art therapist",
+    "district": "Anthonybury",
+    "region": "South Carolina",
+    "category": "Rate - CSOs &NGOs",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 3.6,
+      "vision": 1.8,
+      "policyImplementation": 2.9,
+      "accountability": 5.0,
+      "responsiveness": 1.4,
+      "resourceManagement": 4.3,
+      "stakeholderEngagement": 3.9,
+      "nationalDevelopment": 2.9,
+      "antiCorruption": 2.9,
+      "antiGalamsey": 4.8,
+      "overallPerformance": 2.2
+    },
+    "tags": ["Weak Accountability", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.4,
+        "comment": "Bring accept it describe enough century.",
+        "date": "2024-11-25"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Hailey Ochoa",
+    "position": "Architectural technologist",
+    "district": "Christineport",
+    "region": "Delaware",
+    "category": "Rate - CSOs &NGOs",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 2.6,
+      "vision": 4.5,
+      "policyImplementation": 5.0,
+      "accountability": 3.5,
+      "responsiveness": 4.5,
+      "resourceManagement": 2.9,
+      "stakeholderEngagement": 2.0,
+      "nationalDevelopment": 1.7,
+      "antiCorruption": 3.3,
+      "antiGalamsey": 1.9,
+      "overallPerformance": 1.2
+    },
+    "tags": [
+      "Active in Community Development",
+      "Disconnected from the People",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.8,
+        "comment": "Lot energy myself radio modern all.",
+        "date": "2025-07-05"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Jordan Wilkerson Jr.",
+    "position": "Engineer, building services",
+    "district": "North Nicole",
+    "region": "South Dakota",
+    "category": "Rate - CSOs &NGOs",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 3.6,
+      "vision": 2.2,
+      "policyImplementation": 3.3,
+      "accountability": 3.0,
+      "responsiveness": 3.9,
+      "resourceManagement": 2.7,
+      "stakeholderEngagement": 3.8,
+      "nationalDevelopment": 1.0,
+      "antiCorruption": 1.5,
+      "antiGalamsey": 1.4,
+      "overallPerformance": 1.9
+    },
+    "tags": [
+      "Active in Community Development",
+      "Focus on Youth Empowerment",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.2,
+        "comment": "Continue drug those whom guy member on.",
+        "date": "2023-06-17"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Madison Cohen",
+    "position": "Information systems manager",
+    "district": "Port Sheilaberg",
+    "region": "Indiana",
+    "category": "Rate - CSOs &NGOs",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 3.6,
+      "vision": 4.1,
+      "policyImplementation": 3.8,
+      "accountability": 1.3,
+      "responsiveness": 2.9,
+      "resourceManagement": 2.2,
+      "stakeholderEngagement": 2.2,
+      "nationalDevelopment": 3.4,
+      "antiCorruption": 2.6,
+      "antiGalamsey": 3.9,
+      "overallPerformance": 3.6
+    },
+    "tags": [
+      "Weak Accountability",
+      "Focus on Youth Empowerment",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.1,
+        "comment": "Develop can part people drug me.",
+        "date": "2020-12-18"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Chelsea Boyd",
+    "position": "Pharmacist, community",
+    "district": "West Michaelfort",
+    "region": "Georgia",
+    "category": "Rate - CSOs &NGOs",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 2.7,
+      "vision": 3.2,
+      "policyImplementation": 4.0,
+      "accountability": 2.7,
+      "responsiveness": 3.6,
+      "resourceManagement": 2.0,
+      "stakeholderEngagement": 2.8,
+      "nationalDevelopment": 4.6,
+      "antiCorruption": 2.7,
+      "antiGalamsey": 2.4,
+      "overallPerformance": 2.2
+    },
+    "tags": [
+      "Weak Accountability",
+      "Active in Community Development",
+      "Transparent Governance"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.5,
+        "comment": "Democratic money loss fall why early add must.",
+        "date": "2020-01-04"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "Melissa Jones",
+    "position": "Designer, television/film set",
+    "district": "Port Timothyborough",
+    "region": "Oklahoma",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 1.1,
+      "vision": 1.5,
+      "policyImplementation": 2.2,
+      "accountability": 3.6,
+      "responsiveness": 4.0,
+      "resourceManagement": 2.0,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 1.7,
+      "antiCorruption": 1.0,
+      "antiGalamsey": 4.2,
+      "overallPerformance": 2.8
+    },
+    "tags": ["Focus on Youth Empowerment", "Disconnected from the People"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.4,
+        "comment": "Structure structure list which.",
+        "date": "2020-06-13"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "name": "Katelyn Pope",
+    "position": "Operational researcher",
+    "district": "Herreramouth",
+    "region": "Connecticut",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 3.0,
+      "vision": 3.1,
+      "policyImplementation": 2.9,
+      "accountability": 2.9,
+      "responsiveness": 4.3,
+      "resourceManagement": 1.9,
+      "stakeholderEngagement": 3.3,
+      "nationalDevelopment": 1.9,
+      "antiCorruption": 1.1,
+      "antiGalamsey": 3.1,
+      "overallPerformance": 4.9
+    },
+    "tags": ["Active in Community Development", "Transparent Governance"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.2,
+        "comment": "Fall save hit theory deal.",
+        "date": "2021-04-06"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Catherine Wu",
+    "position": "Computer games developer",
+    "district": "South Brianborough",
+    "region": "Virginia",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 3.5,
+      "vision": 1.4,
+      "policyImplementation": 1.3,
+      "accountability": 4.6,
+      "responsiveness": 1.7,
+      "resourceManagement": 1.2,
+      "stakeholderEngagement": 3.4,
+      "nationalDevelopment": 3.2,
+      "antiCorruption": 1.9,
+      "antiGalamsey": 2.3,
+      "overallPerformance": 2.3
+    },
+    "tags": ["Transparent Governance", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.4,
+        "comment": "Fine home color prepare off sort own.",
+        "date": "2021-10-14"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Heather Haley",
+    "position": "Designer, graphic",
+    "district": "Sullivanside",
+    "region": "New York",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 1.3,
+      "vision": 4.7,
+      "policyImplementation": 4.4,
+      "accountability": 4.1,
+      "responsiveness": 3.4,
+      "resourceManagement": 2.8,
+      "stakeholderEngagement": 1.2,
+      "nationalDevelopment": 3.4,
+      "antiCorruption": 1.3,
+      "antiGalamsey": 3.1,
+      "overallPerformance": 1.3
+    },
+    "tags": ["Focus on Youth Empowerment", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.3,
+        "comment": "Firm significant treatment subject far security east.",
+        "date": "2023-05-08"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "George Pace",
+    "position": "IT trainer",
+    "district": "Martinezview",
+    "region": "Maryland",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 1.2,
+      "vision": 3.3,
+      "policyImplementation": 1.7,
+      "accountability": 2.7,
+      "responsiveness": 3.7,
+      "resourceManagement": 4.0,
+      "stakeholderEngagement": 3.3,
+      "nationalDevelopment": 3.4,
+      "antiCorruption": 4.6,
+      "antiGalamsey": 1.9,
+      "overallPerformance": 2.6
+    },
+    "tags": [
+      "Disconnected from the People",
+      "Promotes Peace and Unity",
+      "Active in Community Development"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.3,
+        "comment": "Learn their report although performance or name.",
+        "date": "2021-03-08"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Christopher Simpson",
+    "position": "Hospital doctor",
+    "district": "West Cherylbury",
+    "region": "West Virginia",
+    "category": "Rate-Policies",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 4.6,
+      "policyImplementation": 1.4,
+      "accountability": 2.7,
+      "responsiveness": 2.6,
+      "resourceManagement": 3.1,
+      "stakeholderEngagement": 2.1,
+      "nationalDevelopment": 4.5,
+      "antiCorruption": 1.1,
+      "antiGalamsey": 2.0,
+      "overallPerformance": 3.6
+    },
+    "tags": ["Active in Community Development", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.7,
+        "comment": "Television shoulder Congress.",
+        "date": "2025-09-04"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Kyle Hicks",
+    "position": "Sales professional, IT",
+    "district": "Laurieview",
+    "region": "Virginia",
+    "category": "Rate Traditional Authorities",
+    "institutionLogo": "profile2.jpg",
+    "ratings": {
+      "overallRating": 4.3,
+      "vision": 4.9,
+      "policyImplementation": 4.5,
+      "accountability": 4.7,
+      "responsiveness": 3.5,
+      "resourceManagement": 4.0,
+      "stakeholderEngagement": 3.2,
+      "nationalDevelopment": 3.4,
+      "antiCorruption": 2.8,
+      "antiGalamsey": 2.5,
+      "overallPerformance": 2.7
+    },
+    "tags": ["Weak Accountability", "Disconnected from the People"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 4.0,
+        "comment": "Sing others line writer responsibility others up.",
+        "date": "2025-06-08"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "name": "David Cuevas",
+    "position": "Historic buildings inspector/conservation officer",
+    "district": "Stevensside",
+    "region": "Ohio",
+    "category": "Rate-  Businesses",
+    "institutionLogo": "profile3.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 2.3,
+      "policyImplementation": 2.2,
+      "accountability": 1.8,
+      "responsiveness": 4.9,
+      "resourceManagement": 1.8,
+      "stakeholderEngagement": 2.5,
+      "nationalDevelopment": 1.1,
+      "antiCorruption": 1.9,
+      "antiGalamsey": 1.6,
+      "overallPerformance": 2.9
+    },
+    "tags": ["Weak Accountability", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.3,
+        "comment": "Attorney very past memory trouble identify.",
+        "date": "2023-03-16"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Lori Cobb",
+    "position": "Runner, broadcasting/film/video",
+    "district": "Shellyberg",
+    "region": "Wisconsin",
+    "category": "Rate- Celebrities",
+    "institutionLogo": "profile4.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 4.6,
+      "policyImplementation": 1.7,
+      "accountability": 2.3,
+      "responsiveness": 2.4,
+      "resourceManagement": 4.2,
+      "stakeholderEngagement": 3.7,
+      "nationalDevelopment": 1.9,
+      "antiCorruption": 3.8,
+      "antiGalamsey": 1.4,
+      "overallPerformance": 4.8
+    },
+    "tags": [
+      "Focus on Youth Empowerment",
+      "Transparent Governance",
+      "Weak Accountability"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.9,
+        "comment": "Bank degree marriage despite direction.",
+        "date": "2020-10-25"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Tonya Rose",
+    "position": "Graphic designer",
+    "district": "Lake Emilyton",
+    "region": "South Carolina",
+    "category": "Rate Traditional Authorities",
+    "institutionLogo": "profile5.jpg",
+    "ratings": {
+      "overallRating": 4.3,
+      "vision": 3.5,
+      "policyImplementation": 4.7,
+      "accountability": 3.3,
+      "responsiveness": 4.5,
+      "resourceManagement": 1.1,
+      "stakeholderEngagement": 2.7,
+      "nationalDevelopment": 1.9,
+      "antiCorruption": 1.8,
+      "antiGalamsey": 3.2,
+      "overallPerformance": 1.2
+    },
+    "tags": ["Focus on Youth Empowerment", "Disconnected from the People"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.8,
+        "comment": "Would common hold sport through.",
+        "date": "2024-05-28"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "name": "Adam Herrera",
+    "position": "Air broker",
+    "district": "Elliottberg",
+    "region": "Utah",
+    "category": "Rate Traditional Authorities",
+    "institutionLogo": "profile6.jpg",
+    "ratings": {
+      "overallRating": 3.9,
+      "vision": 2.4,
+      "policyImplementation": 3.5,
+      "accountability": 3.2,
+      "responsiveness": 4.3,
+      "resourceManagement": 1.9,
+      "stakeholderEngagement": 3.9,
+      "nationalDevelopment": 4.8,
+      "antiCorruption": 2.4,
+      "antiGalamsey": 1.1,
+      "overallPerformance": 2.1
+    },
+    "tags": [
+      "Weak Accountability",
+      "Active in Community Development",
+      "Promotes Peace and Unity"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 1.6,
+        "comment": "Environment its out indeed father level.",
+        "date": "2023-10-19"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "name": "Brandon Mays",
+    "position": "Estate agent",
+    "district": "New Kathryn",
+    "region": "Hawaii",
+    "category": "Rate Traditional Authorities",
+    "institutionLogo": "profile7.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 4.1,
+      "policyImplementation": 3.1,
+      "accountability": 3.5,
+      "responsiveness": 4.4,
+      "resourceManagement": 4.9,
+      "stakeholderEngagement": 3.1,
+      "nationalDevelopment": 2.0,
+      "antiCorruption": 3.7,
+      "antiGalamsey": 2.4,
+      "overallPerformance": 3.1
+    },
+    "tags": [
+      "Active in Community Development",
+      "Transparent Governance",
+      "Disconnected from the People"
+    ],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 2.0,
+        "comment": "Place become recently course particularly box.",
+        "date": "2023-03-16"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Brandon David",
+    "position": "Optometrist",
+    "district": "Smithhaven",
+    "region": "Florida",
+    "category": "Rate- Other",
+    "institutionLogo": "profile8.jpg",
+    "ratings": {
+      "overallRating": 2.0,
+      "vision": 2.1,
+      "policyImplementation": 1.4,
+      "accountability": 2.9,
+      "responsiveness": 2.7,
+      "resourceManagement": 2.4,
+      "stakeholderEngagement": 1.7,
+      "nationalDevelopment": 4.1,
+      "antiCorruption": 3.6,
+      "antiGalamsey": 2.8,
+      "overallPerformance": 2.8
+    },
+    "tags": ["Active in Community Development", "Focus on Youth Empowerment"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Business partner"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.3,
+        "comment": "Sure charge perhaps.",
+        "date": "2022-09-24"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Christina Stark",
+    "position": "Administrator",
+    "district": "South Matthew",
+    "region": "South Dakota",
+    "category": "Rate- Other",
+    "institutionLogo": "profile9.jpg",
+    "ratings": {
+      "overallRating": 1.3,
+      "vision": 4.0,
+      "policyImplementation": 1.5,
+      "accountability": 3.6,
+      "responsiveness": 4.3,
+      "resourceManagement": 4.1,
+      "stakeholderEngagement": 1.9,
+      "nationalDevelopment": 1.5,
+      "antiCorruption": 1.6,
+      "antiGalamsey": 4.0,
+      "overallPerformance": 2.6
+    },
+    "tags": ["Transparent Governance", "Promotes Peace and Unity"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 5.0,
+        "comment": "You catch sea prove I.",
+        "date": "2022-03-24"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Mark Glover",
+    "position": "Sales professional, IT",
+    "district": "Amandabury",
+    "region": "Hawaii",
+    "category": "Rate- Other",
+    "institutionLogo": "profile10.jpg",
+    "ratings": {
+      "overallRating": 1.9,
+      "vision": 4.2,
+      "policyImplementation": 4.8,
+      "accountability": 4.9,
+      "responsiveness": 1.6,
+      "resourceManagement": 1.4,
+      "stakeholderEngagement": 2.6,
+      "nationalDevelopment": 4.4,
+      "antiCorruption": 3.3,
+      "antiGalamsey": 3.4,
+      "overallPerformance": 4.1
+    },
+    "tags": ["Disconnected from the People", "Weak Accountability"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Community member"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.0,
+        "comment": "Shoulder word move join minute citizen door.",
+        "date": "2024-06-29"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Thomas Murphy",
+    "position": "Music therapist",
+    "district": "Thompsonland",
+    "region": "Ohio",
+    "category": "Rate- Other",
+    "institutionLogo": "profile1.jpg",
+    "ratings": {
+      "overallRating": 2.3,
+      "vision": 4.1,
+      "policyImplementation": 2.3,
+      "accountability": 4.3,
+      "responsiveness": 2.8,
+      "resourceManagement": 1.7,
+      "stakeholderEngagement": 4.9,
+      "nationalDevelopment": 4.4,
+      "antiCorruption": 3.0,
+      "antiGalamsey": 3.4,
+      "overallPerformance": 2.6
+    },
+    "tags": ["Active in Community Development", "Disconnected from the People"],
+    "questions": [
+      {
+        "WhatsYourRelationshipWithThisLeader": "Local resident"
+      },
+      {
+        "HasThisLeaderShowFairnessInHandlingIssues": ["Yes", "No"]
+      },
+      {
+        "isThisLeaderApproachable": ["Yes", "No"]
+      }
+    ],
+    "reviews": [
+      {
+        "reviewer": "Anonymous",
+        "rating": 3.2,
+        "comment": "Long themselves ask pull everybody window seat.",
+        "date": "2022-12-23"
+      }
+    ]
+  }
+]

@@ -10,7 +10,7 @@ const Layout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer className="mt-56">
+      <footer>
         <Footer />
       </footer>
     </div>

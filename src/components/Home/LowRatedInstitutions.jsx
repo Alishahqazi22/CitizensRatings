@@ -5,7 +5,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { BiSolidLeftArrowAlt, BiSolidRightArrowAlt } from "react-icons/bi";
 import profile01 from "../../assets/HomeAssets/Public-Opinion-2.jpg";
-import profile02 from "../../assets/HomeAssets/Celebrity-1.jpg";
+import leaderData from "../../Context/leaderData.json";
+import { Link } from "react-router-dom";
 
 function LowRatedInstitutions() {
   const prevRef = useRef(null);
@@ -46,55 +47,23 @@ function LowRatedInstitutions() {
           }}
           className="w-full max-w-sm mx-auto"
         >
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile01}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
+          {leaderData.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="flex flex-col items-center w-36">
+                  <Link to={`/detail/${item.category}/${item.id}`}>
+                <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
+                    <img
+                      src={profile01}
+                      alt="profile"
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                </div>
+                  </Link>
 
-              <p className="mt-5 text-center">Kate Mawusi Babanawo</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile02}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
+                <p className="mt-5 text-center">{item.name}</p>
               </div>
-              <p className="mt-5 text-center">Bollar Biggie</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile01}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <p className="mt-5 text-center">Kate Mawusi Babanawo</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile02}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <p className="mt-5 text-center">Kate Mawusi Babanawo</p>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

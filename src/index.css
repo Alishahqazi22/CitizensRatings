@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
@@ -8,9 +8,13 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply px-2 md:px-4 py-1 sm:py-2 rounded-lg items-center text-white text-sm md:text-base transition duration-300 ;
-    .icon {
-      @apply  text-[.25rem] sm:text-[.5rem] lg:text-[.6rem] lg:text-xs transition duration-300;
-    }
+    @apply px-2 md:px-4 py-2 rounded-lg items-center text-white text-sm md:text-base transition duration-300;
+  }
+  .btn-primary .icon {
+    @apply text-[.25rem] sm:text-[.5rem] lg:text-[.6rem] lg:text-xs transition duration-300;
+  }
+
+  .custom-star {
+    list-style-type: "*";
   }
 }
