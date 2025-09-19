@@ -1,44 +1,48 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
-const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+// ✅ Axios instance
+export const axiosInstance = axios.create({
+  baseURL: "https://citizensratingsapi.dev-sh.xyz/api",
 });
 
-axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    if (!error.response) {
-      console.log("Network Error");
-    } else {
-      switch (error.responce.status) {
-        case 400:
-          console.log("Bad Request");
-          break;
-        case 401:
-          console.log("Unauthorized: Redirecting to login");
-          localStorage.removeItem("token");
-          window.location.href = "/login";
-          break;
-        case 403:
-          console.log("Forbidden");
-          break;
-        case 404:
-          console.log("Not Found");
-          break;
-        case 500:
-          console.log("Internal Server Error");
-          break;
-        case 503:
-          console.log("Service not unavailable");
-          break;
-        default:
-          console.log("Unexpected Error", error.responce.status);
-      }
+const TOKEN_KEY = "accessToken"; 
+
+// ✅ Request interceptor
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
+    return config;
+  },
+  function (error) {
     return Promise.reject(error);
   }
 );
 
-export default axiosInstance;
+// ✅ Response interceptor
+axiosInstance.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    const status = error?.response?.status;
+    const RESP = error?.response?.data;
+
+    if (status === 401) {
+      toast.error("Session expired. Please login again.");
+      localStorage.removeItem(TOKEN_KEY); 
+      window.location.href = "/";
+      return;
+    }
+
+    if (RESP?.message) {
+      toast.error(RESP.message || "Something went wrong");
+    }
+
+    return Promise.reject(error);
+  }
+);
+

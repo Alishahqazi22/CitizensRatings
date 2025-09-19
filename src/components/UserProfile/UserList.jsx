@@ -1,11 +1,10 @@
+// src/components/UserProfile/UserList.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import UserFilterBar from "./UserFilterBar";
 import leaderData from "../../Context/leaderData.json";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
 import { showError } from "../../Toast/useToast";
-import { BookMarked } from "lucide-react";
-
 
 function UserList() {
   const { category } = useParams();
@@ -14,7 +13,7 @@ function UserList() {
   const [bookmarked, setBookmarked] = useState(false);
 
   const handleBookmark = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     if (!bookmarked) {
       showError("Item Added To Saved List!");
     } else {
@@ -32,10 +31,9 @@ function UserList() {
   }, [category]);
 
   const handleApply = (newFilters) => {
-    // Merge old + new filters
     const updatedFilters = { ...appliedFilters, ...newFilters };
-
     let users = leaderData;
+
     if (category) {
       users = users.filter((u) => u.category === category);
     }
@@ -54,7 +52,6 @@ function UserList() {
     if (updatedFilters.minStars) {
       const min = Number(updatedFilters.minStars);
       const max = min + 1;
-
       users = users.filter((u) => {
         const overallRating = u?.ratings
           ? Object.keys(u.ratings)
@@ -62,7 +59,6 @@ function UserList() {
               .reduce((sum, key) => sum + Number(u.ratings[key]), 0) /
             (Object.keys(u.ratings).length - 1)
           : 0;
-
         return overallRating >= min && overallRating < max;
       });
     }
@@ -119,17 +115,19 @@ function UserList() {
                 <div className="relative max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
                   <div className="relative w-32 rounded-md overflow-hidden">
                     <img
-                      src={`/assets/Profile/${
-                        user?.institutionLogo || "fallback.jpg"
+                      src={`${
+                        user?.image || "fallback.jpg"
                       }`}
-                      alt={user?.name || "Unknown"}
+                      alt={user?.title || "Unknown"}
                       className="w-full h-full object-cover"
                     />
                     <div className="text-white flex flex-col items-center justify-center absolute top-1/2 right-1/2 translate-x-[45%] -translate-y-[45%] bg-primary/10 font-extrabold size-full rounded-lg shadow-lg">
                       <p>OVERALL</p>
-                      <p className="text-2xl">{overallRating.toFixed(1)}</p>
+                      <p className="text-2xl">
+                        {overallRating.toFixed(1) || "N/A"}
+                      </p>
                       <p className="font-light">
-                        {overallRating.toFixed(1)} Rating
+                        {overallRating.toFixed(1) || "N/A"} Rating
                       </p>
                     </div>
                   </div>
@@ -173,15 +171,17 @@ function UserList() {
             );
           })
         ) : (
-          <p className="text-center col-span-full text-gray-500">
-            No users found.
-            <h2 className="text-sm text-gray-500 mb-2">
-              {appliedFilters.searchTerm &&
-                `Search: ${appliedFilters.searchTerm}`}
-            </h2>
-          </p>
+          <div className="text-center col-span-full text-gray-500">
+            <p>No users found.</p>
+            {appliedFilters.searchTerm && (
+              <p className="text-sm text-gray-500 mb-2">
+                Search: {appliedFilters.searchTerm}
+              </p>
+            )}
+          </div>
         )}
       </div>
+
       <div className="flex flex-col justify-center items-center my-4 space-y-3">
         <h1 className="text-xl font-bold">
           Don't see what you're looking for?

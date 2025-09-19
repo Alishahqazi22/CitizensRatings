@@ -48,10 +48,7 @@ function UserFilterBar({ onApply, onCancel, onSearchChange }) {
           <option value="">Select star</option>
           {[1, 2, 3, 4, 5].map((star) => (
             <option key={star} value={star}>
-              <span>
-                {star}{" "}
-                {star === 1 ? "Star" : "Stars"}
-              </span>
+              {star} {star === 1 ? "Star" : "Stars"}
             </option>
           ))}
         </select>

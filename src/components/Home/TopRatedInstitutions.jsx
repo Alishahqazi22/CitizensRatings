@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -6,12 +6,31 @@ import { Navigation } from "swiper/modules";
 import { BiSolidLeftArrowAlt, BiSolidRightArrowAlt } from "react-icons/bi";
 import profile01 from "../../assets/HomeAssets/Public-Opinion-2.jpg";
 // import profile02 from "../../assets/HomeAssets/Celebrity-1.jpg";
-import leaderData from "../../Context/leaderData.json";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../Config/axiosInstance";
 
 function TopRatedInstitutions() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  async function getInstution() {
+    try {
+      const response = await axiosInstance.get("/public_service");
+      const apiData = response?.data?.data || [];
+      // console.log(apiData);
+      setData(apiData);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getInstution();
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -19,89 +38,60 @@ function TopRatedInstitutions() {
         Top Rated Individuals & Institutions
       </h1>
 
-      <div className="relative flex justify-center items-center">
-        <button
-          ref={prevRef}
-          className="absolute left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
-        >
-          <BiSolidLeftArrowAlt size={20} />
-        </button>
-        <button
-          ref={nextRef}
-          className="absolute right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
-        >
-          <BiSolidRightArrowAlt size={20} />
-        </button>
+      {loading ? (
+        <div className="flex items-center">
+          {/* <div className="w-12 h-12 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div> */}
+          <p className="text-lg font-medium">Loading...</p>
+        </div>
+      ) : (
+        <div className="relative flex justify-center items-center">
+          <button
+            ref={prevRef}
+            className="absolute left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
+          >
+            <BiSolidLeftArrowAlt size={20} />
+          </button>
+          <button
+            ref={nextRef}
+            className="absolute right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
+          >
+            <BiSolidRightArrowAlt size={20} />
+          </button>
 
-        <Swiper
-          modules={[Navigation]}
-          loop={true}
-          spaceBetween={0}
-          slidesPerView={2}
-          slidesPerGroup={2}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
-          className="w-full max-w-sm mx-auto"
-        >
-          {leaderData.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className="flex flex-col items-center w-36">
-                <Link to={`/detail/${item.category}/${item.id}`}>
-                  <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                    <img
-                      src={profile01}
-                      alt="profile"
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                </Link>
+          <Swiper
+            modules={[Navigation]}
+            loop={true}
+            spaceBetween={0}
+            slidesPerView={2}
+            slidesPerGroup={2}
+            onInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
+            className="w-full max-w-sm mx-auto"
+          >
+            {data.map((item) => (
+              <SwiperSlide key={item.id}>
+                <div className="flex flex-col items-center w-36">
+                  <Link to={`/detail/${item.category}/${item.id}`}>
+                    <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
+                      <img
+                        src={profile01}
+                        alt="profile"
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    </div>
+                  </Link>
 
-                <p className="mt-5 text-center">{item.name}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-          {/* <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile02}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <p className="mt-5 text-center">Bollar Biggie</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile01}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <p className="mt-5 text-center">Kate Mawusi Babanawo</p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col items-center w-36">
-              <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
-                <img
-                  src={profile02}
-                  alt="profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
-              <p className="mt-5 text-center">Kate Mawusi Babanawo</p>
-            </div>
-          </SwiperSlide> */}
-        </Swiper>
-      </div>
+                  <p className="mt-5 text-center">{item.name}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </div>
   );
 }

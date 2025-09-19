@@ -39,6 +39,15 @@ function UserComparePage() {
     }
   };
 
+ const calculateOverallRating = (ratings) => {
+  const ratingKeys = Object.keys(ratings).filter(
+    (key) => key !== "overallRating"
+  );
+
+  const total = ratingKeys.reduce((sum, key) => sum + Number(ratings[key]), 0);
+  return (total / ratingKeys.length).toFixed(1); // average 1 decimal tak
+};
+
   const handleSelectUser = (user) => {
     setUser2(user);
     setSearch2(user.name);
@@ -65,7 +74,7 @@ function UserComparePage() {
             />
           </div>
           <p className="text-4xl font-bold mt-4 bg-yellow-400 px-4 py-2 rounded">
-            {leader.ratings.overallRating}
+            {calculateOverallRating(leader.ratings)}
           </p>
           <h3 className="mt-1 font-light">Overall Rating</h3>
         </div>
@@ -105,14 +114,15 @@ function UserComparePage() {
         </div>
         <ul className="mt-4 space-y-3">
           {leader.questions?.map((q, idx) => {
-            const [key, value] = Object.entries(q)[0];
+            // const [key, value] = Object.entries(q)[0];
 
             return (
               <li key={idx} className="bg-white px-3 py-1 font-bold rounded flex flex-col border-b pb-2">
                 <h3 className="capitalize text-gray-700 font-bold">
-                  {key.replace(/([A-Z])/g, " $1")}?
+                  {/* {key.replace(/([A-Z])/g, " $1")}? */}
+                  {q.question}
                 </h3>
-                <QuestionChart answer={value} />
+                <QuestionChart answer={q.answer} />
               </li>
             );
           })}
@@ -158,10 +168,10 @@ function UserComparePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-8">
-          <div className="max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
+          <div className="w-full max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
             {renderUserCard(user1)}
           </div>
-          <div className="max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
+          <div className="w-full max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
             {renderUserCard(user2)}
           </div>
           

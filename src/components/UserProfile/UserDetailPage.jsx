@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import leaderData from "../../Context/leaderData.json";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import { IoFlagOutline } from "react-icons/io5";
 import { ErrorMessage, Form, Field, Formik } from "formik";
+import { axiosInstance } from "../../Config/axiosInstance";
 
 const colors = ["bg-orange-500", "bg-green-400", "bg-yellow-400"];
 const textColors = ["text-orange-500", "text-green-500", "text-yellow-400"];
@@ -16,22 +16,47 @@ const renderStars = (rating, textColorClass) => {
     <FaStar key={i} className={i < rating ? textColorClass : "text-gray-300"} />
   ));
 };
+
 const calculateOverallRating = (ratings) => {
+  if (!ratings) return "0.0";
   const ratingKeys = Object.keys(ratings).filter(
     (key) => key !== "overallRating"
   );
-
   const total = ratingKeys.reduce((sum, key) => sum + Number(ratings[key]), 0);
-  return (total / ratingKeys.length).toFixed(1); // average 1 decimal tak
+  return (total / ratingKeys.length).toFixed(1);
 };
 
 function UserDetailPage() {
   const { id, category } = useParams();
-  const leader = leaderData.find(
-    (item) => item.id === Number(id) && item.category === category
-  );
-
+  const [leader, setLeader] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [showReportForm, setShowReportForm] = useState(false);
+
+  async function getLeader() {
+    try {
+      setLoading(true);
+      const response = await axiosInstance.get("/public_service");
+      const allUsers = response?.data?.data || [];
+
+      const singleUser = allUsers.find(
+        (item) => String(item.id) === String(id)
+      );
+
+      setLeader(singleUser || null);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getLeader();
+  }, [id, category]);
+
+  if (loading) {
+    return <p className="text-center mt-10">Loading...</p>;
+  }
 
   if (!leader) {
     return (
@@ -43,12 +68,13 @@ function UserDetailPage() {
 
   return (
     <div className="flex justify-center mt-28 bg-gray-100 min-h-screen">
-      <div className="bg-white shadow-2xl rounded-lg my-6 p-8 w-full max-w-6xl">
+      <div className="bg-white shadow-2xl rounded-lg my-6 p-8 w-full max-w-[44rem] lg:max-w-4xl xl:max-w-6xl">
         <div className="flex justify-between">
           <div>
-            <h1 className="text-3xl font-bold">{leader.name}</h1>
+            <h1 className="text-3xl font-bold">{leader.name || "NA"}</h1>
             <p className="py-2">
-              {leader.position} | {leader.district} | {leader.region}
+              {leader.position || "NA"} | {leader.district || "NA"} |{" "}
+              {leader.region || "NA"}
             </p>
           </div>
           <div className="flex space-x-2">
@@ -68,26 +94,27 @@ function UserDetailPage() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 mt-6 items-start">
+        <div className="flex flex-col lg:flex-row gap-4 mt-6 items-center lg:items-start">
           <div className="w-full md:w-1/4 flex flex-col items-center">
             <div className="w-64 h-64 rounded-md overflow-hidden shadow">
               <img
-                src={leader.institutionLogo}
-                alt={leader.name}
+                src={leader.institutionLogo || "NA"}
+                alt={leader.name || "NA"}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="mt-4 text-center">
               <p className="text-5xl font-bold rounded py-3 bg-yellow-400">
-                {calculateOverallRating(leader.ratings)}
+                {calculateOverallRating(leader.ratings || "NA")}
               </p>
               <h3 className="font-light">Overall Rating</h3>
             </div>
           </div>
 
           <div className="w-full md:w-2/1 mt-10">
-            <ul className="grid grid-cols-2 gap-7">
-              {Object.entries(leader.ratings)
+           {leader.ratings ? (
+             <ul className="grid grid-cols-2 gap-7">
+              {Object.entries(leader.ratings|| {})
                 .filter(([key]) => key !== "overallRating")
                 .map(([key, value], index) => {
                   const randomColor = colors[index % colors.length];
@@ -108,6 +135,9 @@ function UserDetailPage() {
                   );
                 })}
             </ul>
+           ) : (
+            <p>No Ratings available yet</p>
+           )}
           </div>
         </div>
 
@@ -132,7 +162,7 @@ function UserDetailPage() {
           <div className="bg-white shadow-md rounded-lg p-8 mx-6 my-8 w-full">
             <div className="flex gap-4">
               <p className="text-2xl font-bold rounded-lg p-4 text-white bg-yellow-400">
-                {calculateOverallRating(leader.ratings)}
+                {calculateOverallRating(leader.ratings || "NA")}
               </p>
               <p className="my-2 font-semibold">
                 {leader.reviews?.[0]?.comment || "No review yet"}
@@ -144,8 +174,9 @@ function UserDetailPage() {
             </div>
 
             <div className="w-full md:w-2/1 mt-10">
-              <ul className="grid grid-cols-2 gap-7">
-                {Object.entries(leader.ratings)
+              {leader.ratings ? (
+                <ul className="grid grid-cols-2 gap-7">
+                {Object.entries(leader.ratings || {})
                   .filter(([key]) => key !== "overallRating")
                   .map(([key, value], index) => {
                     const randomColor = textColors[index % textColors.length];
@@ -161,15 +192,22 @@ function UserDetailPage() {
                     );
                   })}
 
-                {leader.questions.map((q, idx) => (
-                  <li key={idx} className="pb-1 text-gray-700">
-                    <h3 className="capitalize">{q.question}</h3>
-                    <p className="font-bold">
-                      Ans: {q.answer ? q.answer : "Not answered"}
-                    </p>
-                  </li>
-                ))}
+                {leader.questions ? (
+                  leader.questions.map((q, idx) => (
+                    <li key={idx} className="pb-1 text-gray-700">
+                      <h3 className="capitalize">{q.question}</h3>
+                      <p className="font-bold">
+                        Ans: {q.answer ? q.answer : "Not answered"}
+                      </p>
+                    </li>
+                  ))
+                ) : (
+                  <p>questions available yet</p>
+                )}
               </ul>
+              ) : (
+                <p>No Ratings available Yet</p>
+              )}
             </div>
             <div className="flex items-center gap-6 mt-6 text-gray-600">
               <button className="flex items-center gap-2">
@@ -228,13 +266,13 @@ function UserDetailPage() {
                         : "border-gray-300"
                     }`}
                   />
-                  <span className="flex justify-end">
-                    <p className="text-[.8rem]">0 / 350</p>{" "}
+                  <span className="flex items-center gap-1 justify-end">
                     <ErrorMessage
                       name="report"
                       component="div"
-                      className="text-red-500 text-xs mt-1"
+                      className="text-red-500 text-xs"
                     />
+                    <p className="text-[.8rem]">0 / 350</p>{" "}
                   </span>
 
                   <div className="flex justify-center gap-4 mt-4">

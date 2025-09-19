@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../assets/HomeAssets/homelogo.png";
 import { Link, NavLink } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
-import { useContext } from "react";
-import AuthContext from "../../context/AuthContext";
 import profilelogo from "../../assets/HomeAssets/profile-icon.png";
 function Header() {
+  const accessToken = localStorage.getItem("accessToken");
   const [scrolled, setScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = window.innerHeight * 0.1;
+      const threshold = window.innerHeight * 0.06;
       if (window.scrollY > threshold) {
         setScrolled(true);
       } else {
@@ -23,9 +21,10 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 shadow-lg transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[999999] shadow-lg transition-all duration-300 ${
         scrolled ? "bg-primary shadow-md" : "bg-transparent"
       }`}
     >
@@ -34,11 +33,11 @@ function Header() {
           <img
             src={scrolled ? whiteLogo : logo}
             alt="logo"
-            className="cursor-pointer md:w-[6.3rem] w-20 pt-4"
+            className="cursor-pointer md:w-[6.3rem] w-20 pt-4 z-50 inset-1"
           />
         </NavLink>
 
-        {!user ? (
+        {!accessToken ? (
           <div className="flex space-x-4">
             <div className="inline-block p-[1px] bg-white rounded-lg">
               <Link to="/signup">
@@ -61,14 +60,14 @@ function Header() {
             >
               <img
                 alt="User"
-                className="size-full object-cover"
+                className="size-full object-cover z-50"
                 src={profilelogo}
               />
             </div>
 
             {showUserDropdown && (
               <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
-                <Link to="/">
+                <Link to="/profile/user">
                   <button className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg">
                     Profile
                   </button>

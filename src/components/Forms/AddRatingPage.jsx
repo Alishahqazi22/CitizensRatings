@@ -56,30 +56,30 @@ function AddRatingPage() {
 
     return (
       <div className="flex gap-1">
-      {[...Array(totalStars)].map((_, i) => {
-        const starValue = i + 1;
+        {[...Array(totalStars)].map((_, i) => {
+          const starValue = i + 1;
 
-        const isActive = starValue === value; 
-        const isHovered = starValue === hoverStar; 
+          const isActive = starValue <= value;
+          const isHovered = starValue === hoverStar;
 
-        return (
-          <FaStar
-            key={i}
-            size={32}
-            className={`cursor-pointer transition-colors duration-200 ${
-              isHovered
-                ? starColors[i]
-                : isActive
-                ? starColors[i]
-                : "text-gray-300"
-            }`}
-            onClick={() => setFieldValue(fieldName, starValue)}
-            onMouseEnter={() => setHoverStar(starValue)}
-            onMouseLeave={() => setHoverStar(null)}
-          />
-        );
-      })}
-    </div>
+          return (
+            <FaStar
+              key={i}
+              size={32}
+              className={`cursor-pointer transition-colors duration-200 ${
+                isHovered
+                  ? starColors[i]
+                  : isActive
+                  ? starColors[i]
+                  : "text-gray-300"
+              }`}
+              onClick={() => setFieldValue(fieldName, starValue)}
+              onMouseEnter={() => setHoverStar(starValue)}
+              onMouseLeave={() => setHoverStar(null)}
+            />
+          );
+        })}
+      </div>
     );
   };
 
@@ -237,7 +237,7 @@ function AddRatingPage() {
 
               {/* Tags */}
               <section>
-                <div className="p-6">
+                <div className="py-6">
                   <h2 className="text-lg font-semibold mb-4">
                     Select Tags (Min 3 - Max 5)
                   </h2>
@@ -247,7 +247,7 @@ function AddRatingPage() {
                         type="button"
                         key={tag}
                         onClick={() => handleTagClick(tag)}
-                        className={`px-4 py-2 rounded-lg border 
+                        className={`px-3 py-2 rounded-lg border text-sm 
                           ${
                             selectedTags.includes(tag)
                               ? "bg-blue-500 text-white"

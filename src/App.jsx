@@ -10,6 +10,8 @@ import PollDetail from "./components/Poll/PollDetail";
 import UserComparePage from "./components/UserProfile/UserComparePage";
 import AddRatingPage from "./components/Forms/AddRatingPage";
 import UserList from "./components/UserProfile/UserList";
+import ProfileUser from "./components/UserProfile/ProfileUser";
+import PollCriteria from "./components/Poll/PollCriteria";
 
 function App() {
   return (
@@ -20,8 +22,10 @@ function App() {
         <Route path="/compare/:category/:id" element={<UserComparePage />}/>
         <Route path="/:category/:id/addratting" element={<AddRatingPage />}/>
         <Route path="/poll" element={<Poll />}/>
+        <Route path="/profile/user" element={<ProfileUser />}/>
         <Route path="/users/:category" element={<UserList />}/>
         <Route path="/poll/:id" element={<PollDetail />}/>
+        <Route path="/criteria" element={<PollCriteria />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/login" element={<Login />}/>
       </Route>

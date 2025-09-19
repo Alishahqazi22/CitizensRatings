@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import AuthContext from "../../context/AuthContext";
-import axios from "axios";
+import { axiosInstance } from "../../Config/axiosInstance";
+import { toast } from "react-toastify";
+import GoogleAuthButton from "./GoogleAuthButton";
 
 const SignUpSchema = Yup.object().shape({
+  firstname: Yup.string().required("First Name is required"),
+  lastname: Yup.string().required("Last Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
@@ -15,48 +17,34 @@ const SignUpSchema = Yup.object().shape({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
+  image: Yup.mixed(),
   terms: Yup.boolean().oneOf([true], "You must accept the Terms"),
 });
 
 function SignUp() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-  const { loginWithGoogle } = useContext(AuthContext);
 
   const handleSignup = async (values) => {
-  const userData = {
-    email: values.email,
-    password: values.password,
-  };
-
-  localStorage.setItem("userData", JSON.stringify(userData));
-
-  try {
-    await axios.post("http://localhost:5000/api/users/signup", userData);
-  } catch (error) {
-    console.error("Signup API error:", error);
-  }
-};
-
-
-  const handleGoogleSignUp = async () => {
+    const formData = new FormData();
+    formData.append("role", "user");
+    formData.append("first_name", values.firstname);
+    formData.append("last_name", values.lastname);
+    formData.append("email", values.email);
+    formData.append("password", values.password);
+    formData.append("password_confirmation", values.confirmPassword);
+    formData.append("image", values.image);
     try {
-      const userCredential = await loginWithGoogle();
-      const user = userCredential.user;
-
-      const userData = {
-        uid: user.uid,
-        email: user.email,
-        createdAt: new Date().toISOString(),
-        provider: "google",
-      };
-
-      localStorage.setItem("userData", JSON.stringify(userData));
-      await axios.post("http://localhost:5173/api/users", userData);
-
-      alert("Signed up with Google!");
+      const response = await axiosInstance.post("signup", formData);
+      if (response?.data?.data?.status) {
+        toast.success(response?.data?.data?.message);
+        navigate("/login");
+      } else {
+        toast.error(response?.data?.data?.message);
+      }
     } catch (error) {
-      alert(error.message);
+      console.error("Signup API error:", error);
     }
   };
 
@@ -67,14 +55,7 @@ function SignUp() {
           Create an Account
         </h1>
 
-        {/* Google SignUp */}
-        <button
-          onClick={handleGoogleSignUp}
-          className="w-full flex items-center justify-center gap-2 border py-2 rounded font-bold"
-        >
-          <FcGoogle size={28} />
-          Sign up with Google
-        </button>
+        <GoogleAuthButton />
 
         <div className="flex items-center my-4">
           <hr className="flex-grow border-gray-300" />
@@ -86,6 +67,8 @@ function SignUp() {
 
         <Formik
           initialValues={{
+            fisrtname: "",
+            lastname: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -94,9 +77,37 @@ function SignUp() {
           validationSchema={SignUpSchema}
           onSubmit={handleSignup}
         >
-          {({ isSubmitting, values }) => (
+          {({ isSubmitting, values, setFieldValue }) => (
             <Form className="space-y-4">
               {/* Email */}
+              <div>
+                <label className="block text-sm font-medium">First Name</label>
+                <Field
+                  type="firstname"
+                  name="firstname"
+                  placeholder="Enter your First Name"
+                  className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <ErrorMessage
+                  name="firstname"
+                  component="div"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Last Name</label>
+                <Field
+                  type="lastname"
+                  name="lastname"
+                  placeholder="Enter your Last Name"
+                  className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <ErrorMessage
+                  name="lastname"
+                  component="div"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
               <div>
                 <label className="block text-sm font-medium">Email</label>
                 <Field
@@ -157,6 +168,21 @@ function SignUp() {
                 </div>
                 <ErrorMessage
                   name="confirmPassword"
+                  component="div"
+                  className="text-red-500 text-sm mt-1"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium">Email</label>
+                <input
+                  type="file"
+                  name="image"
+                  onChange={(e) => setFieldValue("image", e.target.files[0])}
+                  className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <ErrorMessage
+                  name="image"
                   component="div"
                   className="text-red-500 text-sm mt-1"
                 />

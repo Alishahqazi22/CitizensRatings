@@ -11,10 +11,10 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-[#0099CC] text-white">
+    <footer className="bg-primary text-white">
       <div className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
             <div className="md:col-span-2 lg:col-span-1">
               <h2 className="font-bold text-xl sm:text-2xl mb-4">
                 CitizensRatings.Com
@@ -59,7 +59,7 @@ function Footer() {
                       <p>Home</p>
                     </li>
                   </Link>
-                  <Link to="/about-us" target="_blank">
+                  <Link to="https://about.citizensratings.com" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>About us</p>

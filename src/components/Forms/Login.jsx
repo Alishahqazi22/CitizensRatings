@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import AuthContext from "../../context/AuthContext";
+import { axiosInstance } from "../../Config/axiosInstance";
+import { toast } from "react-toastify";
+import GoogleAuthButton from "./GoogleAuthButton";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -16,21 +17,25 @@ const LoginSchema = Yup.object().shape({
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginWithEmail, loginWithGoogle } = useContext(AuthContext);
-
-  const handleGoogleLogin = async () => {
-    try {
-      await loginWithGoogle();
-      alert("Google login successful");
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   const handleEmailLogin = async (values, { setSubmitting }) => {
+    const formData = new FormData();
+    formData.append("role", "user");
+    formData.append("email", values.email);
+    formData.append("password", values.password);
     try {
-      await loginWithEmail(values.email, values.password);
-      alert("Login successful");
+      const response = await axiosInstance.post("login", formData);
+      if (response?.data?.data?.status) {
+        localStorage.setItem("accessToken", response?.data?.data?.accessToken);
+        localStorage.setItem(
+          "user",
+          JSON.stringify(response?.data?.data?.user)
+        );
+        toast.success(response?.data?.data?.message);
+        window.location.href = "/";
+      } else {
+        toast.error(response?.data?.data?.message);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -42,17 +47,13 @@ function Login() {
       <div className="bg-white shadow-md rounded-lg my-12 p-8 size-full max-w-md">
         <h2 className="text-2xl font-bold text-center mb-6">Welcome Back</h2>
 
-        <button
-          onClick={handleGoogleLogin}
-          className="w-full flex items-center justify-center gap-2 border rounded-md py-2 mb-4 hover:bg-gray-100"
-        >
-          <FcGoogle size={28} />
-          Login with Google
-        </button>
+        <GoogleAuthButton />
 
         <div className="flex items-center my-4">
           <hr className="flex-grow border-gray-300" />
-          <span className="px-2 text-gray-500 text-sm">Or Login with Email</span>
+          <span className="px-2 text-gray-500 text-sm">
+            Or Login with Email
+          </span>
           <hr className="flex-grow border-gray-300" />
         </div>
 
@@ -72,7 +73,11 @@ function Login() {
                   placeholder="Enter your Email"
                   className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-blue-200"
                 />
-                <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
               </div>
 
               {/* Password */}
@@ -92,8 +97,15 @@ function Login() {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
-                <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
-                <Link to="/forgot-password" className="text-primary text-end text-sm block mt-1">
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="text-red-500 text-sm"
+                />
+                <Link
+                  to="/forgot-password"
+                  className="text-primary text-end text-sm block mt-1"
+                >
                   Forgot Password?
                 </Link>
               </div>
@@ -105,19 +117,26 @@ function Login() {
                   I agree to the{" "}
                   <Link to="/" className="text-primary underline">
                     Terms of Use
-                  </Link> ,{" "}
+                  </Link>{" "}
+                  ,{" "}
                   <Link to="/" className="text-primary underline">
                     Privacy Policy
-                  </Link> ,{" "}
+                  </Link>{" "}
+                  ,{" "}
                   <Link to="/" className="text-primary underline">
                     Site guidlines
-                  </Link> and{" "}
+                  </Link>{" "}
+                  and{" "}
                   <Link to="/" className="text-primary underline">
                     Code of Conduct
                   </Link>
                 </span>
               </div>
-              <ErrorMessage name="terms" component="div" className="text-red-500 text-sm mt-1" />
+              <ErrorMessage
+                name="terms"
+                component="div"
+                className="text-red-500 text-sm mt-1"
+              />
 
               {/* Submit */}
               <button

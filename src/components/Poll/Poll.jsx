@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PollsPublic from "../../assets/CategoryAssets/Page-1751828351-1358149898.jpg";
-import { pollsData } from "../../Context/Index";
-
+import { axiosInstance } from "../../Config/axiosInstance";
 
 function Poll() {
-  const pollsCount = pollsData.length;
+  const [poll, setPoll] = useState([]);
 
+  async function getPoll() {
+    try {
+      const response = await axiosInstance.get("/poll");
+      const apiCategories = response?.data?.data || [];
+      // console.log(response?.data?.data);
+      setPoll(apiCategories || []);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    getPoll();
+  }, []);
+
+  const pollsCount = poll.length;
+  
   return (
     <div className="mt-28">
       <div className="max-w-5xl mx-auto">
@@ -16,16 +30,16 @@ function Poll() {
 
         <div className="border-t border-black">
           <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-3 min-[2560px]:grid-cols-4 gap-6 lg:gap-8">
-            {pollsData.map((poll) => (
+            {poll.map((poll) => (
               <Link key={poll.id} to={`/poll/${poll.id}`}>
                 <div className="group relative w-80 h-48 md:mx-6 my-10 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer">
                   <img
-                    alt={poll.title}
+                    alt={poll.name}
                     className="size-full object-cover brightness-75"
                     src={poll.image}
                   />
                   <div className="uppercase absolute bottom-3 left-3 group-hover:left-1 transition-all duration-300 text-white text-lg font-semibold z-10">
-                    {poll.title}
+                    {poll.name}
                   </div>
                 </div>
               </Link>

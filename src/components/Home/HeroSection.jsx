@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,26 @@ function HeroSection() {
   const navigate = useNavigate();
 
   const categories = [...new Set(leaderData.map((item) => item.category))];
+
+  // 🔹 ref for dropdown wrapper
+  const dropdownRef = useRef(null);
+
+  // 🔹 close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleCategorySelect = (cat) => {
     setValue(cat);
@@ -55,34 +75,37 @@ function HeroSection() {
           <div className="md:w-[50%] w-[90%] relative">
             <div className="w-full bg-white rounded-full border border-none mt-5">
               <div className="relative flex items-center">
-                  <button
-                    onClick={() => {
-                      setShowDropdown(!showDropdown);
-                      setShowSuggestions(false); 
-                    }}
-                    className="flex items-center gap-2 md:px-4 px-3 py-3 md:py-4 text-black hover:bg-gray-50 rounded-l-full transition border-r border-gray-200 font-thin"
-                  >
-                    Select Categories
-                    {!showDropdown ? (
-                      <MdKeyboardArrowDown className="text-gray-500" />
-                    ) : (
-                      <MdKeyboardArrowDown className="text-gray-500 rotate-180" />
-                    )}
-                  </button>
-
-                  {showDropdown && (
-                    <div className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md z-20 w-full max-h-60 overflow-y-auto">
-                      {categories.map((cat, idx) => (
-                        <div
-                          key={idx}
-                          onClick={() => handleCategorySelect(cat)}
-                          className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black"
-                        >
-                          {cat}
-                        </div>
-                      ))}
-                    </div>
+                <button
+                  onClick={() => {
+                    setShowDropdown(!showDropdown);
+                    setShowSuggestions(false);
+                  }}
+                  className="flex items-center gap-2 md:px-4 px-3 py-3 md:py-4 text-black hover:bg-gray-50 rounded-l-full transition border-r border-gray-200 font-thin"
+                >
+                  Select Categories
+                  {!showDropdown ? (
+                    <MdKeyboardArrowDown className="text-gray-500" />
+                  ) : (
+                    <MdKeyboardArrowDown className="text-gray-500 rotate-180" />
                   )}
+                </button>
+
+                {showDropdown && (
+                  <div className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md z-20 w-full max-h-60 overflow-y-auto">
+                    <p className="px-4 py-2 cursor-default text-black text-xs font-semibold uppercase">
+                      Select Category
+                    </p>
+                    {categories.map((cat, idx) => (
+                      <div
+                        key={idx}
+                        onClick={() => handleCategorySelect(cat)}
+                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-black"
+                      >
+                        {cat}
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <div className="flex-1">
                   <input
@@ -94,14 +117,16 @@ function HeroSection() {
                     onChange={(e) => {
                       setValue(e.target.value);
                       setShowSuggestions(true);
-                      setShowDropdown(false); 
+                      setShowDropdown(false);
                     }}
                     onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   />
 
                   {showSuggestions && value.trim() !== "" && (
                     <div className="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md z-50 w-full max-h-60 overflow-y-auto">
-                      <p className="px-4 py-2 cursor-default text-black text-xs font-semibold uppercase">Select Category</p>
+                      <p className="px-4 py-2 cursor-default text-black text-xs font-semibold uppercase">
+                        Select Category
+                      </p>
                       {filteredSuggestions.length > 0 ? (
                         filteredSuggestions.map((cat, idx) => (
                           <div
