@@ -79,7 +79,7 @@ function SignUp() {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <Form className="space-y-4">
-              {/* Email */}
+              {/* firstname */}
               <div>
                 <label className="block text-sm font-medium">First Name</label>
                 <Field
@@ -94,6 +94,8 @@ function SignUp() {
                   className="text-red-500 text-sm mt-1"
                 />
               </div>
+
+                {/* lastname */}
               <div>
                 <label className="block text-sm font-medium">Last Name</label>
                 <Field
@@ -108,6 +110,8 @@ function SignUp() {
                   className="text-red-500 text-sm mt-1"
                 />
               </div>
+
+              {/* Email */}
               <div>
                 <label className="block text-sm font-medium">Email</label>
                 <Field
@@ -173,8 +177,9 @@ function SignUp() {
                 />
               </div>
 
+              {/* Image */}
               <div>
-                <label className="block text-sm font-medium">Email</label>
+                <label className="block text-sm font-medium">Image</label>
                 <input
                   type="file"
                   name="image"
