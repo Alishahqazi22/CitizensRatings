@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import AccountSettings from "../Forms/AccountSettings";
 
 function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const tabs = [
     "Profile",
@@ -13,12 +17,52 @@ function ProfileUser() {
     "Saved Non Academic",
   ];
 
+  const initialValues = {
+    hometownRegion: user?.hometownRegion || "",
+    currentRegion: user?.currentRegion || "",
+    yearOfBirth: user?.yearOfBirth || "",
+    basicSchool: user?.basicSchool || "",
+    secondarySchool: user?.secondarySchool || "",
+    tertiarySchool: user?.tertiarySchool || "",
+    fieldOfStudy: user?.fieldOfStudy || "",
+    graduationYear: user?.graduationYear || "",
+  };
+
+  const validationSchema = Yup.object({
+    hometownRegion: Yup.string().required("Required"),
+    currentRegion: Yup.string().required("Required"),
+    yearOfBirth: Yup.string().required("Required"),
+    // basicSchool: Yup.string().required("Required"),
+    // secondarySchool: Yup.string().required("Required"),
+    // tertiarySchool: Yup.string().required("Required"),
+    // fieldOfStudy: Yup.string().required("Required"),
+    // graduationYear: Yup.string().required("Required"),
+  });
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      const payload = { ...values, id: user?.id };
+      const res = await axios.put(`/user/${user?.id}`, payload);
+      alert("Profile updated successfully!");
+      console.log(res.data);
+
+      // 🔹 LocalStorage update bhi karna hoga
+      localStorage.setItem("user", JSON.stringify(res.data));
+    } catch (error) {
+      console.error(error);
+      alert("Failed to update profile!");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div className="p-6 max-w-4xl mx-auto mt-28">
       <h1 className="text-2xl md:text-3xl font-bold mb-4">
-        Hey, <span className="text-gray-700">alishahqazi22@gmail.com</span>
+        Hey, <span className="text-gray-700">{user?.email}</span>
       </h1>
 
+      {/* Tabs */}
       <div className="flex gap-6 border-b border-black mb-6">
         {tabs.map((tab) => (
           <button
@@ -35,203 +79,256 @@ function ProfileUser() {
         ))}
       </div>
 
+      {/* Profile Form */}
       {activeTab === "Profile" && (
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-4 font-light text-sm">
-          <div className="flex flex-col">
-            <label className="text-red-500 font-medium">Hometown Region</label>
-          </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form className="grid grid-cols-1 md:grid-cols-2 gap-4 font-light text-sm">
+              {/* Hometown Region */}
+              <div className="flex flex-col">
+                <label className="text-red-500 font-medium">
+                  Hometown Region
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 mb-2 font-medium">
+                  Region of Hometown
+                </label>
+                <Field
+                  as="select"
+                  name="hometownRegion"
+                  className="border-2 shadow rounded-md p-2"
+                >
+                  <option value="">Select Region</option>
+                  <option>Ahafo</option>
+                  <option>Ashanti Region</option>
+                  <option>Bono</option>
+                  <option>Bono East</option>
+                  <option>Central Region</option>
+                  <option>Eastern Region</option>
+                  <option>Greater Accra Region</option>
+                  <option>North East</option>
+                  <option>Northern Region</option>
+                  <option>Oti</option>
+                  <option>Savannah</option>
+                  <option>Upper East Region</option>
+                  <option>Upper West Region</option>
+                  <option>Volta Region</option>
+                  <option>Western North</option>
+                  <option>Western Region</option>
+                </Field>
+                <ErrorMessage
+                  name="hometownRegion"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 mb-2 font-medium">Region of Hometown</label>
-            <select className="border-2 shadow rounded-md p-2">
-              <option>Ahafo</option>
-              <option>Ashanti Region</option>
-              <option>Bono</option>
-              <option>Bono East</option>
-              <option>central Region</option>
-              <option>Eastern Region</option>
-              <option>Greater Accra Region</option>
-              <option>North East</option>
-              <option>Northern Region</option>
-              <option>Oti</option>
-              <option>Savannah</option>
-              <option>Upper East Region</option>
-              <option>Upper West Region</option>
-              <option>Volta Region</option>
-              <option>Western North</option>
-              <option>Western Region</option>
-            </select>
-          </div>
+              {/* Current Region */}
+              <div className="flex flex-col">
+                <label className="text-red-500 font-medium">
+                  Current Region
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 mb-2 font-medium">
+                  Region You Live In
+                </label>
+                <Field
+                  as="select"
+                  name="currentRegion"
+                  className="border-2 shadow rounded-md p-2"
+                >
+                  <option value="">Select Region</option>
+                  <option>Ahafo</option>
+                  <option>Ashanti Region</option>
+                  <option>Bono</option>
+                  <option>Bono East</option>
+                  <option>Central Region</option>
+                  <option>Eastern Region</option>
+                  <option>Greater Accra Region</option>
+                  <option>North East</option>
+                  <option>Northern Region</option>
+                  <option>Oti</option>
+                  <option>Savannah</option>
+                  <option>Upper East Region</option>
+                  <option>Upper West Region</option>
+                  <option>Volta Region</option>
+                  <option>Western North</option>
+                  <option>Western Region</option>
+                </Field>
+                <ErrorMessage
+                  name="currentRegion"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-red-500 font-medium">Current Region</label>
-          </div>
+              {/* Year of Birth */}
+              <div className="flex flex-col">
+                <label className="text-red-500 font-medium">
+                  Year of Birth
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 mb-2 font-medium">
+                  Year of Birth
+                </label>
+                <Field
+                  as="select"
+                  name="yearOfBirth"
+                  className="border-2 shadow rounded-md p-2"
+                >
+                  <option value="">Select Year</option>
+                  {Array.from({ length: 80 }, (_, i) => 2010 - i).map(
+                    (year) => (
+                      <option key={year}>{year}</option>
+                    )
+                  )}
+                </Field>
+                <ErrorMessage
+                  name="yearOfBirth"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 mb-2 font-medium">Region You Live In</label>
-            <select className="border-2 shadow focus:border-primary rounded-md p-2">
-              <option>Ahafo</option>
-              <option>Ashanti Region</option>
-              <option>Bono</option>
-              <option>Bono East</option>
-              <option>central Region</option>
-              <option>Eastern Region</option>
-              <option>Greater Accra Region</option>
-              <option>North East</option>
-              <option>Northern Region</option>
-              <option>Oti</option>
-              <option>Savannah</option>
-              <option>Upper East Region</option>
-              <option>Upper West Region</option>
-              <option>Volta Region</option>
-              <option>Western North</option>
-              <option>Western Region</option>
-            </select>
-          </div>
+              {/* Basic School */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Basic School
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Your Basic School
+                </label>
+                <Field
+                  type="text"
+                  name="basicSchool"
+                  placeholder="Enter Your Basic School"
+                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                />
+                <ErrorMessage
+                  name="basicSchool"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-red-500 font-medium">Year of Birth</label>
-          </div>
+              {/* Secondary School */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Secondary School
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Your Secondary School
+                </label>
+                <Field
+                  type="text"
+                  name="secondarySchool"
+                  placeholder="Enter Your Secondary School"
+                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                />
+                <ErrorMessage
+                  name="secondarySchool"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 mb-2 font-medium">Year of Birth</label>
-            <select className="border-2 shadow rounded-md p-2">
-              <option>2010</option>
-              <option>2009</option>
-              <option>2008</option>
-              <option>2007</option>
-              <option>2006</option>
-              <option>2005</option>
-              <option>2004</option>
-              <option>2003</option>
-              <option>2002</option>
-              <option>2001</option>
-              <option>2000</option>
-              <option>1999</option>
-              <option>1998</option>
-              <option>1997</option>
-              <option>1996</option>
-              <option>1995</option>
-              <option>1994</option>
-              <option>1993</option>
-              <option>1992</option>
-              <option>1991</option>
-              <option>1990</option>
-              <option>1989</option>
-              <option>1988</option>
-              <option>1987</option>
-              <option>1986</option>
-              <option>1985</option>
-              <option>1984</option>
-              <option>1983</option>
-              <option>1982</option>
-              <option>1981</option>
-              <option>1980</option>
-              <option>1979</option>
-              <option>1978</option>
-              <option>1977</option>
-              <option>1976</option>
-              <option>1975</option>
-              <option>1974</option>
-              <option>1973</option>
-              <option>1972</option>
-              <option>1971</option>
-              <option>1970</option>
-              <option>1969</option>
-              <option>1968</option>
-              <option>1967</option>
-              <option>1966</option>
-              <option>1965</option>
-              <option>1964</option>
-              <option>1963</option>
-              <option>1962</option>
-              <option>1961</option>
-              <option>1950</option>
-              <option>1949</option>
-              <option>1948</option>
-              <option>1947</option>
-              <option>1946</option>
-              <option>1945</option>
-              <option>1944</option>
-              <option>1943</option>
-              <option>1942</option>
-              <option>1941</option>
-              <option>1940</option>
-              <option>1939</option>
-              <option>1938</option>
-              <option>1937</option>
-              <option>1936</option>
-              <option>1935</option>
-              <option>1934</option>
-              <option>1933</option>
-              <option>1932</option>
-              <option>1931</option>
-              <option>1930</option>
-            </select>
-          </div>
+              {/* Tertiary School */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Tertiary School
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Your Tertiary School
+                </label>
+                <Field
+                  type="text"
+                  name="tertiarySchool"
+                  placeholder="Enter Your Tertiary School"
+                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                />
+                <ErrorMessage
+                  name="tertiarySchool"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Basic School</label>
-          </div>
+              {/* Field of Study */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Field of Study
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Field of Study
+                </label>
+                <Field
+                  type="text"
+                  name="fieldOfStudy"
+                  placeholder="Enter Your Field of Study"
+                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                />
+                <ErrorMessage
+                  name="fieldOfStudy"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Your Basic School</label>
-            <input
-              type="text"
-              placeholder="Enter Your Basic School"
-              className="border border-gray-300 rounded-md p-[9px] font-light"
-            />
-          </div>
+              {/* Graduation Year */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Graduation Year
+                </label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Expected Year of Graduation
+                </label>
+                <Field
+                  type="text"
+                  name="graduationYear"
+                  placeholder="e.g., 2025"
+                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                />
+                <ErrorMessage
+                  name="graduationYear"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Secondary School</label>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Your Secondary School</label>
-            <input
-              type="text"
-              placeholder="Enter Your Secondary School"
-              className="border rounded-md p-[9px] font-light"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Tertiary School</label>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Your Tertiary School</label>
-            <input
-              type="text"
-              placeholder="Enter Your Teritary School"
-              className="border border-gray-300 rounded-md p-[9px] font-light"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Field of Study</label>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Field of Study</label>
-            <input
-              type="text"
-              placeholder="Enter Your Field of Study"
-              className="border border-gray-300 rounded-md p-[9px] font-light"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">Graduation Year</label>
-          </div>
-          <div className="flex flex-col">
-            <label className="text-gray-800 font-medium">
-              Expected Year of Graduation
-            </label>
-            <input
-              type="text"
-              placeholder="e.g.,2025"
-              className="border border-gray-300 rounded-md p-[9px] font-light"
-            />
-          </div>
-        </form>
+              {/* Submit Button */}
+              <div className="col-span-2 flex justify-end mt-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-primary text-white rounded-lg shadow hover:bg-white hover:text-primary hover:border
+                   hover:border-primary py-3 w-full disabled:opacity-50 font-normal transition-colors duration-200"
+                >
+                  {isSubmitting ? "Updating..." : "Update Profile"}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       )}
+
+      {/* Account Settings Tab */}
       {activeTab === "Account Settings" && <AccountSettings />}
     </div>
   );

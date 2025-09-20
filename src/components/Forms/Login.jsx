@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { axiosInstance } from "../../Config/axiosInstance";
 import { toast } from "react-toastify";
@@ -17,6 +17,7 @@ const LoginSchema = Yup.object().shape({
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailLogin = async (values, { setSubmitting }) => {
     const formData = new FormData();
@@ -32,7 +33,8 @@ function Login() {
           JSON.stringify(response?.data?.data?.user)
         );
         toast.success(response?.data?.data?.message);
-        window.location.href = "/";
+        // window.location.href = (-1);
+        navigate(-1);
       } else {
         toast.error(response?.data?.data?.message);
       }

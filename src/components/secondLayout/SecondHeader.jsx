@@ -37,7 +37,7 @@ function SecondHeader() {
           />
         </NavLink>
 
-        {accessToken ? (
+        {!accessToken ? (
           <div className="flex space-x-2 mt-3 mb-1">
             <div className="inline-block p-[1px] bg-white rounded">
               <Link to="/signup">
