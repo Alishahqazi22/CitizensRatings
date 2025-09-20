@@ -2,26 +2,38 @@ import React, { useState, useEffect, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import leaderData from "../../Context/leaderData.json";
+// import leaderData from "../../Context/leaderData.json";
+import { axiosInstance } from "../../Config/axiosInstance";
 
 function HeroSection() {
   const [value, setValue] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
-
-  const categories = [...new Set(leaderData.map((item) => item.category))];
 
   // 🔹 ref for dropdown wrapper
   const dropdownRef = useRef(null);
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axiosInstance.get("/category");
+        console.log("res", res.data.data);
+        const uniqueCategories = [
+          ...new Set(res.data.data.map((item) => item.name)),
+        ];
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
   // 🔹 close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setShowDropdown(false);
       }
     };
@@ -72,7 +84,7 @@ function HeroSection() {
             Your Guide to What’s Good, Bad, and Must-Avoid
           </h3>
 
-          <div className="md:w-[50%] w-[90%] relative">
+          <div className="lg:w-[50%] w-[90%] relative">
             <div className="w-full bg-white rounded-full border border-none mt-5">
               <div className="relative flex items-center">
                 <button

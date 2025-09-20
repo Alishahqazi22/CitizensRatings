@@ -55,7 +55,7 @@ function UserDetailPage() {
   }, [id, category]);
 
   if (loading) {
-    return <p className="text-center mt-10">Loading...</p>;
+    return <p className="text-center mt-32">Loading...</p>;
   }
 
   if (!leader) {
@@ -71,10 +71,10 @@ function UserDetailPage() {
       <div className="bg-white shadow-2xl rounded-lg my-6 p-8 w-full max-w-[44rem] lg:max-w-4xl xl:max-w-6xl">
         <div className="flex justify-between">
           <div>
-            <h1 className="text-3xl font-bold">{leader.name || "NA"}</h1>
+            <h1 className="text-3xl font-bold">{leader?.name || "NA"}</h1>
             <p className="py-2">
-              {leader.position || "NA"} | {leader.district || "NA"} |{" "}
-              {leader.region || "NA"}
+              {leader?.position || "NA"} | {leader?.district || "NA"} |{" "}
+              {leader?.region || "NA"}
             </p>
           </div>
           <div className="flex space-x-2">
@@ -98,14 +98,14 @@ function UserDetailPage() {
           <div className="w-full md:w-1/4 flex flex-col items-center">
             <div className="w-64 h-64 rounded-md overflow-hidden shadow">
               <img
-                src={leader.institutionLogo || "NA"}
-                alt={leader.name || "NA"}
+                src={leader?.image || "NA"}
+                alt={leader?.name || "NA"}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="mt-4 text-center">
               <p className="text-5xl font-bold rounded py-3 bg-yellow-400">
-                {calculateOverallRating(leader.ratings || "NA")}
+                {calculateOverallRating(leader?.ratings || "NA")}
               </p>
               <h3 className="font-light">Overall Rating</h3>
             </div>
@@ -114,7 +114,7 @@ function UserDetailPage() {
           <div className="w-full md:w-2/1 mt-10">
            {leader.ratings ? (
              <ul className="grid grid-cols-2 gap-7">
-              {Object.entries(leader.ratings|| {})
+              {Object.entries(leader?.ratings|| {})
                 .filter(([key]) => key !== "overallRating")
                 .map(([key, value], index) => {
                   const randomColor = colors[index % colors.length];
@@ -143,7 +143,7 @@ function UserDetailPage() {
 
         <h1 className="text-2xl font-bold mt-8 mb-3">Top TAGS</h1>
         <div className="flex flex-wrap gap-2">
-          {leader.tags && leader.tags.length > 0 ? (
+          {leader?.tags && leader?.tags.length > 0 ? (
             leader.tags.map((tag, idx) => (
               <span
                 key={idx}
@@ -162,13 +162,13 @@ function UserDetailPage() {
           <div className="bg-white shadow-md rounded-lg p-8 mx-6 my-8 w-full">
             <div className="flex gap-4">
               <p className="text-2xl font-bold rounded-lg p-4 text-white bg-yellow-400">
-                {calculateOverallRating(leader.ratings || "NA")}
+                {calculateOverallRating(leader?.ratings || "NA")}
               </p>
               <p className="my-2 font-semibold">
-                {leader.reviews?.[0]?.comment || "No review yet"}
+                {leader?.reviews?.[0]?.comment || "No review yet"}
                 <br />
                 <span className="font-normal">
-                  {leader.reviews?.[0]?.date || "N/A"}
+                  {leader?.reviews?.[0]?.date || "N/A"}
                 </span>
               </p>
             </div>
@@ -176,7 +176,7 @@ function UserDetailPage() {
             <div className="w-full md:w-2/1 mt-10">
               {leader.ratings ? (
                 <ul className="grid grid-cols-2 gap-7">
-                {Object.entries(leader.ratings || {})
+                {Object.entries(leader?.ratings || {})
                   .filter(([key]) => key !== "overallRating")
                   .map(([key, value], index) => {
                     const randomColor = textColors[index % textColors.length];
@@ -195,9 +195,9 @@ function UserDetailPage() {
                 {leader.questions ? (
                   leader.questions.map((q, idx) => (
                     <li key={idx} className="pb-1 text-gray-700">
-                      <h3 className="capitalize">{q.question}</h3>
+                      <h3 className="capitalize">{q?.question}</h3>
                       <p className="font-bold">
-                        Ans: {q.answer ? q.answer : "Not answered"}
+                        Ans: {q?.answer ? q?.answer : "Not answered"}
                       </p>
                     </li>
                   ))

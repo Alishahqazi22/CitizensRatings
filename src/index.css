@@ -10,6 +10,9 @@ html {
   .btn-primary {
     @apply px-2 md:px-4 py-2 rounded-lg items-center text-white text-sm md:text-base transition duration-300;
   }
+  .btn-secondary {
+    @apply px-2 md:px-4 py-2 rounded items-center text-white text-sm md:text-base transition duration-300;
+  }
   .btn-primary .icon {
     @apply text-[.25rem] sm:text-[.5rem] lg:text-[.6rem] lg:text-xs transition duration-300;
   }

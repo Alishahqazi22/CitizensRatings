@@ -2,15 +2,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import UserFilterBar from "./UserFilterBar";
-import leaderData from "../../Context/leaderData.json";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
 import { showError } from "../../Toast/useToast";
+import { axiosInstance } from "../../Config/axiosInstance";
 
 function UserList() {
   const { category } = useParams();
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState({});
   const [bookmarked, setBookmarked] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleBookmark = (e) => {
     e.preventDefault();
@@ -22,56 +23,49 @@ function UserList() {
     setBookmarked(!bookmarked);
   };
 
-  useEffect(() => {
-    let users = leaderData;
-    if (category) {
-      users = users.filter((u) => u.category === category);
+  // 🔹 API Call
+  async function fetchUsers() {
+    try {
+      const response = await axiosInstance.get("/category");
+      const apiData = response?.data?.data || [];
+      let users = apiData;
+
+      if (category) {
+        users = users.filter((u) => u.type === category);
+      }
+
+      setFilteredUsers(users);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    } finally {
+      setLoading(false);
     }
-    setFilteredUsers(users);
+  }
+
+  useEffect(() => {
+    fetchUsers();
   }, [category]);
 
   const handleApply = (newFilters) => {
     const updatedFilters = { ...appliedFilters, ...newFilters };
-    let users = leaderData;
 
-    if (category) {
-      users = users.filter((u) => u.category === category);
-    }
+    let users = filteredUsers;
 
-    // Search filter
+    // 🔹 Search filter
     if (updatedFilters.searchTerm) {
       const term = updatedFilters.searchTerm.toLowerCase();
       users = users.filter(
         (u) =>
           u.name.toLowerCase().includes(term) ||
-          u.category.toLowerCase().includes(term)
+          (u.category_details?.[0]?.name || "").toLowerCase().includes(term)
       );
     }
 
-    // Minimum Star filter
-    if (updatedFilters.minStars) {
-      const min = Number(updatedFilters.minStars);
-      const max = min + 1;
-      users = users.filter((u) => {
-        const overallRating = u?.ratings
-          ? Object.keys(u.ratings)
-              .filter((key) => key !== "overallRating")
-              .reduce((sum, key) => sum + Number(u.ratings[key]), 0) /
-            (Object.keys(u.ratings).length - 1)
-          : 0;
-        return overallRating >= min && overallRating < max;
-      });
-    }
-
-    // Sort filter
+    // 🔹 Sorting
     if (updatedFilters.sortOrder === "low") {
-      users.sort(
-        (a, b) => a.ratings.overallPerformance - b.ratings.overallPerformance
-      );
+      users.sort((a, b) => a.id - b.id);
     } else if (updatedFilters.sortOrder === "high") {
-      users.sort(
-        (a, b) => b.ratings.overallPerformance - a.ratings.overallPerformance
-      );
+      users.sort((a, b) => b.id - a.id);
     }
 
     setFilteredUsers(users);
@@ -79,11 +73,7 @@ function UserList() {
   };
 
   const handleCancel = () => {
-    let users = leaderData;
-    if (category) {
-      users = users.filter((u) => u.category === category);
-    }
-    setFilteredUsers(users);
+    fetchUsers();
     setAppliedFilters({});
   };
 
@@ -100,63 +90,44 @@ function UserList() {
         {category ? category : "All Users"}
       </h1>
 
-      <div className="w-full flex flex-col gap-6 mt-14">
-        {filteredUsers.length > 0 ? (
-          filteredUsers.map((user) => {
-            const overallRating = user?.ratings
-              ? Object.keys(user.ratings)
-                  .filter((key) => key !== "overallRating")
-                  .reduce((sum, key) => sum + Number(user.ratings[key]), 0) /
-                (Object.keys(user.ratings).length - 1)
-              : 0;
-
-            return (
-              <Link to={`/detail/${user.category}/${user.id}`} key={user.id}>
+      {loading ? (
+        <div className="flex justify-center items-center py-20">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <div className="w-full flex flex-col gap-6 mt-14">
+          {filteredUsers.length > 0 ? (
+            filteredUsers.map((user) => (
+              <Link to={`/detail/${user.type}/${user.id}`} key={user.id}>
                 <div className="relative max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
                   <div className="relative w-32 rounded-md overflow-hidden">
                     <img
-                      src={`${
-                        user?.image || "fallback.jpg"
-                      }`}
-                      alt={user?.title || "Unknown"}
+                      src={user?.image || "fallback.jpg"}
+                      alt={user?.name || "Unknown"}
                       className="w-full h-full object-cover"
                     />
                     <div className="text-white flex flex-col items-center justify-center absolute top-1/2 right-1/2 translate-x-[45%] -translate-y-[45%] bg-primary/10 font-extrabold size-full rounded-lg shadow-lg">
                       <p>OVERALL</p>
-                      <p className="text-2xl">
-                        {overallRating.toFixed(1) || "N/A"}
-                      </p>
+                      <p className="text-2xl">{user?.rating || "N/A"}</p>
                       <p className="font-light">
-                        {overallRating.toFixed(1) || "N/A"} Rating
+                        {user?.rating || "N/A"} Rating
                       </p>
                     </div>
                   </div>
 
                   <div className="ml-6 py-4 flex-1">
                     <h2 className="font-bold text-xl">{user?.name || "N/A"}</h2>
-                    <div className="flex items-center gap-3 my-3">
-                      <h3 className="font-bold text-gray-600">
-                        Date Of First Auth.
-                      </h3>
-                      <p>{user?.AuthDate || "N/A"}</p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="font-bold text-gray-600">Created At</h3>
+                      <p>{user?.created_at || "N/A"}</p>
                     </div>
                     <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-gray-600">Status</h3>
-                      <p>{user?.Status || "N/A"}</p>
-                    </div>
-                    <div className="flex items-center gap-3 my-2">
                       <h3 className="font-bold text-gray-600">Type</h3>
-                      <p>{user?.Type || "N/A"}</p>
+                      <p>{user?.type || "N/A"}</p>
                     </div>
-                    <div className="flex items-center gap-3 my-2">
-                      <h3 className="font-bold text-gray-600">Ownerhip</h3>
-                      <p>{user?.OwnerShip || "N/A"}</p>
-                    </div>
-                    <div className="flex items-center gap-3 mt-2">
-                      <h3 className="font-bold text-gray-600">Location</h3>
-                      <p>
-                        {user?.district || "N/A"}, {user?.region || "N/A"}
-                      </p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="font-bold text-gray-600">Tags</h3>
+                      <p>{user?.tags?.slice(0, 3).join(", ") || "N/A"}</p>
                     </div>
                   </div>
                   <div
@@ -168,26 +139,26 @@ function UserList() {
                   </div>
                 </div>
               </Link>
-            );
-          })
-        ) : (
-          <div className="text-center col-span-full text-gray-500">
-            <p>No users found.</p>
-            {appliedFilters.searchTerm && (
-              <p className="text-sm text-gray-500 mb-2">
-                Search: {appliedFilters.searchTerm}
-              </p>
-            )}
-          </div>
-        )}
-      </div>
+            ))
+          ) : (
+            <div className="text-center col-span-full text-gray-500">
+              <p>No users found.</p>
+              {appliedFilters.searchTerm && (
+                <p className="text-sm text-gray-500 mb-2">
+                  Search: {appliedFilters.searchTerm}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col justify-center items-center my-4 space-y-3">
         <h1 className="text-xl font-bold">
           Don't see what you're looking for?
         </h1>
         <Link
-          to="https://www.about.citizensratings.com/addpage.php"
+          to="/addpage.php"
           target="_blank"
         >
           <button className="py-2 px-3 text-2xl rounded bg-primary text-white">
