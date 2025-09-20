@@ -10,13 +10,11 @@ function Header() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-const handleLogout = () => {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("user");
-
-  // ✅ Redirect login page
-  navigate("/login");
-};
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   useEffect(() => {
     const handleScroll = () => {

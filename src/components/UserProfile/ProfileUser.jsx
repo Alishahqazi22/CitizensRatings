@@ -40,21 +40,32 @@ function ProfileUser() {
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    try {
-      const payload = { ...values, id: user?.id };
-      const res = await axios.put(`/user/${user?.id}`, payload);
-      alert("Profile updated successfully!");
-      console.log(res.data);
+  try {
+    const formData = new FormData();
 
-      // 🔹 LocalStorage update bhi karna hoga
-      localStorage.setItem("user", JSON.stringify(res.data));
-    } catch (error) {
-      console.error(error);
-      alert("Failed to update profile!");
-    } finally {
-      setSubmitting(false);
-    }
-  };
+    Object.keys(values).forEach((key) => {
+      formData.append(key, values[key]);
+    });
+
+    formData.append("id", user?.id);
+
+    const res = await axios.post(`/user/${user?.id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    alert("Profile updated successfully!");
+    console.log(res?.data?.data);
+
+    localStorage.setItem("user", JSON.stringify(res?.data?.data));
+  } catch (error) {
+    console.error(error);
+    alert("Failed to update profile!");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   return (
     <div className="p-6 max-w-4xl mx-auto mt-28">
@@ -101,7 +112,7 @@ function ProfileUser() {
                 <Field
                   as="select"
                   name="hometownRegion"
-                  className="border-2 shadow rounded-md p-2"
+                  className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Region</option>
                   <option>Ahafo</option>
@@ -141,7 +152,7 @@ function ProfileUser() {
                 <Field
                   as="select"
                   name="currentRegion"
-                  className="border-2 shadow rounded-md p-2"
+                  className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Region</option>
                   <option>Ahafo</option>
@@ -181,7 +192,7 @@ function ProfileUser() {
                 <Field
                   as="select"
                   name="yearOfBirth"
-                  className="border-2 shadow rounded-md p-2"
+                  className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Year</option>
                   {Array.from({ length: 80 }, (_, i) => 2010 - i).map(
@@ -211,7 +222,7 @@ function ProfileUser() {
                   type="text"
                   name="basicSchool"
                   placeholder="Enter Your Basic School"
-                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
                   name="basicSchool"
@@ -234,7 +245,7 @@ function ProfileUser() {
                   type="text"
                   name="secondarySchool"
                   placeholder="Enter Your Secondary School"
-                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
                   name="secondarySchool"
@@ -257,7 +268,7 @@ function ProfileUser() {
                   type="text"
                   name="tertiarySchool"
                   placeholder="Enter Your Tertiary School"
-                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
                   name="tertiarySchool"
@@ -280,7 +291,7 @@ function ProfileUser() {
                   type="text"
                   name="fieldOfStudy"
                   placeholder="Enter Your Field of Study"
-                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
                   name="fieldOfStudy"
@@ -303,7 +314,7 @@ function ProfileUser() {
                   type="text"
                   name="graduationYear"
                   placeholder="e.g., 2025"
-                  className="border border-gray-300 rounded-md p-[9px] font-light"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
                   name="graduationYear"

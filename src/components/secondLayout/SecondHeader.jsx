@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/HomeAssets/homelogo.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
 import profilelogo from "../../assets/HomeAssets/profile-icon.png";
 function SecondHeader() {
   const accessToken = localStorage.getItem("accessToken");
   const [scrolled, setScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +32,7 @@ function SecondHeader() {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-[999999] transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full inset-10 z-[999999] transition-all duration-300 ${
         scrolled ? "bg-primary shadow-md" : "bg-transparent"
       }`}
     >
@@ -61,7 +69,7 @@ function SecondHeader() {
               <img
                 alt="User"
                 className="size-full object-cover z-50"
-                src={profilelogo}
+                src={user?.image || profilelogo}
               />
             </div>
 
@@ -74,7 +82,7 @@ function SecondHeader() {
                 </Link>
                 <button
                   className="w-full text-left text-red-600 px-4 py-2 hover:bg-gray-100 rounded-b-lg"
-                  onClick={() => alert("Logout")}
+                  onClick={handleLogout}
                 >
                   Logout
                 </button>
