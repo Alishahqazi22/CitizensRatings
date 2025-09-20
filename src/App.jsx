@@ -18,10 +18,12 @@ import AddIndividuals from "./components/Forms/AddIndividuals";
 import AddInstitutions from "./components/Forms/AddInstitutions";
 import AddPolicies from "./components/Forms/AddPolicies";
 import AddOthers from "./components/Forms/AddOthers";
+import NotFound from "./components/Pages/NotFound";
 
 function App() {
   return (
     <Routes>
+      <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/detail/:category/:id" element={<UserDetailPage />} />
@@ -35,13 +37,16 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Route>
-        <Route path="/" element={<SecondLayout />}>
-          <Route path="/addpage.php" element={<AddPage />} />
-          <Route path="/forms/add-individuals.php" element={<AddIndividuals />} />
-          <Route path="/forms/add-institutions.php" element={<AddInstitutions />} />
-          <Route path="/forms/add-policies.php" element={<AddPolicies />} />
-          <Route path="/forms/add-others.php" element={<AddOthers />} />
-        </Route>
+      <Route path="/" element={<SecondLayout />}>
+        <Route path="/addpage.php" element={<AddPage />} />
+        <Route path="/forms/add-individuals.php" element={<AddIndividuals />} />
+        <Route
+          path="/forms/add-institutions.php"
+          element={<AddInstitutions />}
+        />
+        <Route path="/forms/add-policies.php" element={<AddPolicies />} />
+        <Route path="/forms/add-others.php" element={<AddOthers />} />
+      </Route>
     </Routes>
   );
 }
