@@ -14,7 +14,7 @@ function FormsCards() {
       </h1>
         <div className="w-full max-w-7xl mx-auto max-[1024px]:px-10 my-10">
           <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-3 gap-6 lg:gap-8">
-            <Link to="/forms/add-individuals.php">
+            <Link to="/gh/forms/add-individuals.php">
              <div className="group relative bg-white h-[320px] mb-4 rounded-md">
                  <div className="w-full h-52 xl:h-60 overflow-hidden cursor-pointer">
                 <img
@@ -26,7 +26,7 @@ function FormsCards() {
                 <p className="p-4 text-[1.4rem] font-semibold">Add Individuals</p>
              </div>
             </Link>
-            <Link to="/forms/add-institutions.php">
+            <Link to="/gh/forms/add-institutions.php">
              <div className="group relative bg-white h-[320px] mb-4 rounded-md">
                  <div className="w-full h-52 xl:h-60 overflow-hidden cursor-pointer">
                 <img
@@ -38,7 +38,7 @@ function FormsCards() {
                 <p className="p-4 text-[1.4rem] font-semibold">Add Institutions</p>
              </div>
             </Link>
-            <Link to="/forms/add-policies.php">
+            <Link to="/gh/forms/add-policies.php">
              <div className="group relative bg-white h-[320px] mb-4 rounded-md">
                  <div className="w-full h-52 xl:h-60 overflow-hidden cursor-pointer">
                 <img
@@ -50,7 +50,7 @@ function FormsCards() {
                 <p className="p-4 text-[1.4rem] font-semibold">Add Policies</p>
              </div>
             </Link>
-            <Link to="/forms/add-others.php">
+            <Link to="/gh/forms/add-others.php">
              <div className="group relative bg-white h-[320px] mb-4 rounded-md">
                  <div className="w-full h-52 xl:h-60 overflow-hidden cursor-pointer">
                 <img

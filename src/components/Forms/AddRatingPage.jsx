@@ -1,18 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
-import leaderData from "../../Context/leaderData.json";
 import { FaStar } from "react-icons/fa";
+import { axiosInstance } from "../../Config/axiosInstance";
 
 function AddRatingPage() {
   const { id, category } = useParams();
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const user = leaderData.find(
-    (item) => item.id === Number(id) && item.category === category
-  );
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axiosInstance.get(`/category`);
+        const data = response.data.data;
+
+        const foundUser = data.find((item) => item.id === Number(id));
+        console.log(foundUser);
+
+        setUser(foundUser || null);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [id, category]);
 
   const [selectedTags, setSelectedTags] = useState([]);
+  if (loading) {
+    return <p className="text-center mt-20">Loading...</p>;
+  }
+
   if (!user) {
     return <p className="text-center text-red-500 mt-20">User not found</p>;
   }
@@ -111,71 +133,70 @@ function AddRatingPage() {
 
   const initialValues = {
     ratings: {
-      overallRating: 0,
-      vision: 0,
-      policyImplementation: 0,
-      accountability: 0,
-      responsiveness: 0,
-      resourceManagement: 0,
-      stakeholderEngagement: 0,
-      nationalDevelopment: 0,
-      antiCorruption: 0,
-      antiGalamsey: 0,
-      overallPerformance: 0,
+      overallRating: user?.ratings?.overallRating || 0,
+      vision: user?.ratings?.vision || 0,
+      policyImplementation: user?.ratings?.policyImplementation || 0,
+      accountability: user?.ratings?.accountability || 0,
+      responsiveness: user?.ratings?.responsiveness || 0,
+      resourceManagement: user?.ratings?.resourceManagement || 0,
+      stakeholderEngagement: user?.ratings?.stakeholderEngagement || 0,
+      nationalDevelopment: user?.ratings?.nationalDevelopment || 0,
+      antiCorruption: user?.ratings?.antiCorruption || 0,
+      antiGalamsey: user?.ratings?.antiGalamsey || 0,
+      overallPerformance: user?.ratings?.overallPerformance || 0,
     },
-    questions: {
-      WhatsYourRelationshipWithThisLeader: "",
-      HasThisLeaderShowFairnessInHandlingIssues: "",
-      isThisLeaderApproachable: "",
-    },
+    questions: {},
     review: {
       comment: "",
     },
   };
 
-  const handleSubmit = (values) => {
-    if (selectedTags.length < 3) {
-      alert("Please select at least 3 tags.");
-      return;
-    }
+  const handleSubmit = async (values) => {
+  if (!user) {
+    alert("User data not loaded yet!");
+    return;
+  }
 
-    // New rating
-    const newRating = Number(values.review.rating);
+  if (selectedTags.length < 3) {
+    alert("Please select at least 3 tags.");
+    return;
+  }
 
-    // Old ratings array
-    const oldRatings = user.ratings.allRatings || [];
+  const newRating = Number(values.review.rating);
+  const oldRatings = user?.ratings?.allRatings || [];
+  const updatedRatings = [...oldRatings, newRating];
+  const avgRating =
+    updatedRatings.reduce((a, b) => a + b, 0) / updatedRatings.length;
 
-    // Updated ratings
-    const updatedRatings = [...oldRatings, newRating];
-
-    // Average rating
-    const avgRating =
-      updatedRatings.reduce((a, b) => a + b, 0) / updatedRatings.length;
-
-    const updatedUser = {
-      ...user,
-      ratings: {
-        ...user.ratings,
-        overallRating: avgRating.toFixed(1),
-        count: updatedRatings.length,
-        allRatings: updatedRatings,
+  const updatedUser = {
+    ...user,
+    ratings: {
+      overallRating: avgRating.toFixed(1),
+      count: updatedRatings.length,
+      allRatings: updatedRatings,
+    },
+    reviews: [
+      ...(user?.reviews || []),
+      {
+        reviewer: values.review.reviewer || "Anonymous",
+        rating: newRating,
+        comment: values.review.comment,
+        date: new Date().toISOString().split("T")[0],
       },
-      reviews: [
-        ...(user.reviews || []),
-        {
-          reviewer: values.review.reviewer,
-          rating: newRating,
-          comment: values.review.comment,
-          date: new Date().toISOString().split("T")[0],
-        },
-      ],
-      tags: [...selectedTags],
-    };
+    ],
+    tags: [...selectedTags],
+  };
 
-    console.log("Updated User Data:", updatedUser);
+  try {
+    await axiosInstance.put(`/category/${category}/${id}`, updatedUser);
     alert("Rating, Review & Tags successfully added!");
     navigate(-1);
-  };
+  } catch (error) {
+    console.error("Error updating user:", error);
+    alert("Something went wrong while submitting!");
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-white py-10 mt-28">

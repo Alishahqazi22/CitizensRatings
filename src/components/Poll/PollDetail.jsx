@@ -39,7 +39,7 @@ function PollDetail() {
     return (
       <div className="mt-28 text-center">
         <h1 className="text-3xl font-semibold">Poll Not Found</h1>
-        <Link to="/poll" className="text-blue-500 underline mt-4 block">
+        <Link to="/gh/poll" className="text-blue-500 underline mt-4 block">
           Go Back
         </Link>
       </div>

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import leaderData from "../../Context/leaderData.json";
 import { FaStar } from "react-icons/fa";
-import Chart from "react-apexcharts";
 import QuestionChart from "../Charts/QuestionChart";
+import { axiosInstance } from "../../Config/axiosInstance";
 
-// const colors = ["bg-orange-500", "bg-green-400", "bg-yellow-400"];
 const textColors = ["text-orange-500", "text-green-500", "text-yellow-400"];
 
 const renderStars = (rating, textColorClass) => {
@@ -15,22 +13,61 @@ const renderStars = (rating, textColorClass) => {
   ));
 };
 
+const calculateOverallRating = (ratings) => {
+  if (!ratings) return "0.0";
+  const ratingKeys = Object.keys(ratings).filter(
+    (key) => key !== "overallRating"
+  );
+  const total = ratingKeys.reduce((sum, key) => sum + Number(ratings[key]), 0);
+  return (total / ratingKeys.length).toFixed(1);
+};
+
 function UserComparePage() {
   const { id, category } = useParams();
 
-  const user1 = leaderData.find(
-    (item) => item.id === Number(id) && item.category === category
-  );
-
-  const [search2, setSearch2] = useState("");
+  const [user1, setUser1] = useState(null);
   const [user2, setUser2] = useState(null);
+  const [search2, setSearch2] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [allLeaders, setAllLeaders] = useState([]);
+
+  async function getUser1() {
+    try {
+      let response;
+      if (category === "public_service") {
+        response = await axiosInstance.get(`/public_service/${id}`);
+      } else if (category === "executive") {
+        response = await axiosInstance.get(`/executive/${id}`);
+      } else if (category === "public_opinion") {
+        response = await axiosInstance.get(`/public_opinion/${id}`);
+      } else {
+        response = await axiosInstance.get(`/category/${id}`);
+      }
+      setUser1(response?.data?.category || null);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getAllLeaders() {
+    try {
+      const res = await axiosInstance.get("/category");
+      console.log(res.data.data);
+      setAllLeaders(res?.data?.data || []);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getUser1();
+    getAllLeaders();
+  }, [id, category]);
 
   const handleSearchChange = (value) => {
     setSearch2(value);
-
     if (value.length > 0) {
-      const matches = leaderData.filter((item) =>
+      const matches = allLeaders.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(matches);
@@ -39,19 +76,24 @@ function UserComparePage() {
     }
   };
 
- const calculateOverallRating = (ratings) => {
-  const ratingKeys = Object.keys(ratings).filter(
-    (key) => key !== "overallRating"
-  );
-
-  const total = ratingKeys.reduce((sum, key) => sum + Number(ratings[key]), 0);
-  return (total / ratingKeys.length).toFixed(1); // average 1 decimal tak
-};
-
-  const handleSelectUser = (user) => {
-    setUser2(user);
-    setSearch2(user.name);
-    setSuggestions([]);
+  const handleSelectUser = async (user) => {
+    try {
+      let response;
+      if (user.category === "public_service") {
+        response = await axiosInstance.get(`/public_service/${user.id}`);
+      } else if (user.category === "executive") {
+        response = await axiosInstance.get(`/executive/${user.id}`);
+      } else if (user.category === "public_opinion") {
+        response = await axiosInstance.get(`/public_opinion/${user.id}`);
+      } else {
+        response = await axiosInstance.get(`/category/${user.id}`);
+      }
+      setUser2(response?.data?.category || null);
+      setSearch2(user.name);
+      setSuggestions([]);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const renderUserCard = (leader) => {
@@ -68,7 +110,7 @@ function UserComparePage() {
         <div className="flex flex-col items-center">
           <div className="w-full h-40 rounded-md overflow-hidden shadow">
             <img
-              src={leader.institutionLogo}
+              src={leader.image || leader.institutionLogo}
               alt={leader.name}
               className="w-full h-full object-cover"
             />
@@ -79,28 +121,31 @@ function UserComparePage() {
           <h3 className="mt-1 font-light">Overall Rating</h3>
         </div>
 
+        {/* Ratings */}
         <ul className="grid grid-cols-2 gap-4 mt-6">
-          {Object.entries(leader.ratings)
-            .filter(([key]) => key !== "overallRating")
-            .map(([key, value], index) => {
-              const randomColor = textColors[index % textColors.length];
-              return (
-                <li key={key} className="text-sm font-semibold pb-1">
-                  <span className="capitalize">
-                    {key.replace(/([A-Z])/g, " $1")}
-                  </span>
-                  <span className="flex text-2xl">
-                    {renderStars(Math.round(Number(value)), randomColor)}
-                  </span>
-                </li>
-              );
-            })}
+          {leader.ratings &&
+            Object.entries(leader.ratings)
+              .filter(([key]) => key !== "overallRating")
+              .map(([key, value], index) => {
+                const randomColor = textColors[index % textColors.length];
+                return (
+                  <li key={key} className="text-sm font-semibold pb-1">
+                    <span className="capitalize">
+                      {key.replace(/([A-Z])/g, " $1")}
+                    </span>
+                    <span className="flex text-2xl">
+                      {renderStars(Math.round(Number(value)), randomColor)}
+                    </span>
+                  </li>
+                );
+              })}
         </ul>
 
+        {/* Tags */}
         <h2 className="text-lg font-bold mt-6">Tags</h2>
         <div className="flex flex-wrap gap-2 mt-2">
-          {leader.tags?.length > 0 ? (
-            leader.tags.map((tag, idx) => (
+          {leader.tag?.tags?.length > 0 ? (
+            leader.tag.tags.map((tag, idx) => (
               <span
                 key={idx}
                 className="bg-gray-200 px-3 py-1 text-sm font-light rounded"
@@ -112,20 +157,20 @@ function UserComparePage() {
             <p className="text-gray-400 italic">No tags available</p>
           )}
         </div>
-        <ul className="mt-4 space-y-3">
-          {leader.questions?.map((q, idx) => {
-            // const [key, value] = Object.entries(q)[0];
 
-            return (
-              <li key={idx} className="bg-white px-3 py-1 font-bold rounded flex flex-col border-b pb-2">
-                <h3 className="capitalize text-gray-700 font-bold">
-                  {/* {key.replace(/([A-Z])/g, " $1")}? */}
-                  {q.question}
-                </h3>
-                <QuestionChart answer={q.answer} />
-              </li>
-            );
-          })}
+        {/* Questions */}
+        <ul className="mt-4 space-y-3">
+          {leader.questions?.map((q, idx) => (
+            <li
+              key={idx}
+              className="bg-white px-3 py-1 font-bold rounded flex flex-col border-b pb-2"
+            >
+              <h3 className="capitalize text-gray-700 font-bold">
+                {q.question}
+              </h3>
+              <QuestionChart answer={q.answer} />
+            </li>
+          ))}
         </ul>
       </div>
     );
@@ -134,19 +179,21 @@ function UserComparePage() {
   return (
     <div className="min-h-screen bg-gray-100 py-4 mt-28">
       <div className="max-w-7xl mx-auto bg-white shadow-xl rounded-lg p-8">
+        {/* Header */}
         <div className="grid grid-cols-3 text-center font-bold text-3xl">
           <h1>{user1?.name || "User 1"}</h1>
-          <div className="bg-primary mx-[11.2rem] rounded-full flex justify-center items-center">
+          <div className="bg-primary mx-[11rem] my-4 rounded-full flex justify-center items-center">
             <h1 className="text-white text-xl">VS</h1>
           </div>
           <h1>{user2?.name || "User 2"}</h1>
         </div>
 
+        {/* Search */}
         <div className="flex justify-center my-6">
           <div className="relative w-1/3">
             <input
               type="text"
-              placeholder="Enter undefined name"
+              placeholder="Enter user name"
               value={search2}
               onChange={(e) => handleSearchChange(e.target.value)}
               className="border text-center p-2 rounded w-96 focus:outline-none"
@@ -167,14 +214,14 @@ function UserComparePage() {
           </div>
         </div>
 
+        {/* Compare Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-8">
-          <div className="w-full max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
+          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-8">
             {renderUserCard(user1)}
           </div>
-          <div className="w-full max-w-7xl mx-auto bg-gray-50 shadow-xl rounded-lg p-8">
+          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-8">
             {renderUserCard(user2)}
           </div>
-          
         </div>
       </div>
     </div>

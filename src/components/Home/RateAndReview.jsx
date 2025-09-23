@@ -37,7 +37,7 @@ function RateAndReview() {
       ) : (
         <div className="max-w-7xl mx-auto my-10">
           <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-3 min-[1280px]:grid-cols-4 gap-6 lg:gap-8">
-            <Link to="/poll">
+            <Link to="/gh/poll">
               <div className="group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer">
                 <img
                   alt="Polls & Public Opinion"
@@ -56,7 +56,7 @@ function RateAndReview() {
                   key={category.id}
                   className="group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer"
                 >
-                  <Link to={`/users/${category.name}`}>
+                  <Link to={`/gh/users/${category.name}`}>
                     <img
                       alt={category.name}
                       className="size-full object-cover brightness-75"

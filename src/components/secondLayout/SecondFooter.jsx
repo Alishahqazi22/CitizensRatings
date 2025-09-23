@@ -53,7 +53,7 @@ function SecondFooter() {
                   CitizensRatings
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/" target="_blank">
+                  <Link to="/gh" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Home</p>
@@ -65,13 +65,13 @@ function SecondFooter() {
                       <p>About us</p>
                     </li>
                   </Link>
-                  <Link to="/blogs" target="_blank">
+                  <Link to="/gh/blogs" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Blog</p>
                     </li>
                   </Link>
-                  <Link to="/poll" target="_blank">
+                  <Link to="/gh/poll" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Polls</p>
@@ -84,25 +84,25 @@ function SecondFooter() {
                   Legal
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/code-of-conduct" target="_blank">
+                  <Link to="/gh/code-of-conduct" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Code Of Conduct</p>
                     </li>
                   </Link>
-                  <Link to="/site-guidelines" target="_blank">
+                  <Link to="/gh/site-guidelines" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Site Guidelines</p>
                     </li>
                   </Link>
-                  <Link to="/privacy-policy" target="_blank">
+                  <Link to="/gh/privacy-policy" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Privacy policy</p>
                     </li>
                   </Link>
-                  <Link to="/term-of-use" target="_blank">
+                  <Link to="/gh/term-of-use" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Term of Use</p>
@@ -115,25 +115,25 @@ function SecondFooter() {
                   Help & Support
                 </h3>
                 <ul className="space-y-2 sm:space-y-3">
-                  <Link to="/faqs" target="_blank">
+                  <Link to="/gh/faqs" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>FAQs</p>
                     </li>
                   </Link>
-                  <Link to="/contact-us" target="_blank">
+                  <Link to="/gh/contact-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Contact Us</p>
                     </li>
                   </Link>
-                  <Link to="/email-us" target="_blank">
+                  <Link to="/gh/email-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>Email Us</p>
                     </li>
                   </Link>
-                  <Link to="/whatsapp-us" target="_blank">
+                  <Link to="/gh/whatsapp-us" target="_blank">
                     <li className="flex items-center cursor-pointer transition-colors duration-200 group hover:text-gray-200 mb-3">
                       <MdKeyboardArrowRight className="transition-transform duration-200 group-hover:translate-x-1" />
                       <p>WhatsApp Us</p>
@@ -149,11 +149,11 @@ function SecondFooter() {
         <div className="max-w-7xl mx-auto">
           <p className="text-center text-sm sm:text-base lg:text-lg text-gray-100">
             © 2025 Lispira. All rights reserved.{" "}
-            <Link to="/" className="hover:underline">
+            <Link to="/gh" className="hover:underline">
               CitizensRatings.com
             </Link>{" "}
             and{" "}
-            <Link to="/" className="hover:underline">
+            <Link to="/gh" className="hover:underline">
               GradeAndRate.com
             </Link>{" "}
             are products of Lispira Corporation.

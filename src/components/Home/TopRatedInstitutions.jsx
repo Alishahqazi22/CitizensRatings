@@ -14,12 +14,13 @@ function TopRatedInstitutions() {
   const [loading, setLoading] = useState(true);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const slugify = (text) => text?.toString().toLowerCase().replace(/\s+/g, "-");
 
   async function getInstution() {
     try {
       const response = await axiosInstance.get("/public_service");
       const apiData = response?.data?.data || [];
-      // console.log(apiData);
+      console.log("api",apiData);
       setData(apiData);
     } catch (error) {
       console.log(error);
@@ -75,14 +76,16 @@ function TopRatedInstitutions() {
             {data.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="flex flex-col items-center w-36">
-                  <Link to={`/detail/${item.category}/${item.id}`}>
+                  <Link
+                    to={`/gh/detail/${slugify(item.category?.name)}/${item.id}`}
+                  >
                     <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                       <img
                         src={profile01}
                         alt="profile"
                         className="w-full h-full object-cover rounded-full"
                       />
-                    </div>
+                    </div>  
                   </Link>
 
                   <p className="mt-5 text-center">{item.name}</p>

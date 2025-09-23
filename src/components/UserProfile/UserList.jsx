@@ -10,17 +10,30 @@ function UserList() {
   const { category } = useParams();
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState({});
-  const [bookmarked, setBookmarked] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [savedIds, setSavedIds] = useState([]);
 
-  const handleBookmark = (e) => {
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    setSavedIds(saved.map((u) => u.id));
+  }, []);
+
+  const handleBookmark = (e, user) => {
     e.preventDefault();
-    if (!bookmarked) {
-      showError("Item Added To Saved List!");
-    } else {
+
+    let saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    const isSaved = saved.some((u) => u.id === user.id);
+
+    if (isSaved) {
+      saved = saved.filter((u) => u.id !== user.id);
       showError("Item Removed from Saved List!");
+    } else {
+      saved.push(user);
+      showError("Item Added To Saved List!");
     }
-    setBookmarked(!bookmarked);
+
+    localStorage.setItem("savedUsers", JSON.stringify(saved));
+    setSavedIds(saved.map((u) => u.id));
   };
 
   // 🔹 API Call
@@ -28,13 +41,9 @@ function UserList() {
     try {
       const response = await axiosInstance.get("/category");
       const apiData = response?.data?.data || [];
-      let users = apiData;
-
-      if (category) {
-        users = users.filter((u) => u.type === category);
-      }
-
-      setFilteredUsers(users);
+      const filterData = apiData?.filter((u) => u.label === category);
+      console.log(filterData, "filterData");
+      setFilteredUsers(filterData);
     } catch (error) {
       console.error("Error fetching categories:", error);
     } finally {
@@ -44,7 +53,7 @@ function UserList() {
 
   useEffect(() => {
     fetchUsers();
-  }, [category]);
+  }, [filteredUsers]);
 
   const handleApply = (newFilters) => {
     const updatedFilters = { ...appliedFilters, ...newFilters };
@@ -77,6 +86,8 @@ function UserList() {
     setAppliedFilters({});
   };
 
+  console.log(filteredUsers, "filteredUsers");
+
   return (
     <div className="max-w-[59rem] mx-auto p-4 mt-36">
       <UserFilterBar
@@ -98,7 +109,7 @@ function UserList() {
         <div className="w-full flex flex-col gap-6 mt-14">
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
-              <Link to={`/detail/${user.type}/${user.id}`} key={user.id}>
+              <Link to={`/gh/detail/${user.category}/${user.id}`} key={user.id}>
                 <div className="relative max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
                   <div className="relative w-32 rounded-md overflow-hidden">
                     <img
@@ -116,24 +127,58 @@ function UserList() {
                   </div>
 
                   <div className="ml-6 py-4 flex-1">
-                    <h2 className="font-bold text-xl">{user?.name || "N/A"}</h2>
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-gray-600">Created At</h3>
+                    <h2 className="font-bold text-xl mb-4">
+                      {user?.name || "N/A"}
+                    </h2>
+
+                    <div className="flex mb-2">
+                      <h3 className="w-40 font-bold text-gray-600">
+                        Date Of First Auth.
+                      </h3>
                       <p>{user?.created_at || "N/A"}</p>
                     </div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-gray-600">Type</h3>
+
+                    <div className="flex mb-2">
+                      <h3 className="w-40 font-bold text-gray-600">Status</h3>
+                      <p>{user?.status || "N/A"}</p>
+                    </div>
+
+                    <div className="flex mb-2">
+                      <h3 className="w-40 font-bold text-gray-600">Type</h3>
                       <p>{user?.type || "N/A"}</p>
                     </div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-bold text-gray-600">Tags</h3>
-                      <p>{user?.tags?.slice(0, 3).join(", ") || "N/A"}</p>
+
+                    <div className="flex mb-2">
+                      <h3 className="w-40 font-bold text-gray-600">
+                        Ownership
+                      </h3>
+                      <p>{user?.Ownership || "N/A"}</p>
+                    </div>
+
+                    <div className="flex mb-2 items-start">
+                      <h3 className="w-40 font-bold text-gray-600">Tags</h3>
+                      <div className="flex flex-col">
+                        {user?.tag?.tags?.slice(0, 3).length > 0 ? (
+                          user.tag.tags.slice(0, 3).map((tag, index) => (
+                            <p key={index} className="text-gray-700">
+                              {tag}
+                            </p>
+                          ))
+                        ) : (
+                          <p className="text-gray-400">N/A</p>
+                        )}
+                      </div>
                     </div>
                   </div>
+
                   <div
-                    title="BookMark"
-                    onClick={handleBookmark}
-                    className="m-1 size-10 flex justify-center items-center text-gray-400 hover:text-primary hover:bg-gray-100 cursor-default rounded-full transition-colors duration-200"
+                    title="Bookmark"
+                    onClick={(e) => handleBookmark(e, user)}
+                    className={`m-1 size-10 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 
+                  ${savedIds.includes(user.id)
+                     ? "text-primary hover:text-gray-400 hover:bg-gray-100"
+                     : "text-gray-400 hover:text-primary hover:bg-gray-100"
+                    }`}
                   >
                     <MdOutlineBookmarkAdded size={24} />
                   </div>
@@ -157,10 +202,7 @@ function UserList() {
         <h1 className="text-xl font-bold">
           Don't see what you're looking for?
         </h1>
-        <Link
-          to="/addpage.php"
-          target="_blank"
-        >
+        <Link to="/gh/addpage.php" target="_blank">
           <button className="py-2 px-3 text-2xl rounded bg-primary text-white">
             Click to Add
           </button>

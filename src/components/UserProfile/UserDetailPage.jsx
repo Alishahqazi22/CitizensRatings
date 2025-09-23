@@ -35,14 +35,19 @@ function UserDetailPage() {
   async function getLeader() {
     try {
       setLoading(true);
-      const response = await axiosInstance.get("/public_service");
-      const allUsers = response?.data?.data || [];
+      let response;
 
-      const singleUser = allUsers.find(
-        (item) => String(item.id) === String(id)
-      );
-
-      setLeader(singleUser || null);
+      if (category === "public_service") {
+        response = await axiosInstance.get(`/public_service/${id}`);
+      } else if (category === "executive") {
+        response = await axiosInstance.get(`/executive/${id}`);
+      } else if (category === "public_opinion") {
+        response = await axiosInstance.get(`/public_opinion/${id}`);
+      } else {
+        response = await axiosInstance.get(`/category/${id}`);
+      }
+      console.log(response.data);
+      setLeader(response?.data.category || null);
     } catch (error) {
       console.log(error);
     } finally {
@@ -79,14 +84,14 @@ function UserDetailPage() {
           </div>
           <div className="flex space-x-2">
             <div className="inline-block p-[1px] bg-white rounded-lg">
-              <Link to={`/${leader.category}/${leader.id}/addratting`}>
+              <Link to={`/gh/${leader.category}/${leader.id}/addratting`}>
                 <button className="btn-primary px-6 bg-primary text-white flex">
                   Rate
                   <IoIosArrowRoundForward size={18} className="mt-1" />
                 </button>
               </Link>
             </div>
-            <Link to={`/compare/${category}/${id}`}>
+            <Link to={`/gh/compare/${leader.category}/${leader.id}`}>
               <button className="btn-primary px-6 text-black border border-black">
                 Compare
               </button>
@@ -112,39 +117,39 @@ function UserDetailPage() {
           </div>
 
           <div className="w-full md:w-2/1 mt-10">
-           {leader.ratings ? (
-             <ul className="grid grid-cols-2 gap-7">
-              {Object.entries(leader?.ratings|| {})
-                .filter(([key]) => key !== "overallRating")
-                .map(([key, value], index) => {
-                  const randomColor = colors[index % colors.length];
-                  return (
-                    <li
-                      key={key}
-                      className="flex justify-between text-lg font-semibold pb-1"
-                    >
-                      <span className="capitalize">
-                        {key.replace(/([A-Z])/g, " $1")}
-                      </span>
-                      <span
-                        className={`font-bold rounded px-3 py-1 ${randomColor}`}
+            {leader.ratings ? (
+              <ul className="grid grid-cols-2 gap-7">
+                {Object.entries(leader?.ratings || {})
+                  .filter(([key]) => key !== "overallRating")
+                  .map(([key, value], index) => {
+                    const randomColor = colors[index % colors.length];
+                    return (
+                      <li
+                        key={key}
+                        className="flex justify-between text-lg font-semibold pb-1"
                       >
-                        {Number(value).toFixed(1)}
-                      </span>
-                    </li>
-                  );
-                })}
-            </ul>
-           ) : (
-            <p>No Ratings available yet</p>
-           )}
+                        <span className="capitalize">
+                          {key.replace(/([A-Z])/g, " $1")}
+                        </span>
+                        <span
+                          className={`font-bold rounded px-3 py-1 ${randomColor}`}
+                        >
+                          {Number(value).toFixed(1)}
+                        </span>
+                      </li>
+                    );
+                  })}
+              </ul>
+            ) : (
+              <p>No Ratings available yet</p>
+            )}
           </div>
         </div>
 
         <h1 className="text-2xl font-bold mt-8 mb-3">Top TAGS</h1>
         <div className="flex flex-wrap gap-2">
-          {leader?.tags && leader?.tags.length > 0 ? (
-            leader.tags.map((tag, idx) => (
+          {leader?.tag?.tags && leader?.tag?.tags.length > 0 ? (
+            leader.tag.tags.map((tag, idx) => (
               <span
                 key={idx}
                 className="bg-gray-200 px-3 py-1 text-sm font-light"
@@ -176,35 +181,38 @@ function UserDetailPage() {
             <div className="w-full md:w-2/1 mt-10">
               {leader.ratings ? (
                 <ul className="grid grid-cols-2 gap-7">
-                {Object.entries(leader?.ratings || {})
-                  .filter(([key]) => key !== "overallRating")
-                  .map(([key, value], index) => {
-                    const randomColor = textColors[index % textColors.length];
-                    return (
-                      <li key={key} className="text-md pb-1">
-                        <span className="capitalize">
-                          {key.replace(/([A-Z])/g, " $1")}
-                        </span>
-                        <span className="flex text-2xl">
-                          {renderStars(Math.round(Number(value)), randomColor)}
-                        </span>
-                      </li>
-                    );
-                  })}
+                  {Object.entries(leader?.ratings || {})
+                    .filter(([key]) => key !== "overallRating")
+                    .map(([key, value], index) => {
+                      const randomColor = textColors[index % textColors.length];
+                      return (
+                        <li key={key} className="text-md pb-1">
+                          <span className="capitalize">
+                            {key.replace(/([A-Z])/g, " $1")}
+                          </span>
+                          <span className="flex text-2xl">
+                            {renderStars(
+                              Math.round(Number(value)),
+                              randomColor
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
 
-                {leader.questions ? (
-                  leader.questions.map((q, idx) => (
-                    <li key={idx} className="pb-1 text-gray-700">
-                      <h3 className="capitalize">{q?.question}</h3>
-                      <p className="font-bold">
-                        Ans: {q?.answer ? q?.answer : "Not answered"}
-                      </p>
-                    </li>
-                  ))
-                ) : (
-                  <p>questions available yet</p>
-                )}
-              </ul>
+                  {leader.questions ? (
+                    leader.questions.map((q, idx) => (
+                      <li key={idx} className="pb-1 text-gray-700">
+                        <h3 className="capitalize">{q?.question}</h3>
+                        <p className="font-bold">
+                          Ans: {q?.answer ? q?.answer : "Not answered"}
+                        </p>
+                      </li>
+                    ))
+                  ) : (
+                    <p>questions available yet</p>
+                  )}
+                </ul>
               ) : (
                 <p>No Ratings available Yet</p>
               )}

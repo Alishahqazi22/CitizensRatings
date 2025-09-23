@@ -22,7 +22,7 @@ export function useCustomGoogleLogin() {
           JSON.stringify(response?.data?.data?.user)
         );
         toast.success(response?.data?.data?.message);
-        window.location.href = "/";
+        window.location.href = "/gh";
       } else {
         toast.error(response?.data?.data?.message);
       }

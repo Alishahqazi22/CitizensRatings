@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/HomeAssets/homelogo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
@@ -8,12 +8,13 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("user");
-    navigate("/login");
+    navigate("/gh/login");
   };
 
   useEffect(() => {
@@ -29,6 +30,19 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+          setShowUserDropdown(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
 
   return (
     <div
@@ -48,13 +62,13 @@ function Header() {
         {!accessToken ? (
           <div className="flex space-x-4">
             <div className="inline-block p-[1px] bg-white rounded-lg">
-              <Link to="/signup">
+              <Link to="/gh/signup">
                 <button className="btn-primary bg-primary text-white">
                   Sign Up
                 </button>
               </Link>
             </div>
-            <Link to="/login">
+            <Link to="/gh/login">
               <button className="btn-primary bg-white text-primary border border-primary">
                 Login
               </button>
@@ -74,8 +88,10 @@ function Header() {
             </div>
 
             {showUserDropdown && (
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
-                <Link to="/profile/user">
+              <div
+              ref={dropdownRef} 
+               className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
+                <Link to="/gh/profile/user">
                   <button className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg">
                     Profile
                   </button>

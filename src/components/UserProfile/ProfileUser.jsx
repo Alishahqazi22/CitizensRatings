@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import AccountSettings from "../Forms/AccountSettings";
+import SavedCard from "./SavedCard";
 
 function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
   const user = JSON.parse(localStorage.getItem("user"));
+  const [savedUsers, setSavedUsers] = useState([]);
+
+  const savedAcademicRatings = savedUsers.filter((u) => u.type === "ratingsAcademic");
+  const savedNonAcademicRatings = savedUsers.filter((u) => u.type === "ratingsNonAcademic");
+  const savedAcademic = savedUsers.filter((u) => u.type === "academic");
+  const savedNonAcademic = savedUsers.filter((u) => u.type === "nonAcademic");
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    setSavedUsers(saved);
+    console.log("saved user", saved);
+  }, []);
+
+  const handleUpdateSaved = (updated) => {
+    setSavedUsers(updated);
+  };
 
   const tabs = [
     "Profile",
@@ -40,32 +57,32 @@ function ProfileUser() {
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
-  try {
-    const formData = new FormData();
+    try {
+      const formData = new FormData();
 
-    Object.keys(values).forEach((key) => {
-      formData.append(key, values[key]);
-    });
+      Object.keys(values).forEach((key) => {
+        formData.append(key, values[key]);
+      });
 
-    formData.append("id", user?.id);
+      formData.append("id", user?.id);
 
-    const res = await axios.post(`/user/${user?.id}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+      const res = await axios.post(`/user/${user?.id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    alert("Profile updated successfully!");
-    console.log(res?.data?.data);
+      alert("Profile updated successfully!");
+      console.log(res?.data?.data);
 
-    localStorage.setItem("user", JSON.stringify(res?.data?.data));
-  } catch (error) {
-    console.error(error);
-    alert("Failed to update profile!");
-  } finally {
-    setSubmitting(false);
-  }
-};
+      localStorage.setItem("user", JSON.stringify(res?.data?.data));
+    } catch (error) {
+      console.error(error);
+      alert("Failed to update profile!");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className="p-6 max-w-4xl mx-auto mt-28">
@@ -339,8 +356,71 @@ function ProfileUser() {
         </Formik>
       )}
 
-      {/* Account Settings Tab */}
       {activeTab === "Account Settings" && <AccountSettings />}
+
+      {activeTab === "Ratings Academic" && (
+        <div>
+          {savedAcademicRatings.length > 0 ? (
+            savedAcademicRatings.map((user) => (
+              <SavedCard
+                key={user.id}
+                user={user}
+                onUpdateSaved={handleUpdateSaved}
+              />
+            ))
+          ) : (
+            <p className="text-gray-500">No saved Ratings Academic users found.</p>
+          )}
+        </div>
+      )}
+
+      {activeTab === "Ratings Non Academic" && (
+        <div>
+          {savedNonAcademicRatings.length > 0 ? (
+            savedNonAcademicRatings.map((user) => (
+              <SavedCard
+                key={user.id}
+                user={user}
+                onUpdateSaved={handleUpdateSaved}
+              />
+            ))
+          ) : (
+            <p className="text-gray-500">No saved Ratings Non Academic users found.</p>
+          )}
+        </div>
+      )}
+
+      {activeTab === "Saved Academic" && (
+        <div>
+          {savedAcademic.length > 0 ? (
+            savedAcademic.map((user) => (
+              <SavedCard
+                key={user.id}
+                user={user}
+                onUpdateSaved={handleUpdateSaved}
+              />
+            ))
+          ) : (
+            <p className="text-gray-500">No saved academic users found.</p>
+          )}
+        </div>
+      )}
+
+      {activeTab === "Saved Non Academic" && (
+        <div>
+          {savedNonAcademic.length > 0 ? (
+            savedNonAcademic.map((user) => (
+              <SavedCard
+                key={user.id}
+                user={user}
+                onUpdateSaved={handleUpdateSaved}
+              />
+            ))
+          ) : (
+            <p className="text-gray-500">No saved non academic users found.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

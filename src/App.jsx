@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "./components/layout/Layout";
 import Home from "./components/Pages/Home";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import SignUp from "./components/Forms/SignUp";
 import Login from "./components/Forms/Login";
 import UserDetailPage from "./components/UserProfile/UserDetailPage";
@@ -24,28 +24,29 @@ function App() {
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<Layout />}>
+
+      <Route path="/" element={<Navigate to="/gh" replace />} />
+
+      <Route path="/gh" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="/detail/:category/:id" element={<UserDetailPage />} />
-        <Route path="/compare/:category/:id" element={<UserComparePage />} />
-        <Route path="/:category/:id/addratting" element={<AddRatingPage />} />
-        <Route path="/poll" element={<Poll />} />
-        <Route path="/profile/user" element={<ProfileUser />} />
-        <Route path="/users/:category" element={<UserList />} />
-        <Route path="/poll/:id" element={<PollDetail />} />
-        <Route path="/criteria" element={<PollCriteria />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/gh/detail/:category/:id" element={<UserDetailPage />} />
+        <Route path="/gh/compare/:category/:id" element={<UserComparePage />} />
+        <Route path="/gh/:category/:id/addratting" element={<AddRatingPage />} />
+        <Route path="/gh/poll" element={<Poll />} />
+        <Route path="/gh/profile/user" element={<ProfileUser />} />
+        <Route path="/gh/users/:category" element={<UserList />} />
+        <Route path="/gh/poll/:id" element={<PollDetail />} />
+        <Route path="/gh/criteria" element={<PollCriteria />} />
+        <Route path="/gh/signup" element={<SignUp />} />
+        <Route path="/gh/login" element={<Login />} />
       </Route>
-      <Route path="/" element={<SecondLayout />}>
-        <Route path="/addpage.php" element={<AddPage />} />
-        <Route path="/forms/add-individuals.php" element={<AddIndividuals />} />
-        <Route
-          path="/forms/add-institutions.php"
-          element={<AddInstitutions />}
-        />
-        <Route path="/forms/add-policies.php" element={<AddPolicies />} />
-        <Route path="/forms/add-others.php" element={<AddOthers />} />
+
+      <Route path="/gh" element={<SecondLayout />}>
+        <Route path="/gh/addpage.php" element={<AddPage />} />
+        <Route path="/gh/forms/add-individuals.php" element={<AddIndividuals />} />
+        <Route path="/gh/forms/add-institutions.php" element={<AddInstitutions />} />
+        <Route path="/gh/forms/add-policies.php" element={<AddPolicies />} />
+        <Route path="/gh/forms/add-others.php" element={<AddOthers />} />
       </Route>
     </Routes>
   );

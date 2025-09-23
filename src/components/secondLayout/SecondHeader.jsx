@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/HomeAssets/homelogo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
@@ -8,6 +8,7 @@ function SecondHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
@@ -30,9 +31,22 @@ function SecondHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowUserDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div
-      className={`fixed top-0 left-0 w-full inset-10 z-[999999] transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-[999999] transition-all duration-300 ${
         scrolled ? "bg-primary shadow-md" : "bg-transparent"
       }`}
     >
@@ -48,13 +62,13 @@ function SecondHeader() {
         {!accessToken ? (
           <div className="flex space-x-2 mt-3 mb-1">
             <div className="inline-block p-[1px] bg-white rounded">
-              <Link to="/signup">
+              <Link to="/gh/signup">
                 <button className="btn-secondary border border-white bg-primary text-white">
                   Signup
                 </button>
               </Link>
             </div>
-            <Link to="/login">
+            <Link to="/gh/login">
               <button className="btn-secondary bg-white text-primary border border-primary">
                 Login
               </button>
@@ -74,8 +88,11 @@ function SecondHeader() {
             </div>
 
             {showUserDropdown && (
-              <div className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
-                <Link to="/profile/user">
+              <div
+                ref={dropdownRef}
+                className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50"
+              >
+                <Link to="/gh/profile/user">
                   <button className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg">
                     Profile
                   </button>

@@ -5,6 +5,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import AddPageHeroSection from "../AddPage/AddPageHeroSection";
 import AddIndividualsImg from "../../assets/AddPageAssets/add_individuals.jpg";
 import { axiosInstance } from "../../Config/axiosInstance";
+import { Link } from "react-router-dom";
 
 const validationSchema = Yup.object({
   category_id: Yup.string().required("Category is required"),
@@ -260,21 +261,21 @@ function AddIndividuals() {
                 <div className="flex flex-col">
                   <span className="text-sm">
                     *I agree to the{" "}
-                    <a href="#" className="text-green-600 hover:underline">
+                    <Link to="#" className="text-green-600 hover:underline">
                       Terms of Use
-                    </a>
+                    </Link>
                     ,{" "}
-                    <a href="#" className="text-green-600 hover:underline">
+                    <Link to="#" className="text-green-600 hover:underline">
                       Privacy Policy
-                    </a>
+                    </Link>
                     ,{" "}
-                    <a href="#" className="text-green-600 hover:underline">
+                    <Link to="#" className="text-green-600 hover:underline">
                       Site guidelines
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a href="#" className="text-green-600 hover:underline">
+                    <Link to="#" className="text-green-600 hover:underline">
                       Code of conduct
-                    </a>
+                    </Link>
                   </span>
                   <ErrorMessage
                     name="agree"

@@ -31,7 +31,7 @@ function Poll() {
         <div className="border-t border-black">
           <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-3 min-[2560px]:grid-cols-4 gap-6 lg:gap-8">
             {poll.map((poll) => (
-              <Link key={poll.id} to={`/poll/${poll.id}`}>
+              <Link key={poll.id} to={`/gh/poll/${poll.id}`}>
                 <div className="group relative w-80 h-48 md:mx-6 my-10 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer">
                   <img
                     alt={poll.name}

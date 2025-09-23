@@ -39,7 +39,7 @@ function SignUp() {
       const response = await axiosInstance.post("signup", formData);
       if (response?.data?.data?.status) {
         toast.success(response?.data?.data?.message);
-        navigate("/login");
+        navigate("/gh/login");
       } else {
         toast.error(response?.data?.data?.message);
       }
@@ -239,7 +239,7 @@ function SignUp() {
 
         <p className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link to="/login" className="text-primary hover:underline">
+          <Link to="/gh/login" className="text-primary hover:underline">
             Login
           </Link>
         </p>

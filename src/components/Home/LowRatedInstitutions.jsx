@@ -75,7 +75,7 @@ function LowRatedInstitutions() {
             {data.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="flex flex-col items-center w-36">
-                  <Link to={`/detail/${item.category}/${item.id}`}>
+                  <Link to={`/gh/detail/${item.category}/${item.id}`}>
                     <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                       <img
                         src={profile01}

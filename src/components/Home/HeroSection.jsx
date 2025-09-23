@@ -11,8 +11,6 @@ function HeroSection() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
-
-  // 🔹 ref for dropdown wrapper
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +28,7 @@ function HeroSection() {
     };
     fetchCategories();
   }, []);
+
   // 🔹 close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -48,7 +47,7 @@ function HeroSection() {
     setValue(cat);
     setShowDropdown(false);
     setShowSuggestions(false);
-    navigate(`/users/${cat}`);
+    navigate(`/gh/users/${cat}`);
   };
 
   const handleSearch = () => {
@@ -57,7 +56,7 @@ function HeroSection() {
       (cat) => cat.toLowerCase() === value.trim().toLowerCase()
     );
     if (matched) {
-      navigate(`/users/${matched}`);
+      navigate(`/gh/users/${matched}`);
     } else {
       alert("Category not found!");
     }
