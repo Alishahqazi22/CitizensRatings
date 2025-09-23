@@ -20,7 +20,7 @@ function TopRatedInstitutions() {
     try {
       const response = await axiosInstance.get("/public_service");
       const apiData = response?.data?.data || [];
-      console.log("api",apiData);
+      // console.log("api",apiData);
       setData(apiData);
     } catch (error) {
       console.log(error);

@@ -6,6 +6,7 @@ import { FiThumbsDown, FiThumbsUp } from "react-icons/fi";
 import { IoFlagOutline } from "react-icons/io5";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import { axiosInstance } from "../../Config/axiosInstance";
+import { toast } from "react-toastify";
 
 const colors = ["bg-orange-500", "bg-green-400", "bg-yellow-400"];
 const textColors = ["text-orange-500", "text-green-500", "text-yellow-400"];
@@ -31,6 +32,18 @@ function UserDetailPage() {
   const [leader, setLeader] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showReportForm, setShowReportForm] = useState(false);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+
+  const handleLike = () => {
+    setLikes((prev) => (prev === 0 ? +1 : 0));
+    if (dislikes === 1) setDislikes(0);
+  };
+
+  const handleDislike = () => {
+    setDislikes((prev) => (prev === 0 ? +1 : 0));
+    if (likes === 1) setLikes(0);
+  };
 
   async function getLeader() {
     try {
@@ -47,6 +60,7 @@ function UserDetailPage() {
         response = await axiosInstance.get(`/category/${id}`);
       }
       console.log(response.data);
+      toast.success(response?.data?.message);
       setLeader(response?.data.category || null);
     } catch (error) {
       console.log(error);
@@ -72,9 +86,10 @@ function UserDetailPage() {
   }
 
   return (
-    <div className="flex justify-center mt-28 bg-gray-100 min-h-screen">
+    <div className="flex justify-center mt-24 sm:mt-28 bg-gray-100 min-h-screen">
       <div className="bg-white shadow-2xl rounded-lg my-6 p-8 w-full max-w-[44rem] lg:max-w-4xl xl:max-w-6xl">
-        <div className="flex justify-between">
+        {/* Header */}
+        <div className="sm:flex justify-between">
           <div>
             <h1 className="text-3xl font-bold">{leader?.name || "NA"}</h1>
             <p className="py-2">
@@ -99,6 +114,7 @@ function UserDetailPage() {
           </div>
         </div>
 
+        {/* image */}
         <div className="flex flex-col lg:flex-row gap-4 mt-6 items-center lg:items-start">
           <div className="w-full md:w-1/4 flex flex-col items-center">
             <div className="w-64 h-64 rounded-md overflow-hidden shadow">
@@ -164,7 +180,7 @@ function UserDetailPage() {
 
         <h1 className="text-xl font-bold mt-10">Ratings & Reviews</h1>
         <div className="bg-gray-100 rounded-lg flex items-center justify-center my-4 w-full">
-          <div className="bg-white shadow-md rounded-lg p-8 mx-6 my-8 w-full">
+          <div className="bg-white shadow-md rounded-lg p-8 sm:mx-6 sm:my-8 w-full">
             <div className="flex gap-4">
               <p className="text-2xl font-bold rounded-lg p-4 text-white bg-yellow-400">
                 {calculateOverallRating(leader?.ratings || "NA")}
@@ -218,12 +234,19 @@ function UserDetailPage() {
               )}
             </div>
             <div className="flex items-center gap-6 mt-6 text-gray-600">
-              <button className="flex items-center gap-2">
+              <button onClick={handleLike} className="flex items-center gap-2">
                 <FiThumbsUp />
+                <span>{likes}</span>
               </button>
-              <button className="flex items-center gap-2 mt-1">
+
+              <button
+                onClick={handleDislike}
+                className="flex items-center gap-2"
+              >
                 <FiThumbsDown />
+                <span>{dislikes}</span>
               </button>
+
               <button
                 onClick={() => setShowReportForm(true)}
                 className="flex items-center gap-2 cursor-pointer"

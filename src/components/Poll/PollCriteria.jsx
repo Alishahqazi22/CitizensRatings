@@ -11,7 +11,7 @@ function PollCriteria() {
   const getCriteria = async () => {
     try {
       const res = await axiosInstance.get(`/rating-criterion`);
-      const first = res?.data?.data?.[0] || null;
+      const first = res?.data?.data || null;
       console.log("Criteria Data:", first);
       setCriteriaData(first);
     } catch (error) {

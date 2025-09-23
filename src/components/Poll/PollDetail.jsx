@@ -118,6 +118,7 @@ function PollDetail() {
             xaxis: {
               categories: answers.map((a) => a.category),
               labels: {
+                show:false,
                 style: {
                   fontSize: "12px",
                   fontWeight: 400,
@@ -129,6 +130,9 @@ function PollDetail() {
                 },
               },
             },
+            legend: {
+  show: true, // ✅ color boxes off
+},
 
             yaxis: { max: 100, title: { text: "Percentage of Votes" } },
             fill: { opacity: 1, colors: fillColors },

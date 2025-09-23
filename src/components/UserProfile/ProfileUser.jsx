@@ -10,10 +10,21 @@ function ProfileUser() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [savedUsers, setSavedUsers] = useState([]);
 
-  const savedAcademicRatings = savedUsers.filter((u) => u.type === "ratingsAcademic");
-  const savedNonAcademicRatings = savedUsers.filter((u) => u.type === "ratingsNonAcademic");
-  const savedAcademic = savedUsers.filter((u) => u.type === "academic");
-  const savedNonAcademic = savedUsers.filter((u) => u.type === "nonAcademic");
+  const savedAcademicRatings = savedUsers.filter(
+    (u) => u.type === "academic" && u.ratings && u.reviews
+  );
+
+  const savedNonAcademicRatings = savedUsers.filter(
+    (u) => u.type === "nonAcademic" && u.ratings && u.reviews
+  );
+
+  const savedAcademic = savedUsers.filter(
+    (u) => u.type === "academic" && (!u.ratings || !u.reviews)
+  );
+
+  const savedNonAcademic = savedUsers.filter(
+    (u) => u.type === "nonAcademic" && (!u.ratings || !u.reviews)
+  );
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
@@ -355,11 +366,12 @@ function ProfileUser() {
           )}
         </Formik>
       )}
-
+      {/* Account Settings Tab*/}
       {activeTab === "Account Settings" && <AccountSettings />}
 
+      {/* Ratings Academic Tab*/}
       {activeTab === "Ratings Academic" && (
-        <div>
+        <div className="flex flex-col gap-3">
           {savedAcademicRatings.length > 0 ? (
             savedAcademicRatings.map((user) => (
               <SavedCard
@@ -369,13 +381,16 @@ function ProfileUser() {
               />
             ))
           ) : (
-            <p className="text-gray-500">No saved Ratings Academic users found.</p>
+            <p className="text-gray-500">
+              No saved Ratings Academic users found.
+            </p>
           )}
         </div>
       )}
 
+      {/* Ratings Non Academic Tab*/}
       {activeTab === "Ratings Non Academic" && (
-        <div>
+        <div className="flex flex-col gap-3">
           {savedNonAcademicRatings.length > 0 ? (
             savedNonAcademicRatings.map((user) => (
               <SavedCard
@@ -385,13 +400,16 @@ function ProfileUser() {
               />
             ))
           ) : (
-            <p className="text-gray-500">No saved Ratings Non Academic users found.</p>
+            <p className="text-gray-500">
+              No saved Ratings Non Academic users found.
+            </p>
           )}
         </div>
       )}
 
+      {/* Saved Academic Tab*/}
       {activeTab === "Saved Academic" && (
-        <div>
+        <div className="flex flex-col gap-3">
           {savedAcademic.length > 0 ? (
             savedAcademic.map((user) => (
               <SavedCard
@@ -406,8 +424,9 @@ function ProfileUser() {
         </div>
       )}
 
+      {/* Saved Non Academic Tab*/}
       {activeTab === "Saved Non Academic" && (
-        <div>
+        <div className="flex flex-col gap-3">
           {savedNonAcademic.length > 0 ? (
             savedNonAcademic.map((user) => (
               <SavedCard

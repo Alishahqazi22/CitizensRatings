@@ -152,51 +152,52 @@ function AddRatingPage() {
   };
 
   const handleSubmit = async (values) => {
-  if (!user) {
-    alert("User data not loaded yet!");
-    return;
-  }
+    if (!user) {
+      alert("User data not loaded yet!");
+      return;
+    }
 
-  if (selectedTags.length < 3) {
-    alert("Please select at least 3 tags.");
-    return;
-  }
+    if (selectedTags.length < 3) {
+      alert("Please select at least 3 tags.");
+      return;
+    }
 
-  const newRating = Number(values.review.rating);
-  const oldRatings = user?.ratings?.allRatings || [];
-  const updatedRatings = [...oldRatings, newRating];
-  const avgRating =
-    updatedRatings.reduce((a, b) => a + b, 0) / updatedRatings.length;
+    const newRating = Number(values.review.rating);
+    const oldRatings = user?.ratings?.allRatings || [];
+    const updatedRatings = [...oldRatings, newRating];
+    const avgRating =
+      updatedRatings.reduce((a, b) => a + b, 0) / updatedRatings.length;
 
-  const updatedUser = {
-    ...user,
-    ratings: {
-      overallRating: avgRating.toFixed(1),
-      count: updatedRatings.length,
-      allRatings: updatedRatings,
-    },
-    reviews: [
-      ...(user?.reviews || []),
-      {
-        reviewer: values.review.reviewer || "Anonymous",
-        rating: newRating,
-        comment: values.review.comment,
-        date: new Date().toISOString().split("T")[0],
+    const updatedUser = {
+      ...user,
+      ratings: {
+        overallRating: avgRating.toFixed(1),
+        count: updatedRatings.length,
+        allRatings: updatedRatings,
       },
-    ],
-    tags: [...selectedTags],
+      reviews: [
+        ...(user?.reviews || []),
+        {
+          reviewer: values.review.reviewer || "Anonymous",
+          rating: newRating,
+          comment: values.review.comment,
+          date: new Date().toISOString().split("T")[0],
+        },
+      ],
+      tags: [...selectedTags],
+    };
+
+    try {
+      localStorage.setItem("updatedUsers", JSON.stringify(updatedUser));
+
+      await axiosInstance.post(`/category/${category}/${id}`, updatedUser);
+      alert("Rating, Review & Tags successfully added!");
+      navigate(-1);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      alert("Something went wrong while submitting!");
+    }
   };
-
-  try {
-    await axiosInstance.put(`/category/${category}/${id}`, updatedUser);
-    alert("Rating, Review & Tags successfully added!");
-    navigate(-1);
-  } catch (error) {
-    console.error("Error updating user:", error);
-    alert("Something went wrong while submitting!");
-  }
-};
-
 
   return (
     <div className="min-h-screen bg-white py-10 mt-28">
@@ -235,25 +236,30 @@ function AddRatingPage() {
               <section>
                 <h2 className="text-lg font-semibold mb-4">Questions</h2>
 
-                {user.questions?.map((q) => (
-                  <div key={q.id} className="mb-6">
-                    <label className="block text-sm font-medium mb-1">
-                      {q.question}
-                    </label>
-                    <div className="flex gap-4 flex-wrap">
-                      {q.options.map((opt, i) => (
-                        <label key={i} className="flex items-center gap-2">
-                          <Field
-                            type="radio"
-                            name={`questions.${q.id}`}
-                            value={opt}
-                          />
-                          {opt}
-                        </label>
-                      ))}
+                {user.category_details?.[0]?.rating_criteria?.criteria?.map(
+                  (q) => (
+                    <div key={q.id} className="mb-6">
+                      <label className="block text-sm font-medium mb-1">
+                        {q.title}
+                      </label>
+
+                      <div className="flex gap-4 flex-wrap">
+                        {q.option?.map((opt, i) => (
+                          <label key={i} className="flex items-center gap-2">
+                            <Field
+                              type="radio"
+                              name={`questions.${q.id}`} 
+                              value={opt.value}
+                            />
+                            <span style={{ color: opt.color }}>
+                              {opt.option}
+                            </span>
+                          </label>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                )}
               </section>
 
               {/* Tags */}

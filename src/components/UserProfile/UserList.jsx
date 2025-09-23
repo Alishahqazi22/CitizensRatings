@@ -12,6 +12,7 @@ function UserList() {
   const [appliedFilters, setAppliedFilters] = useState({});
   const [loading, setLoading] = useState(true);
   const [savedIds, setSavedIds] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
@@ -40,9 +41,10 @@ function UserList() {
   async function fetchUsers() {
     try {
       const response = await axiosInstance.get("/category");
-      const apiData = response?.data?.data || [];
-      const filterData = apiData?.filter((u) => u.label === category);
-      console.log(filterData, "filterData");
+      const filterData = response?.data?.data || [];
+      // const filterData = apiData?.filter((u) => u.label === category);
+      console.log("filterData" ,filterData);
+      setAllUsers(filterData); 
       setFilteredUsers(filterData);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -53,43 +55,39 @@ function UserList() {
 
   useEffect(() => {
     fetchUsers();
-  }, [filteredUsers]);
+  }, [category]);
 
-  const handleApply = (newFilters) => {
-    const updatedFilters = { ...appliedFilters, ...newFilters };
+ const handleApply = (newFilters) => {
+  const updatedFilters = { ...appliedFilters, ...newFilters };
 
-    let users = filteredUsers;
+  let users = [...allUsers]; // 🔹 Always start from original data
 
-    // 🔹 Search filter
-    if (updatedFilters.searchTerm) {
-      const term = updatedFilters.searchTerm.toLowerCase();
-      users = users.filter(
-        (u) =>
-          u.name.toLowerCase().includes(term) ||
-          (u.category_details?.[0]?.name || "").toLowerCase().includes(term)
-      );
-    }
+  if (updatedFilters.searchTerm) {
+    const term = updatedFilters.searchTerm.toLowerCase();
+    users = users.filter(
+      (u) =>
+        u.name.toLowerCase().includes(term) ||
+        (u.category_details?.[0]?.name || "").toLowerCase().includes(term)
+    );
+  }
 
-    // 🔹 Sorting
-    if (updatedFilters.sortOrder === "low") {
-      users.sort((a, b) => a.id - b.id);
-    } else if (updatedFilters.sortOrder === "high") {
-      users.sort((a, b) => b.id - a.id);
-    }
+  if (updatedFilters.sortOrder === "low") {
+    users.sort((a, b) => a.id - b.id);
+  } else if (updatedFilters.sortOrder === "high") {
+    users.sort((a, b) => b.id - a.id);
+  }
 
-    setFilteredUsers(users);
-    setAppliedFilters(updatedFilters);
-  };
+  setFilteredUsers(users);
+  setAppliedFilters(updatedFilters);
+};
 
-  const handleCancel = () => {
-    fetchUsers();
-    setAppliedFilters({});
-  };
-
-  console.log(filteredUsers, "filteredUsers");
+const handleCancel = () => {
+  setFilteredUsers(allUsers);  
+  setAppliedFilters({});
+};
 
   return (
-    <div className="max-w-[59rem] mx-auto p-4 mt-36">
+    <div className="w-full max-w-[59rem] mx-auto p-4 mt-36">
       <UserFilterBar
         onApply={handleApply}
         onCancel={handleCancel}
@@ -98,7 +96,7 @@ function UserList() {
 
       <h1 className="border-b border-black pb-4 mx-2 px-8 text-3xl font-semibold my-6">
         <span>{filteredUsers.length} </span>
-        {category ? category : "All Users"}
+        {!category ? category : "All Users"}
       </h1>
 
       {loading ? (
@@ -110,67 +108,71 @@ function UserList() {
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
               <Link to={`/gh/detail/${user.category}/${user.id}`} key={user.id}>
-                <div className="relative max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
-                  <div className="relative w-32 rounded-md overflow-hidden">
+                <div className="relative w-full min-[425px]:max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
+                 
+                 {/* image */}
+                  <div className="hidden sm:block relative w-32 rounded-md overflow-hidden">
                     <img
                       src={user?.image || "fallback.jpg"}
                       alt={user?.name || "Unknown"}
                       className="w-full h-full object-cover"
                     />
                     <div className="text-white flex flex-col items-center justify-center absolute top-1/2 right-1/2 translate-x-[45%] -translate-y-[45%] bg-primary/10 font-extrabold size-full rounded-lg shadow-lg">
-                      <p>OVERALL</p>
-                      <p className="text-2xl">{user?.rating || "N/A"}</p>
-                      <p className="font-light">
+                      <p className="text-sm sm:text-base">OVERALL</p>
+                      <p className="text-base sm:text-2xl">{user?.rating || "N/A"}</p>
+                      <p className="font-light text-sm sm:text-base">
                         {user?.rating || "N/A"} Rating
                       </p>
                     </div>
                   </div>
 
+                  {/* userDetails */}
                   <div className="ml-6 py-4 flex-1">
-                    <h2 className="font-bold text-xl mb-4">
+                    <h2 className="font-bold text-base sm:text-xl mb-4">
                       {user?.name || "N/A"}
                     </h2>
 
                     <div className="flex mb-2">
-                      <h3 className="w-40 font-bold text-gray-600">
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
                         Date Of First Auth.
                       </h3>
-                      <p>{user?.created_at || "N/A"}</p>
+                      <p className="text-sm sm:text-base">{user?.created_at || "N/A"}</p>
                     </div>
 
                     <div className="flex mb-2">
-                      <h3 className="w-40 font-bold text-gray-600">Status</h3>
-                      <p>{user?.status || "N/A"}</p>
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">Status</h3>
+                      <p className="text-sm sm:text-base">{user?.status || "N/A"}</p>
                     </div>
 
                     <div className="flex mb-2">
-                      <h3 className="w-40 font-bold text-gray-600">Type</h3>
-                      <p>{user?.type || "N/A"}</p>
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">Type</h3>
+                      <p className="text-sm sm:text-base">{user?.type || "N/A"}</p>
                     </div>
 
                     <div className="flex mb-2">
-                      <h3 className="w-40 font-bold text-gray-600">
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
                         Ownership
                       </h3>
-                      <p>{user?.Ownership || "N/A"}</p>
+                      <p className="text-sm sm:text-base">{user?.Ownership || "N/A"}</p>
                     </div>
 
                     <div className="flex mb-2 items-start">
-                      <h3 className="w-40 font-bold text-gray-600">Tags</h3>
-                      <div className="flex flex-col">
+                      <h3 className="w-40 font-bold text-sm sm:text-base text-gray-600">Tags</h3>
+                      <div className="flex flex-col gap-1">
                         {user?.tag?.tags?.slice(0, 3).length > 0 ? (
                           user.tag.tags.slice(0, 3).map((tag, index) => (
-                            <p key={index} className="text-gray-700">
+                            <p key={index} className="text-gray-700 text-sm sm:text-base">
                               {tag}
                             </p>
                           ))
                         ) : (
-                          <p className="text-gray-400">N/A</p>
+                          <p className=" text-sm sm:text-base text-gray-400">N/A</p>
                         )}
                       </div>
                     </div>
                   </div>
 
+                  {/* Bookmark */}
                   <div
                     title="Bookmark"
                     onClick={(e) => handleBookmark(e, user)}

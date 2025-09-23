@@ -17,7 +17,7 @@ function HeroSection() {
     const fetchCategories = async () => {
       try {
         const res = await axiosInstance.get("/category");
-        console.log("res", res.data.data);
+        // console.log("res", res.data.data);
         const uniqueCategories = [
           ...new Set(res.data.data.map((item) => item.name)),
         ];
