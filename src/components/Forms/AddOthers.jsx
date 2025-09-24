@@ -20,6 +20,7 @@ function AddOthers() {
   //   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [categories, setCategories] = useState([]);
 
+  // fetchCategories
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -169,12 +170,14 @@ function AddOthers() {
                 />
               </div>
 
+              {/* ReCAPTCHA */}
               <div className="flex justify-center">
                 <ReCAPTCHA
                   sitekey="6Lf_wc4rAAAAAE4BSLR2pFTJ3bWujLqkxAI3mZrg"
                   //   onChange={(token) => setRecaptchaToken(token)}
                 />
               </div>
+              
               {/* Agree Checkbox */}
               <div className="flex items-center justify-center space-x-2 font-semibold text-[#202E3B]">
                 <Field type="checkbox" name="agree" className="h-4 w-4" />

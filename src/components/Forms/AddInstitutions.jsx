@@ -22,6 +22,7 @@ function AddInstitutions() {
   //   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [categories, setCategories] = useState([]);
 
+  // fetchCategories
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -196,6 +197,7 @@ function AddInstitutions() {
                 />
               </div>
 
+              {/* ReCAPTCHA */}
               <div className="flex justify-center">
                 <ReCAPTCHA
                   sitekey="6Lf_wc4rAAAAAE4BSLR2pFTJ3bWujLqkxAI3mZrg"

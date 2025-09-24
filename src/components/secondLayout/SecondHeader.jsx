@@ -3,6 +3,7 @@ import logo from "../../assets/HomeAssets/homelogo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
 import profilelogo from "../../assets/HomeAssets/profile-icon.png";
+
 function SecondHeader() {
   const accessToken = localStorage.getItem("accessToken");
   const [scrolled, setScrolled] = useState(false);
@@ -45,12 +46,14 @@ function SecondHeader() {
   }, []);
 
   return (
-    <div
+    <header
       className={`fixed top-0 left-0 w-full z-[999999] transition-all duration-300 ${
         scrolled ? "bg-primary shadow-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-screen-2xl mx-auto flex justify-between items-center px-4 sm:px-10 md:px-20 lg:px-44 py-2">
+        
+        {/* logo */}
         <NavLink to="/gh">
           <img
             src={scrolled ? whiteLogo : logo}
@@ -108,7 +111,7 @@ function SecondHeader() {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 }
 

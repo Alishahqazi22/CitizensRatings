@@ -46,7 +46,6 @@ function PollDetail() {
     );
   }
 
-  // helper colors
   const DEFAULT_COLORS = [
     "#3C7D22",
     "#FF0000",
@@ -70,7 +69,7 @@ function PollDetail() {
         />
       )}
 
-      {/* ✅ Poll results render karna */}
+      {/* Poll render */}
       {poll.votes_counts && poll.votes_counts.length > 0 ? (
         poll.votes_counts.map((q, index) => {
           const rawValues = Object.values(q || {}).map((v) => Number(v) || 0);
@@ -118,21 +117,20 @@ function PollDetail() {
             xaxis: {
               categories: answers.map((a) => a.category),
               labels: {
-                show:false,
+                show: false,
                 style: {
                   fontSize: "12px",
                   fontWeight: 400,
                 },
                 rotate: 0,
                 formatter: function (val) {
-                  // space ko line break bana do
                   return val.replace(/ /g, "\n");
                 },
               },
             },
             legend: {
-  show: true, // ✅ color boxes off
-},
+              show: true,
+            },
 
             yaxis: { max: 100, title: { text: "Percentage of Votes" } },
             fill: { opacity: 1, colors: fillColors },

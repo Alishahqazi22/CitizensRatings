@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PollsPublic from "../../assets/HomeAssets/PollsPublic.jpg";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../Config/axiosInstance";
@@ -11,7 +11,7 @@ function RateAndReview() {
     try {
       const response = await axiosInstance.get("/category");
       const apiCategories = response?.data?.data || [];
-      console.log(response?.data?.data);
+      console.log("rate and review" ,response?.data?.data);
       setCategories(apiCategories || []);
     } catch (error) {
       console.log(error);
@@ -35,7 +35,7 @@ function RateAndReview() {
           <p className="text-lg font-medium">Loading images...</p>
         </div>
       ) : (
-        <div className="max-w-7xl mx-auto my-10">
+        <div className="max-w-7xl px-14 lg:px-0 md:mx-auto my-10">
           <div className="grid grid-cols-1 min-[640px]:grid-cols-2 min-[1024px]:grid-cols-3 min-[1280px]:grid-cols-4 gap-6 lg:gap-8">
             <Link to="/gh/poll">
               <div className="group relative w-full h-48 overflow-hidden rounded-md hover:rounded-none transition-transform duration-300 hover:scale-95 cursor-pointer">

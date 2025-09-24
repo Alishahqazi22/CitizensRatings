@@ -62,6 +62,7 @@ function UserComparePage() {
   useEffect(() => {
     getUser1();
     getAllLeaders();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, category]);
 
   const handleSearchChange = (value) => {
@@ -107,6 +108,8 @@ function UserComparePage() {
 
     return (
       <div className="w-full">
+       
+       {/* image */}
         <div className="flex flex-col items-center">
           <div className="w-full h-40 rounded-md overflow-hidden shadow">
             <img
@@ -148,7 +151,7 @@ function UserComparePage() {
             leader.tag.tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="bg-gray-200 px-3 py-1 text-sm font-light rounded"
+                className="bg-gray-200 px-3 py-1 lg:text-sm font-light rounded"
               >
                 {tag}
               </span>
@@ -179,24 +182,25 @@ function UserComparePage() {
   return (
     <div className="min-h-screen bg-gray-100 py-4 mt-28">
       <div className="max-w-7xl mx-auto bg-white shadow-xl rounded-lg p-8">
+        
         {/* Header */}
-        <div className="grid grid-cols-3 text-center font-bold text-3xl">
+        <div className="md:grid grid-cols-3 text-center font-bold lg:text-3xl">
           <h1>{user1?.name || "User 1"}</h1>
-          <div className="bg-primary mx-[11rem] my-4 rounded-full flex justify-center items-center">
-            <h1 className="text-white text-xl">VS</h1>
+          <div className="bg-primary mx-[6rem] lg:mx-[11rem] my-4 rounded-full flex justify-center items-center">
+            <h1 className="text-white text-sm lg:text-xl">VS</h1>
           </div>
           <h1>{user2?.name || "User 2"}</h1>
         </div>
 
         {/* Search */}
         <div className="flex justify-center my-6">
-          <div className="relative w-1/3">
+          <div className="relative w-full md:w-1/3">
             <input
               type="text"
               placeholder="Enter user name"
               value={search2}
               onChange={(e) => handleSearchChange(e.target.value)}
-              className="border text-center p-2 rounded w-96 focus:outline-none"
+              className="border text-center p-2 rounded w-full md:w-96 focus:outline-none"
             />
             {suggestions.length > 0 && (
               <ul className="absolute z-10 bg-white border rounded mt-1 w-full max-h-48 overflow-y-auto shadow">
@@ -215,11 +219,16 @@ function UserComparePage() {
         </div>
 
         {/* Compare Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-8">
-          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-8">
+          
+          {/* user01 */}
+          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-4 md:p-8">
             {renderUserCard(user1)}
           </div>
-          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-8">
+
+          {/* user02 */}
+            <h1 className="block md:hidden text-center font-bold lg:text-3xl md:pt-8">{user2?.name || "User 2"}</h1>
+          <div className="w-full bg-gray-50 shadow-xl rounded-lg p-4 md:p-8">
             {renderUserCard(user2)}
           </div>
         </div>

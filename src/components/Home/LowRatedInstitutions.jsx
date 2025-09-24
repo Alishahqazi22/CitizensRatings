@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { BiSolidLeftArrowAlt, BiSolidRightArrowAlt } from "react-icons/bi";
 import profile01 from "../../assets/HomeAssets/Public-Opinion-2.jpg";
-// import profile02 from "../../assets/HomeAssets/Celebrity-1.jpg";
 import { Link } from "react-router-dom";
 import { axiosInstance } from "../../Config/axiosInstance";
 
@@ -47,13 +46,13 @@ function LowRatedInstitutions() {
         <div className="relative flex justify-center items-center">
           <button
             ref={prevRef}
-            className="absolute left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
+            className="absolute left-3 md:left-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
           >
             <BiSolidLeftArrowAlt size={20} />
           </button>
           <button
             ref={nextRef}
-            className="absolute right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
+            className="absolute right-3 md:right-5 z-10 bg-black text-white rounded-full shadow-md hover:bg-primary"
           >
             <BiSolidRightArrowAlt size={20} />
           </button>
@@ -74,9 +73,9 @@ function LowRatedInstitutions() {
           >
             {data.map((item) => (
               <SwiperSlide key={item.id}>
-                <div className="flex flex-col items-center w-36">
+                <div className="flex flex-col items-center md:w-36">
                   <Link to={`/gh/detail/${item.category}/${item.id}`}>
-                    <div className="w-36 h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
+                    <div className="w-28 h-28 md:w-36 md:h-36 bg-gray-200 rounded-full flex items-center justify-center shadow-md overflow-hidden cursor-pointer">
                       <img
                         src={profile01}
                         alt="profile"
@@ -85,7 +84,7 @@ function LowRatedInstitutions() {
                     </div>
                   </Link>
 
-                  <p className="mt-5 text-center">{item.name}</p>
+                  <p className="mt-5 text-center text-sm md:text-base">{item.name}</p>
                 </div>
               </SwiperSlide>
             ))}

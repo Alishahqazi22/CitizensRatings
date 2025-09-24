@@ -10,11 +10,12 @@ function AddRatingPage() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // fatch User
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axiosInstance.get(`/category`);
-        const data = response.data.data;
+        const data = response?.data?.data || [];
 
         const foundUser = data.find((item) => item.id === Number(id));
         console.log(foundUser);
@@ -32,7 +33,7 @@ function AddRatingPage() {
 
   const [selectedTags, setSelectedTags] = useState([]);
   if (loading) {
-    return <p className="text-center mt-20">Loading...</p>;
+    return <p className="text-center mt-28">Loading...</p>;
   }
 
   if (!user) {
@@ -105,32 +106,6 @@ function AddRatingPage() {
     );
   };
 
-  //   const initialValues = {
-  //     ratings: {
-  //       overallRating: user.ratings.overallRating || 0,
-  //       vision: user.ratings.vision || 0,
-  //       policyImplementation: user.ratings.policyImplementation || 0,
-  //       accountability: user.ratings.accountability || 0,
-  //       responsiveness: user.ratings.responsiveness || 0,
-  //       resourceManagement: user.ratings.resourceManagement || 0,
-  //       stakeholderEngagement: user.ratings.stakeholderEngagement || 0,
-  //       nationalDevelopment: user.ratings.nationalDevelopment || 0,
-  //       antiCorruption: user.ratings.antiCorruption || 0,
-  //       antiGalamsey: user.ratings.antiGalamsey || 0,
-  //       overallPerformance: user.ratings.overallPerformance || 0,
-  //     },
-  //     questions: {
-  //       WhatsYourRelationshipWithThisLeader: "",
-  //       HasThisLeaderShowFairnessInHandlingIssues: "",
-  //       isThisLeaderApproachable: "",
-  //     },
-  //     review: {
-  //       reviewer: "Anonymous",
-  //       rating: "",
-  //       comment: "",
-  //     },
-  //   };
-
   const initialValues = {
     ratings: {
       overallRating: user?.ratings?.overallRating || 0,
@@ -200,7 +175,7 @@ function AddRatingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white py-10 mt-28">
+    <div className="min-h-screen bg-white py-10 mt-20 sm:mt-28">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6">
         <h1 className="text-2xl font-bold mb-6 text-center">
           Rate {user.name}

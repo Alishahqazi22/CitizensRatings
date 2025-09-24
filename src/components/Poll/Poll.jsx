@@ -9,12 +9,12 @@ function Poll() {
     try {
       const response = await axiosInstance.get("/poll");
       const apiCategories = response?.data?.data || [];
-      // console.log(response?.data?.data);
       setPoll(apiCategories || []);
     } catch (error) {
       console.log(error);
     }
   }
+  
   useEffect(() => {
     getPoll();
   }, []);

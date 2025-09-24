@@ -71,6 +71,7 @@ function UserDetailPage() {
 
   useEffect(() => {
     getLeader();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, category]);
 
   if (loading) {
@@ -162,6 +163,7 @@ function UserDetailPage() {
           </div>
         </div>
 
+        {/* Top tags */}
         <h1 className="text-2xl font-bold mt-8 mb-3">Top TAGS</h1>
         <div className="flex flex-wrap gap-2">
           {leader?.tag?.tags && leader?.tag?.tags.length > 0 ? (
@@ -178,6 +180,7 @@ function UserDetailPage() {
           )}
         </div>
 
+        {/* Ratings & Review */}
         <h1 className="text-xl font-bold mt-10">Ratings & Reviews</h1>
         <div className="bg-gray-100 rounded-lg flex items-center justify-center my-4 w-full">
           <div className="bg-white shadow-md rounded-lg p-8 sm:mx-6 sm:my-8 w-full">

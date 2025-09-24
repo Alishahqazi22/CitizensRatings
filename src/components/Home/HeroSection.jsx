@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +29,6 @@ function HeroSection() {
     fetchCategories();
   }, []);
 
-  // 🔹 close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -67,7 +66,7 @@ function HeroSection() {
   );
 
   return (
-    <div className="relative w-full h-[500px] flex flex-col items-center justify-center">
+    <div className="relative w-full h-[450px] md:h-[500px] flex flex-col items-center justify-center">
       <div
         className="relative w-full h-screen bg-cover bg-center"
         style={{
@@ -75,11 +74,11 @@ function HeroSection() {
             "url('https://cdn2.allevents.in/transup/90/b744a057ac42349b23a0e6534da9ae/Rectangle-293.webp')",
         }}
       >
-        <div className="relative z-10 flex flex-col space-y-5 items-center bg-black/50 justify-center h-full text-white">
-          <h1 className="text-2xl md:text-5xl font-bold">
+        <div className="relative z-10 flex flex-col space-y-1 md:space-y-5 items-center bg-black/50 justify-center h-full text-white">
+          <h1 className="px-4 text-lg md:text-5xl font-bold">
             Opinions That Shape the World.
           </h1>
-          <h3 className="text-2xl">
+          <h3 className="px-4 text-[.8rem] md:text-2xl">
             Your Guide to What’s Good, Bad, and Must-Avoid
           </h3>
 
@@ -91,7 +90,7 @@ function HeroSection() {
                     setShowDropdown(!showDropdown);
                     setShowSuggestions(false);
                   }}
-                  className="flex items-center gap-2 md:px-4 px-3 py-3 md:py-4 text-black hover:bg-gray-50 rounded-l-full transition border-r border-gray-200 font-thin"
+                  className="flex items-center md:gap-2 md:px-4 px-2 py-2 md:py-4 text-black hover:bg-gray-50 rounded-l-full transition border-r border-gray-200 font-thin text-[.8rem] md:text-base"
                 >
                   Select Categories
                   {!showDropdown ? (
@@ -121,7 +120,7 @@ function HeroSection() {
                 <div className="flex-1">
                   <input
                     placeholder="Search for Officials and Institutions..."
-                    className="w-full bg-white outline-none border-none rounded-full text-gray-500 md:px-4 px-3 py-3 md:py-4"
+                    className="w-full bg-white outline-none border-none rounded-full text-gray-500 md:px-4 px-2 py-2 text-[.8rem] md:text-base"
                     type="text"
                     name="searchBar"
                     value={value}
@@ -159,7 +158,7 @@ function HeroSection() {
 
                 <button
                   onClick={handleSearch}
-                  className="absolute -right-1 rounded-r-full bg-primary text-white md:px-6 md:py-4 py-3 px-4 hover:bg-[#0088BB] transition"
+                  className="absolute -right-1 rounded-r-full bg-primary text-white md:px-6 md:py-4 py-[.37rem] px-3 hover:bg-[#0088BB] transition"
                 >
                   <BiSearch className="w-5 h-5" />
                 </button>
@@ -167,7 +166,7 @@ function HeroSection() {
             </div>
           </div>
 
-          <h3 className="text-xl md:text-2xl">
+          <h3 className="text-base md:text-2xl">
             Make Smarter Choices with Real Ratings
           </h3>
         </div>

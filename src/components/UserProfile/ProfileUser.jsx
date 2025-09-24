@@ -9,6 +9,7 @@ function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
   const user = JSON.parse(localStorage.getItem("user"));
   const [savedUsers, setSavedUsers] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const savedAcademicRatings = savedUsers.filter(
     (u) => u.type === "academic" && u.ratings && u.reviews
@@ -96,13 +97,13 @@ function ProfileUser() {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto mt-28">
-      <h1 className="text-2xl md:text-3xl font-bold mb-4">
+    <div className="p-4 md:p-6 max-w-4xl mx-auto mt-20 md:mt-28">
+      <h1 className="text-xl md:text-3xl font-bold mb-4">
         Hey, <span className="text-gray-700">{user?.email}</span>
       </h1>
 
       {/* Tabs */}
-      <div className="flex gap-6 border-b border-black mb-6">
+      <div className="hidden md:flex gap-6 border-b border-black mb-6">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -116,6 +117,35 @@ function ProfileUser() {
             {tab}
           </button>
         ))}
+      </div>
+
+      {/* Mobile Dropdown Tabs */}
+      <div className="md:hidden relative mb-6">
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          className="w-full border border-gray-300 rounded-md p-2 text-left flex justify-between items-center"
+        >
+          {activeTab}
+          <span className="ml-2">▼</span>
+        </button>
+        {dropdownOpen && (
+          <div className="absolute z-10 mt-2 w-full border rounded-md bg-white shadow-md">
+            {tabs.map((tab) => (
+              <div
+                key={tab}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setDropdownOpen(false);
+                }}
+                className={`p-2 cursor-pointer hover:bg-gray-100 ${
+                  activeTab === tab ? "bg-gray-200 font-medium" : ""
+                }`}
+              >
+                {tab}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Profile Form */}

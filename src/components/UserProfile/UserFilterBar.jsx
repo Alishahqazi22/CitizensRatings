@@ -1,13 +1,28 @@
-// src/components/UserProfile/UserFilterBar.jsx
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-function UserFilterBar({ onApply, onCancel, onSearchChange }) {
+function UserFilterBar({ onApply, onCancel, onSearchChange, searchResults }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [minStars, setMinStars] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false);
+   const dropdownRef = useRef(null);
+  
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setShowDropdown(false);
+          }
+        };
+    
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, []);
 
   const handleApply = () => {
     onApply({ searchTerm, minStars, sortOrder });
+    setShowDropdown(false);
   };
 
   const handleReset = () => {
@@ -15,23 +30,64 @@ function UserFilterBar({ onApply, onCancel, onSearchChange }) {
     setMinStars("");
     setSortOrder("");
     onCancel();
+    setShowDropdown(false);
   };
+  
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-7 items-end mb-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-7 items-end mb-4 relative">
+     
       {/* Search Bar */}
-      <div>
+      <div className="relative" ref={dropdownRef}>
         <label className="text-sm font-medium">Search</label>
         <input
           type="text"
-          placeholder="Search anythings..."
+          placeholder="Search users..."
           value={searchTerm}
           onChange={(e) => {
-            setSearchTerm(e.target.value);
-            onSearchChange(e.target.value);
+            const value = e.target.value;
+            setSearchTerm(value);
+            onSearchChange(value);
+            setShowDropdown(value.length > 0);
           }}
+          onKeyDown={(e) => e.key === "Enter" && handleApply()}
           className="w-full border border-gray-300 rounded-md py-2 px-3 mt-2 focus:outline-none focus:ring-2 focus:ring-primary shadow"
         />
+
+        {/* Search Suggestions Dropdown */}
+        {showDropdown && (
+          <div className="absolute z-50 bg-white border shadow-md w-full mt-1 rounded-b-md max-h-60 overflow-y-auto">
+            <div
+              onClick={() => {
+                setSearchTerm("All Users");
+                onSearchChange(""); 
+                setShowDropdown(false);
+              }}
+              className="p-2 cursor-pointer hover:bg-gray-100 font-semibold text-primary border-b"
+            >
+              All Users
+            </div>
+
+            {/* 🔹 Normal search results */}
+            {searchResults?.length > 0 ? (
+              searchResults.map((user) => (
+                <div
+                  key={user.id}
+                  onClick={() => {
+                    setSearchTerm(user.name);
+                    onSearchChange(user.name);
+                    setShowDropdown(false);
+                  }}
+                  className="p-2 cursor-pointer hover:bg-gray-100"
+                >
+                  {user.name}
+                </div>
+              ))
+            ) : (
+              <div className="p-2 text-gray-500">No results</div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Star Rating Dropdown */}

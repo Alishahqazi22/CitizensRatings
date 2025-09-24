@@ -5,9 +5,8 @@ import { axiosInstance } from "../../Config/axiosInstance";
 function PollCriteria() {
   const { id } = useParams();
   const [criteriaData, setCriteriaData] = useState(null);
-  const [answers, setAnswers] = useState({}); // user ke selected answers
+  const [answers, setAnswers] = useState({}); 
 
-  // ✅ API se criteria data fetch
   const getCriteria = async () => {
     try {
       const res = await axiosInstance.get(`/rating-criterion`);
@@ -23,7 +22,6 @@ function PollCriteria() {
     getCriteria();
   }, [id]);
 
-  // ✅ jab user koi option select kare
   const handleOptionChange = (questionId, optionId) => {
     setAnswers((prev) => ({
       ...prev,
@@ -33,6 +31,7 @@ function PollCriteria() {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
+      
       {/* Criteria Title */}
       <h1 className="text-2xl font-bold mb-6 text-center">
         {criteriaData?.name || "Loading..."}

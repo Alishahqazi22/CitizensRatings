@@ -13,7 +13,9 @@ function UserList() {
   const [loading, setLoading] = useState(true);
   const [savedIds, setSavedIds] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
+  // get user from local
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
     setSavedIds(saved.map((u) => u.id));
@@ -37,14 +39,13 @@ function UserList() {
     setSavedIds(saved.map((u) => u.id));
   };
 
-  // 🔹 API Call
   async function fetchUsers() {
     try {
       const response = await axiosInstance.get("/category");
       const filterData = response?.data?.data || [];
       // const filterData = apiData?.filter((u) => u.label === category);
-      console.log("filterData" ,filterData);
-      setAllUsers(filterData); 
+      console.log("filterData", filterData);
+      setAllUsers(filterData);
       setFilteredUsers(filterData);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -57,44 +58,62 @@ function UserList() {
     fetchUsers();
   }, [category]);
 
- const handleApply = (newFilters) => {
-  const updatedFilters = { ...appliedFilters, ...newFilters };
+  const handleApply = (newFilters) => {
+    const updatedFilters = { ...appliedFilters, ...newFilters };
 
-  let users = [...allUsers]; // 🔹 Always start from original data
+    let users = [...allUsers];
 
-  if (updatedFilters.searchTerm) {
-    const term = updatedFilters.searchTerm.toLowerCase();
-    users = users.filter(
-      (u) =>
-        u.name.toLowerCase().includes(term) ||
-        (u.category_details?.[0]?.name || "").toLowerCase().includes(term)
-    );
-  }
+    if (updatedFilters.searchTerm) {
+      const term = updatedFilters.searchTerm.toLowerCase();
 
-  if (updatedFilters.sortOrder === "low") {
-    users.sort((a, b) => a.id - b.id);
-  } else if (updatedFilters.sortOrder === "high") {
-    users.sort((a, b) => b.id - a.id);
-  }
+      if (
+        term === "all users" ||
+        term === "all" ||
+        term === "allusers" ||
+        term === "alluser" ||
+        term === "all user"
+      ) {
+        users = [...allUsers];
+        setSearchResults([]);
+      } else {
+        users = users.filter(
+          (u) =>
+            u.name.toLowerCase().includes(term) ||
+            (u.category_details?.[0]?.name || "").toLowerCase().includes(term)
+        );
 
-  setFilteredUsers(users);
-  setAppliedFilters(updatedFilters);
-};
+        setSearchResults(users);
+      }
+    } else {
+      setSearchResults([]); 
+    }
 
-const handleCancel = () => {
-  setFilteredUsers(allUsers);  
-  setAppliedFilters({});
-};
+    if (updatedFilters.sortOrder === "low") {
+      users.sort((a, b) => a.id - b.id);
+    } else if (updatedFilters.sortOrder === "high") {
+      users.sort((a, b) => b.id - a.id);
+    }
+
+    setFilteredUsers(users);
+    setAppliedFilters(updatedFilters);
+  };
+
+  const handleCancel = () => {
+    setFilteredUsers(allUsers);
+    setSearchResults([]);
+    setAppliedFilters({});
+  };
 
   return (
-    <div className="w-full max-w-[59rem] mx-auto p-4 mt-36">
+    <div className="p-4 lg:p-0 w-full sm:max-w-[59rem] mx-auto sm:p-4 mt-28 md:mt-36">
       <UserFilterBar
         onApply={handleApply}
         onCancel={handleCancel}
         onSearchChange={(term) => handleApply({ searchTerm: term })}
+        searchResults={searchResults}
       />
 
-      <h1 className="border-b border-black pb-4 mx-2 px-8 text-3xl font-semibold my-6">
+      <h1 className="border-b border-black pb-4 mx-2 px-4 md:px-8 text-xl md:text-3xl font-semibold my-6">
         <span>{filteredUsers.length} </span>
         {!category ? category : "All Users"}
       </h1>
@@ -109,8 +128,7 @@ const handleCancel = () => {
             filteredUsers.map((user) => (
               <Link to={`/gh/detail/${user.category}/${user.id}`} key={user.id}>
                 <div className="relative w-full min-[425px]:max-w-[52rem] mx-auto flex border rounded-lg p-2 shadow-md hover:shadow-lg transition bg-gray-50">
-                 
-                 {/* image */}
+                  {/* image */}
                   <div className="hidden sm:block relative w-32 rounded-md overflow-hidden">
                     <img
                       src={user?.image || "fallback.jpg"}
@@ -119,7 +137,9 @@ const handleCancel = () => {
                     />
                     <div className="text-white flex flex-col items-center justify-center absolute top-1/2 right-1/2 translate-x-[45%] -translate-y-[45%] bg-primary/10 font-extrabold size-full rounded-lg shadow-lg">
                       <p className="text-sm sm:text-base">OVERALL</p>
-                      <p className="text-base sm:text-2xl">{user?.rating || "N/A"}</p>
+                      <p className="text-base sm:text-2xl">
+                        {user?.rating || "N/A"}
+                      </p>
                       <p className="font-light text-sm sm:text-base">
                         {user?.rating || "N/A"} Rating
                       </p>
@@ -136,37 +156,56 @@ const handleCancel = () => {
                       <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
                         Date Of First Auth.
                       </h3>
-                      <p className="text-sm sm:text-base">{user?.created_at || "N/A"}</p>
+                      <p className="text-sm sm:text-base">
+                        {user?.created_at || "N/A"}
+                      </p>
                     </div>
 
                     <div className="flex mb-2">
-                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">Status</h3>
-                      <p className="text-sm sm:text-base">{user?.status || "N/A"}</p>
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
+                        Status
+                      </h3>
+                      <p className="text-sm sm:text-base">
+                        {user?.status || "N/A"}
+                      </p>
                     </div>
 
                     <div className="flex mb-2">
-                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">Type</h3>
-                      <p className="text-sm sm:text-base">{user?.type || "N/A"}</p>
+                      <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
+                        Type
+                      </h3>
+                      <p className="text-sm sm:text-base">
+                        {user?.type || "N/A"}
+                      </p>
                     </div>
 
                     <div className="flex mb-2">
                       <h3 className="w-36 sm:w-40 font-bold text-sm sm:text-base text-gray-600">
                         Ownership
                       </h3>
-                      <p className="text-sm sm:text-base">{user?.Ownership || "N/A"}</p>
+                      <p className="text-sm sm:text-base">
+                        {user?.Ownership || "N/A"}
+                      </p>
                     </div>
 
                     <div className="flex mb-2 items-start">
-                      <h3 className="w-40 font-bold text-sm sm:text-base text-gray-600">Tags</h3>
+                      <h3 className="w-40 font-bold text-sm sm:text-base text-gray-600">
+                        Tags
+                      </h3>
                       <div className="flex flex-col gap-1">
                         {user?.tag?.tags?.slice(0, 3).length > 0 ? (
                           user.tag.tags.slice(0, 3).map((tag, index) => (
-                            <p key={index} className="text-gray-700 text-sm sm:text-base">
+                            <p
+                              key={index}
+                              className="text-gray-700 text-sm sm:text-base"
+                            >
                               {tag}
                             </p>
                           ))
                         ) : (
-                          <p className=" text-sm sm:text-base text-gray-400">N/A</p>
+                          <p className=" text-sm sm:text-base text-gray-400">
+                            N/A
+                          </p>
                         )}
                       </div>
                     </div>
@@ -176,11 +215,12 @@ const handleCancel = () => {
                   <div
                     title="Bookmark"
                     onClick={(e) => handleBookmark(e, user)}
-                    className={`m-1 size-10 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 
-                  ${savedIds.includes(user.id)
-                     ? "text-primary hover:text-gray-400 hover:bg-gray-100"
-                     : "text-gray-400 hover:text-primary hover:bg-gray-100"
-                    }`}
+                    className={`absolute right-0 m-1 size-10 flex justify-center items-center rounded-full cursor-pointer transition-colors duration-200 
+                  ${
+                    savedIds.includes(user.id)
+                      ? "text-primary hover:text-gray-400 hover:bg-gray-100"
+                      : "text-gray-400 hover:text-primary hover:bg-gray-100"
+                  }`}
                   >
                     <MdOutlineBookmarkAdded size={24} />
                   </div>

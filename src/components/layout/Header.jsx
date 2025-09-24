@@ -45,7 +45,7 @@ function Header() {
     }, []);
 
   return (
-    <div
+    <header
       className={`fixed top-0 left-0 w-full z-[999999] shadow-lg transition-all duration-300 ${
         scrolled ? "bg-primary shadow-md" : "bg-transparent"
       }`}
@@ -55,7 +55,7 @@ function Header() {
           <img
             src={scrolled ? whiteLogo : logo}
             alt="logo"
-            className="cursor-pointer md:w-[6.3rem] w-20 pt-4 z-50 inset-1"
+            className="cursor-pointer md:w-[6.3rem] w-16 pt-4 z-50 inset-1"
           />
         </NavLink>
 
@@ -78,7 +78,7 @@ function Header() {
           <div className="relative">
             <div
               onClick={() => setShowUserDropdown(!showUserDropdown)}
-              className="size-10 overflow-hidden rounded-full border-2 border-white cursor-pointer"
+              className="size-8 md:size-10 overflow-hidden rounded-full border-2 border-white cursor-pointer"
             >
               <img
                 alt="User"
@@ -107,7 +107,7 @@ function Header() {
           </div>
         )}
       </div>
-    </div>
+    </header>
   );
 }
 
