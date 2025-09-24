@@ -47,7 +47,7 @@ function Footer() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8 md:col-span-2 lg:col-span-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:col-span-2 lg:col-span-3">
               <div>
                 <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
                   CitizensRatings

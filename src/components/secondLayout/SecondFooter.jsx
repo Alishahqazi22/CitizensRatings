@@ -47,7 +47,7 @@ function SecondFooter() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 lg:col-span-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:col-span-2">
               <div>
                 <h3 className="font-bold text-lg sm:text-xl mb-4 sm:mb-6">
                   CitizensRatings

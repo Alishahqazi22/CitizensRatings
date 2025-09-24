@@ -21,6 +21,7 @@ function CategoryCard({ title, apiUrl, linkTo, fallbackImg }) {
 
   useEffect(() => {
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

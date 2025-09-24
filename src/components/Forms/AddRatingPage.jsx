@@ -40,7 +40,6 @@ function AddRatingPage() {
     return <p className="text-center text-red-500 mt-20">User not found</p>;
   }
 
-  // Tag options
   const tagOptions = [
     "Promotes Peace and Unity",
     "Protects Cultural Heritage",
