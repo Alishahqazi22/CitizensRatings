@@ -84,7 +84,7 @@ function HeroSection() {
 
           <div className="lg:w-[50%] w-[90%] relative">
             <div className="w-full bg-white rounded-full border border-none mt-5">
-              <div className="relative flex items-center">
+              <div className="relative flex items-center" ref={dropdownRef}>
                 <button
                   onClick={() => {
                     setShowDropdown(!showDropdown);

@@ -397,7 +397,7 @@ function ProfileUser() {
         </Formik>
       )}
       {/* Account Settings Tab*/}
-      {activeTab === "Account Settings" && <AccountSettings />}
+      {activeTab === "Account Settings" && <AccountSettings user={user?.email}/>}
 
       {/* Ratings Academic Tab*/}
       {activeTab === "Ratings Academic" && (

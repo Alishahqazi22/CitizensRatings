@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { axiosInstance } from "../../Config/axiosInstance";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { RiPencilFill } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 function AccountSettings() {
   const [email, setEmail] = useState("alishahqazi22@gmail.com");
@@ -25,17 +26,16 @@ function AccountSettings() {
       }
     );
 
-    console.log("Verification email sent:", response.data);
+    console.log("Verification code sent:", response.data);
+    toast.success(response?.data?.message);
 
-    if (response.data?.success) {
+    if (response?.data) {
       setVerificationSent(true);
       setIsEditing(true);
-    } else {
-      alert("Email update request failed");
     }
   } catch (error) {
     console.error("Failed to send verification email:", error);
-    alert("Verification email not send Try again.");
+    toast.error("Verification email not send Try again.");
   }
 };
 
@@ -49,7 +49,8 @@ function AccountSettings() {
           code: code,
         }
       );
-      console.log("Verify Response:", response.data);
+      console.log("Verify Response:", response?.data?.message);
+      toast.success(response?.data?.message);
 
       if (response.data?.success) {
         setEmail(newEmail || email);
@@ -57,7 +58,7 @@ function AccountSettings() {
         setVerificationSent(false);
         setNewEmail("");
       } else {
-        alert("Invalid or expired verification code");
+        toast.error("Invalid or expired verification code");
       }
     } catch (error) {
       console.error("Verification failed:", error);
@@ -105,8 +106,8 @@ function AccountSettings() {
                 const errors = {};
                 if (!values.code) {
                   errors.code = "Verification code is required";
-                } else if (!/^\d{6}$/.test(values.code)) {
-                  errors.code = "Code must be 6 digits";
+                } else if (!/^\d{5}$/.test(values.code)) {
+                  errors.code = "Code must be 5 digits";
                 }
                 return errors;
               }}

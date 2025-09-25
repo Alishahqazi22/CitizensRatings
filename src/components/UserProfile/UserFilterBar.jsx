@@ -68,7 +68,6 @@ function UserFilterBar({ onApply, onCancel, onSearchChange, searchResults }) {
               All Users
             </div>
 
-            {/* 🔹 Normal search results */}
             {searchResults?.length > 0 ? (
               searchResults.map((user) => (
                 <div
