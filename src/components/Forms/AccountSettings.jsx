@@ -5,54 +5,62 @@ import { RiPencilFill } from "react-icons/ri";
 import { toast } from "react-toastify";
 
 function AccountSettings() {
-  const [email, setEmail] = useState("alishahqazi22@gmail.com");
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [email, setEmail] = useState(user?.email || "");
+  const [newEmail, setNewEmail] = useState(user?.email || "");
   const [isEditing, setIsEditing] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
-  const [newEmail, setNewEmail] = useState(email);
 
   const handleEdit = async () => {
-  try {
-    const formData = new FormData();
-    formData.append("email", newEmail);
-
-    const response = await axiosInstance.post(
-      "/account/update/email",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+    try {
+      const response = await axiosInstance.post(
+        "/profile/update",
+        {
+          email: newEmail,
         },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      console.log("Verification code sent:", response.data);
+      toast.success(response?.data?.message);
+
+      if (response?.data) {
+        setVerificationSent(true);
+        setIsEditing(true);
       }
-    );
-
-    console.log("Verification code sent:", response.data);
-    toast.success(response?.data?.message);
-
-    if (response?.data) {
-      setVerificationSent(true);
-      setIsEditing(true);
+    } catch (error) {
+      console.error("Failed to send verification email:", error);
+      toast.error(
+        error.response?.data?.message || "Verification email not sent"
+      );
     }
-  } catch (error) {
-    console.error("Failed to send verification email:", error);
-    toast.error("Verification email not send Try again.");
-  }
-};
-
+  };
 
   const handleVerify = async (code) => {
     try {
       const response = await axiosInstance.post(
-        "profile/update", 
+        "/profile/update",
         {
-          email: newEmail || email,
+          email: newEmail,
           code: code,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
       );
-      console.log("Verify Response:", response?.data?.message);
+
+      console.log("Verify Response:", response?.data);
       toast.success(response?.data?.message);
 
-      if (response.data?.success) {
+      if (response?.data) {
         setEmail(newEmail || email);
         setIsEditing(false);
         setVerificationSent(false);
@@ -62,13 +70,12 @@ function AccountSettings() {
       }
     } catch (error) {
       console.error("Verification failed:", error);
-      alert("Verification failed. Try again.");
+      toast.error(error.response?.data?.message || "Verification failed");
     }
   };
 
   return (
     <div className="font-medium text-sm max-w-4xl mx-auto mb-10">
-      
       {/* Edit Button */}
       {!isEditing && (
         <div className="flex justify-end mt-4">
@@ -93,7 +100,7 @@ function AccountSettings() {
         <p className="font-medium">Password</p>
       </div>
 
-      {/* Popup for Verification Code */}
+      {/* Popup for code Verification */}
       {isEditing && verificationSent && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white px-8 py-6 rounded-lg shadow-lg w-full max-w-lg flex flex-col items-center justify-center">

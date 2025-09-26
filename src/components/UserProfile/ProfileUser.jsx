@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import AccountSettings from "../Forms/AccountSettings";
 import SavedCard from "./SavedCard";
+import { toast } from "react-toastify";
+import { axiosInstance } from "../../Config/axiosInstance";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
   const user = JSON.parse(localStorage.getItem("user"));
   const [savedUsers, setSavedUsers] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const savedAcademicRatings = savedUsers.filter(
     (u) => u.type === "academic" && u.ratings && u.reviews
@@ -47,50 +50,75 @@ function ProfileUser() {
   ];
 
   const initialValues = {
-    hometownRegion: user?.hometownRegion || "",
-    currentRegion: user?.currentRegion || "",
-    yearOfBirth: user?.yearOfBirth || "",
-    basicSchool: user?.basicSchool || "",
-    secondarySchool: user?.secondarySchool || "",
-    tertiarySchool: user?.tertiarySchool || "",
-    fieldOfStudy: user?.fieldOfStudy || "",
-    graduationYear: user?.graduationYear || "",
+    hometown_region: user?.hometown_region || "",
+    current_region: user?.current_region || "",
+    year_birth: user?.year_birth || "",
+    school: user?.school || "",
+    secondary_school: user?.secondary_school || "",
+    tertiary_school: user?.tertiary_school || "",
+    study_field: user?.study_field || "",
+    expected_year_graduation: user?.expected_year_graduation || "",
+    email: user?.email || "",
+    first_name: user?.first_name || "",
+    last_name: user?.last_name || "",
+    given_name: user?.given_name || "",
+    family_name: user?.family_name || "",
+    password: user?.password || "",
+    phone: user?.phone || "",
+    image: user?.image || "",
   };
 
   const validationSchema = Yup.object({
-    hometownRegion: Yup.string().required("Required"),
-    currentRegion: Yup.string().required("Required"),
-    yearOfBirth: Yup.string().required("Required"),
-    // basicSchool: Yup.string().required("Required"),
-    // secondarySchool: Yup.string().required("Required"),
-    // tertiarySchool: Yup.string().required("Required"),
-    // fieldOfStudy: Yup.string().required("Required"),
-    // graduationYear: Yup.string().required("Required"),
+    hometown_region: Yup.string().required("Hometown Region is required"),
+    current_region: Yup.string().required("Current Region is required"),
+    year_birth: Yup.string().required("Year of Birth is required"),
+    school: Yup.string().required("School is required"),
+    secondary_school: Yup.string().required("Secondary School is required"),
+    tertiary_school: Yup.string().required("Tertiary School is required"),
+    study_field: Yup.string().required("Field of Study is required"),
+    expected_year_graduation: Yup.string().required(
+      "Graduation Year is required"
+    ),
+    email: Yup.string().required("Email is required"),
+    first_name: Yup.string().required("First Name is required"),
+    last_name: Yup.string().required("Last Name is required"),
+    given_name: Yup.string().required("Given Name is required"),
+    family_name: Yup.string().required("Family Name is required"),
+    password: Yup.string(),
+    phone: Yup.string().required("Phone is required"),
+    image: Yup.mixed(),
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const formData = new FormData();
-
-      Object.keys(values).forEach((key) => {
-        formData.append(key, values[key]);
+      Object.entries(values).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== "") {
+          formData.append(key, value);
+        }
       });
-
       formData.append("id", user?.id);
 
-      const res = await axios.post(`/user/${user?.id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+      const res = await axiosInstance.post(`/profile/update`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
       });
 
-      alert("Profile updated successfully!");
-      console.log(res?.data?.data);
+      console.log("Profile update response:", res.data);
 
-      localStorage.setItem("user", JSON.stringify(res?.data?.data));
+      const updatedUser = res?.data?.data || res?.data;
+
+      if (updatedUser) {
+        const mergedUser = { ...user, ...updatedUser };
+
+        localStorage.setItem("user", JSON.stringify(mergedUser));
+
+        toast.success("Profile updated successfully!");
+      } else {
+        toast.error("Update failed. Try again!");
+      }
     } catch (error) {
       console.error(error);
-      alert("Failed to update profile!");
+      toast.error("Failed to update profile!");
     } finally {
       setSubmitting(false);
     }
@@ -169,7 +197,7 @@ function ProfileUser() {
                 </label>
                 <Field
                   as="select"
-                  name="hometownRegion"
+                  name="hometown_region"
                   className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Region</option>
@@ -191,7 +219,7 @@ function ProfileUser() {
                   <option>Western Region</option>
                 </Field>
                 <ErrorMessage
-                  name="hometownRegion"
+                  name="hometown_region"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -209,7 +237,7 @@ function ProfileUser() {
                 </label>
                 <Field
                   as="select"
-                  name="currentRegion"
+                  name="current_region"
                   className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Region</option>
@@ -231,7 +259,7 @@ function ProfileUser() {
                   <option>Western Region</option>
                 </Field>
                 <ErrorMessage
-                  name="currentRegion"
+                  name="current_region"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -249,7 +277,7 @@ function ProfileUser() {
                 </label>
                 <Field
                   as="select"
-                  name="yearOfBirth"
+                  name="year_birth"
                   className="border-2 shadow rounded-md p-2 focus:ring-1 focus:outline-none focus:ring-primary"
                 >
                   <option value="">Select Year</option>
@@ -260,30 +288,129 @@ function ProfileUser() {
                   )}
                 </Field>
                 <ErrorMessage
-                  name="yearOfBirth"
+                  name="year_birth"
                   component="div"
                   className="text-red-500 text-xs"
                 />
               </div>
 
-              {/* Basic School */}
+              {/* First Name */}
               <div className="flex flex-col">
-                <label className="text-gray-800 font-medium">
-                  Basic School
-                </label>
+                <label className="text-gray-800 font-medium">First Name</label>
               </div>
               <div className="flex flex-col">
-                <label className="text-gray-800 font-medium">
-                  Your Basic School
-                </label>
+                <label className="text-gray-800 font-medium">First Name</label>
                 <Field
                   type="text"
-                  name="basicSchool"
-                  placeholder="Enter Your Basic School"
+                  name="first_name"
+                  placeholder="Enter Your First Name"
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="basicSchool"
+                  name="First Name"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* Given Name */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Given Name</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Given Name</label>
+                <Field
+                  type="text"
+                  name="given_name"
+                  placeholder="Enter Your Given Name"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                />
+                <ErrorMessage
+                  name="given_name"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* Email */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Email</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Email</label>
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="Enter Your Email"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                />
+                <ErrorMessage
+                  name="email"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* Password */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Password</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Password</label>
+                <div className="relative">
+                  <Field
+                    type={!showPassword ? "password" : "text"}
+                    name="password"
+                    placeholder="Enter Your School"
+                    className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary w-full"
+                  />
+                  <span
+                    className="absolute right-3 top-3 cursor-pointer text-gray-500"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
+                <ErrorMessage
+                  name="password"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* Phone */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Phone</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Phone</label>
+                <Field
+                  type="number"
+                  name="phone"
+                  placeholder="Enter Your School"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                />
+                <ErrorMessage
+                  name="phone"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* School */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">School</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Your School</label>
+                <Field
+                  type="text"
+                  name="school"
+                  placeholder="Enter Your School"
+                  className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                />
+                <ErrorMessage
+                  name="school"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -301,12 +428,12 @@ function ProfileUser() {
                 </label>
                 <Field
                   type="text"
-                  name="secondarySchool"
+                  name="secondary_school"
                   placeholder="Enter Your Secondary School"
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="secondarySchool"
+                  name="secondary_school"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -324,12 +451,12 @@ function ProfileUser() {
                 </label>
                 <Field
                   type="text"
-                  name="tertiarySchool"
+                  name="tertiary_school"
                   placeholder="Enter Your Tertiary School"
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="tertiarySchool"
+                  name="tertiary_school"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -347,12 +474,12 @@ function ProfileUser() {
                 </label>
                 <Field
                   type="text"
-                  name="fieldOfStudy"
+                  name="study_field"
                   placeholder="Enter Your Field of Study"
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="fieldOfStudy"
+                  name="study_field"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -370,12 +497,12 @@ function ProfileUser() {
                 </label>
                 <Field
                   type="text"
-                  name="graduationYear"
+                  name="expected_year_graduation"
                   placeholder="e.g., 2025"
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="graduationYear"
+                  name="expected_year_graduation"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -397,7 +524,9 @@ function ProfileUser() {
         </Formik>
       )}
       {/* Account Settings Tab*/}
-      {activeTab === "Account Settings" && <AccountSettings user={user?.email}/>}
+      {activeTab === "Account Settings" && (
+        <AccountSettings user={user?.email} />
+      )}
 
       {/* Ratings Academic Tab*/}
       {activeTab === "Ratings Academic" && (

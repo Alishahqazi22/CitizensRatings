@@ -3,13 +3,27 @@ import logo from "../../assets/HomeAssets/homelogo.png";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import whiteLogo from "../../assets/HomeAssets/homelogowhite.png";
 import profilelogo from "../../assets/HomeAssets/profile-icon.png";
+
 function Header() {
   const accessToken = localStorage.getItem("accessToken");
   const [scrolled, setScrolled] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
-  const user = JSON.parse(localStorage.getItem("user"));
+
+  // ✅ Safe parse
+  function getUserFromStorage() {
+    try {
+      const storedUser = localStorage.getItem("user");
+      if (!storedUser || storedUser === "undefined") return null;
+      return JSON.parse(storedUser);
+    } catch (error) {
+      console.error("Invalid user in localStorage:", error);
+      localStorage.removeItem("user");
+      return null;
+    }
+  }
+  const user = getUserFromStorage();
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -32,17 +46,17 @@ function Header() {
   }, []);
 
   useEffect(() => {
-      const handleClickOutside = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-          setShowUserDropdown(false);
-        }
-      };
-  
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => {
-        document.removeEventListener("mousedown", handleClickOutside);
-      };
-    }, []);
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowUserDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header
@@ -89,8 +103,9 @@ function Header() {
 
             {showUserDropdown && (
               <div
-              ref={dropdownRef} 
-               className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50">
+                ref={dropdownRef}
+                className="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg z-50"
+              >
                 <Link to="/gh/profile/user">
                   <button className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-t-lg">
                     Profile
@@ -112,3 +127,12 @@ function Header() {
 }
 
 export default Header;
+
+
+
+
+             
+
+             
+
+              
