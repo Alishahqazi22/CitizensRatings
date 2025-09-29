@@ -24,6 +24,7 @@ const validationSchema = Yup.object({
 function AddPolicies() {
   //   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [categories, setCategories] = useState([]);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // fetchCategories
   useEffect(() => {
@@ -68,6 +69,9 @@ function AddPolicies() {
       resetForm();
     }
   };
+  if (!user) {
+    return <Login />;
+  }
 
   return (
     <div>

@@ -34,7 +34,7 @@ function Login() {
         );
         toast.success(response?.data?.data?.message);
         // window.location.href = (-1);
-        navigate(-1);
+        navigate("/gh");
       } else {
         toast.error(response?.data?.data?.message);
       }

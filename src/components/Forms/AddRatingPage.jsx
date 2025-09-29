@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { FaStar } from "react-icons/fa";
 import { axiosInstance } from "../../Config/axiosInstance";
+import Login from "./Login";
 
 function AddRatingPage() {
   const { id, category } = useParams();
@@ -172,6 +173,10 @@ function AddRatingPage() {
       alert("Something went wrong while submitting!");
     }
   };
+
+  if (!user) {
+    return <Login />; 
+  }
 
   return (
     <div className="min-h-screen bg-white py-10 mt-20 sm:mt-28">

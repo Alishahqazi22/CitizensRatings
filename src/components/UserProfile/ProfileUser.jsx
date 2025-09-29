@@ -6,6 +6,7 @@ import SavedCard from "./SavedCard";
 import { toast } from "react-toastify";
 import { axiosInstance } from "../../Config/axiosInstance";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Login from "../Forms/Login";
 
 function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
@@ -31,13 +32,21 @@ function ProfileUser() {
   );
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
-    setSavedUsers(saved);
-    console.log("saved user", saved);
-  }, []);
+    if (user?.id) {
+      const saved =
+        JSON.parse(localStorage.getItem(`savedUsers_${user.id}`)) || [];
+      setSavedUsers(saved);
+      console.log("saved user for this user", saved);
+    } else {
+      setSavedUsers([]);
+    }
+  }, [user?.id]);
 
   const handleUpdateSaved = (updated) => {
     setSavedUsers(updated);
+    if (user?.id) {
+      localStorage.setItem(`saved_${user?.id}`, JSON.stringify(updated));
+    }
   };
 
   const tabs = [
@@ -65,28 +74,28 @@ function ProfileUser() {
     family_name: user?.family_name || "",
     password: user?.password || "",
     phone: user?.phone || "",
-    image: user?.image || "",
+    image: user?.image || null,
   };
 
   const validationSchema = Yup.object({
     hometown_region: Yup.string().required("Hometown Region is required"),
     current_region: Yup.string().required("Current Region is required"),
     year_birth: Yup.string().required("Year of Birth is required"),
-    school: Yup.string().required("School is required"),
-    secondary_school: Yup.string().required("Secondary School is required"),
-    tertiary_school: Yup.string().required("Tertiary School is required"),
-    study_field: Yup.string().required("Field of Study is required"),
-    expected_year_graduation: Yup.string().required(
-      "Graduation Year is required"
-    ),
+    // school: Yup.string().required("School is required"),
+    // secondary_school: Yup.string().required("Secondary School is required"),
+    // tertiary_school: Yup.string().required("Tertiary School is required"),
+    // study_field: Yup.string().required("Field of Study is required"),
+    // expected_year_graduation: Yup.string().required(
+    //   "Graduation Year is required"
+    // ),
     email: Yup.string().required("Email is required"),
-    first_name: Yup.string().required("First Name is required"),
-    last_name: Yup.string().required("Last Name is required"),
-    given_name: Yup.string().required("Given Name is required"),
-    family_name: Yup.string().required("Family Name is required"),
-    password: Yup.string(),
-    phone: Yup.string().required("Phone is required"),
-    image: Yup.mixed(),
+    // first_name: Yup.string().required("First Name is required"),
+    // last_name: Yup.string().required("Last Name is required"),
+    // given_name: Yup.string().required("Given Name is required"),
+    // family_name: Yup.string().required("Family Name is required"),
+    // password: Yup.string(),
+    // phone: Yup.string().required("Phone is required"),
+    // image: Yup.mixed(),
   });
 
   const handleSubmit = async (values, { setSubmitting }) => {
@@ -123,6 +132,11 @@ function ProfileUser() {
       setSubmitting(false);
     }
   };
+
+  if (!user) {
+    return <Login />; 
+  }
+
 
   return (
     <div className="p-4 md:p-6 max-w-4xl mx-auto mt-20 md:mt-28">
@@ -307,7 +321,7 @@ function ProfileUser() {
                   className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                 />
                 <ErrorMessage
-                  name="First Name"
+                  name="first_name"
                   component="div"
                   className="text-red-500 text-xs"
                 />
@@ -503,6 +517,38 @@ function ProfileUser() {
                 />
                 <ErrorMessage
                   name="expected_year_graduation"
+                  component="div"
+                  className="text-red-500 text-xs"
+                />
+              </div>
+
+              {/* Image Upload */}
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">Image</label>
+              </div>
+              <div className="flex flex-col">
+                <label className="text-gray-800 font-medium">
+                  Upload Image
+                </label>
+
+                <Field name="image">
+                  {({ form }) => (
+                    <div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(event) => {
+                          const file = event.currentTarget.files[0];
+                          form.setFieldValue("image", file);
+                        }}
+                        className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                      />
+                    </div>
+                  )}
+                </Field>
+
+                <ErrorMessage
+                  name="image"
                   component="div"
                   className="text-red-500 text-xs"
                 />

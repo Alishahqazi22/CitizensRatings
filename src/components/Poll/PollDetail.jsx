@@ -12,7 +12,7 @@ function PollDetail() {
     try {
       const response = await axiosInstance.get(`/poll/${id}`);
       const apiPoll = response?.data?.poll;
-      console.log("Poll Detail API Response:", apiPoll);
+      // console.log("Poll Detail API Response:", apiPoll);
       setpoll(apiPoll || null);
     } catch (error) {
       console.log("Poll detail fetch error:", error);

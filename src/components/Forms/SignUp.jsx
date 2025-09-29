@@ -8,13 +8,13 @@ import { toast } from "react-toastify";
 import GoogleAuthButton from "./GoogleAuthButton";
 
 const SignUpSchema = Yup.object().shape({
-  firstname: Yup.string().required("First Name is required"),
-  lastname: Yup.string().required("Last Name is required"),
+  first_name: Yup.string().required("First Name is required"),
+  last_name: Yup.string().required("Last Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   password: Yup.string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
-  confirmPassword: Yup.string()
+  password_confirmation: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match")
     .required("Confirm Password is required"),
   image: Yup.mixed(),
@@ -25,26 +25,62 @@ function SignUp() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  // For verification popup
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [verifyEmail, setVerifyEmail] = useState("");
+  const [verifyCode, setVerifyCode] = useState("");
 
-  const handleSignup = async (values) => {
+  const handleSignup = async (values, resetForm) => {
     const formData = new FormData();
     formData.append("role", "user");
-    formData.append("first_name", values.firstname);
-    formData.append("last_name", values.lastname);
+    formData.append("first_name", values.first_name);
+    formData.append("last_name", values.last_name);
     formData.append("email", values.email);
     formData.append("password", values.password);
-    formData.append("password_confirmation", values.confirmPassword);
+    formData.append("password_confirmation", values.password_confirmation);
     formData.append("image", values.image);
     try {
       const response = await axiosInstance.post("signup", formData);
-      if (response?.data?.data?.status) {
-        toast.success(response?.data?.data?.message);
-        navigate("/gh/login");
+
+      if (response?.data?.status) {
+        toast.success(response?.data?.message || "Signup successful!");
+        setVerifyEmail(values.email);
+        setShowVerifyModal(true);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        navigate("/gh");
+        resetForm();
       } else {
         toast.error(response?.data?.data?.message);
       }
     } catch (error) {
       console.error("Signup API error:", error);
+      toast.error("Signup failed!");
+    }
+  };
+
+  const handleVerifyCode = async () => {
+    try {
+      const response = await axiosInstance.post("account/update/email", {
+        email: verifyEmail,
+        code: verifyCode,
+      });
+
+      if (response?.data?.status) {
+        toast.success("Email verified successfully!");
+        setShowVerifyModal(false);
+
+        // Save token / user
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        localStorage.setItem("token", response.data.token);
+
+        navigate("/"); // redirect after login
+      } else {
+        toast.error(response?.data?.message || "Invalid code");
+      }
+    } catch (error) {
+      console.error("Verify code error:", error);
+      toast.error("Verification failed!");
     }
   };
 
@@ -67,11 +103,11 @@ function SignUp() {
 
         <Formik
           initialValues={{
-            fisrtname: "",
-            lastname: "",
+            first_name: "",
+            last_name: "",
             email: "",
             password: "",
-            confirmPassword: "",
+            password_confirmation: "",
             terms: false,
           }}
           validationSchema={SignUpSchema}
@@ -79,33 +115,33 @@ function SignUp() {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <Form className="space-y-4">
-              {/* firstname */}
+              {/* first_name */}
               <div>
                 <label className="block text-sm font-medium">First Name</label>
                 <Field
-                  type="firstname"
-                  name="firstname"
+                  type="first_name"
+                  name="first_name"
                   placeholder="Enter your First Name"
                   className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <ErrorMessage
-                  name="firstname"
+                  name="first_name"
                   component="div"
                   className="text-red-500 text-sm mt-1"
                 />
               </div>
 
-                {/* lastname */}
+              {/* last_name */}
               <div>
                 <label className="block text-sm font-medium">Last Name</label>
                 <Field
-                  type="lastname"
-                  name="lastname"
+                  type="last_name"
+                  name="last_name"
                   placeholder="Enter your Last Name"
                   className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <ErrorMessage
-                  name="lastname"
+                  name="last_name"
                   component="div"
                   className="text-red-500 text-sm mt-1"
                 />
@@ -159,7 +195,7 @@ function SignUp() {
                 <div className="relative">
                   <Field
                     type={showConfirm ? "text" : "password"}
-                    name="confirmPassword"
+                    name="password_confirmation"
                     placeholder="Confirm your password"
                     className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
@@ -171,7 +207,7 @@ function SignUp() {
                   </span>
                 </div>
                 <ErrorMessage
-                  name="confirmPassword"
+                  name="password_confirmation"
                   component="div"
                   className="text-red-500 text-sm mt-1"
                 />
@@ -244,6 +280,39 @@ function SignUp() {
           </Link>
         </p>
       </div>
+
+      {/* Verify Code */}
+      {showVerifyModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <h2 className="text-xl font-semibold mb-4">Verify Your Email</h2>
+            <p className="text-sm text-gray-600 mb-2">
+              Enter the code sent to <b>{verifyEmail}</b>
+            </p>
+            <input
+              type="text"
+              value={verifyCode}
+              onChange={(e) => setVerifyCode(e.target.value)}
+              placeholder="Enter verification code"
+              className="w-full border p-2 rounded mb-3"
+            />
+            <div className="flex gap-3">
+              <button
+                onClick={handleVerifyCode}
+                className="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >
+                Verify
+              </button>
+              <button
+                onClick={() => setShowVerifyModal(false)}
+                className="flex-1 bg-gray-300 py-2 rounded hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
