@@ -30,6 +30,7 @@ function UserComparePage() {
   const [search2, setSearch2] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [allLeaders, setAllLeaders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   async function getUser1() {
     try {
@@ -60,9 +61,11 @@ function UserComparePage() {
   }
 
   useEffect(() => {
+    setLoading(true);
     getUser1();
     getAllLeaders();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, category]);
 
   const handleSearchChange = (value) => {
@@ -108,8 +111,7 @@ function UserComparePage() {
 
     return (
       <div className="w-full">
-       
-       {/* image */}
+        {/* image */}
         <div className="flex flex-col items-center">
           <div className="w-full h-40 rounded-md overflow-hidden shadow">
             <img
@@ -145,7 +147,9 @@ function UserComparePage() {
         </ul>
 
         {/* Tags */}
-        <h2 className="text-lg font-bold mt-6">Tags</h2>
+        <h2 className="text-lg font-bold mt-6">
+          Tags {leader.tag?.tags?.length}{" "}
+        </h2>
         <div className="flex flex-wrap gap-2 mt-2">
           {leader.tag?.tags?.length > 0 ? (
             leader.tag.tags.map((tag, idx) => (
@@ -178,11 +182,14 @@ function UserComparePage() {
       </div>
     );
   };
+  
+  if (loading) {
+    return <Loader />; 
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 py-4 mt-28">
       <div className="max-w-7xl mx-auto bg-white shadow-xl rounded-lg p-8">
-        
         {/* Header */}
         <div className="md:grid grid-cols-3 text-center font-bold lg:text-3xl">
           <h1>{user1?.name || "User 1"}</h1>
@@ -220,14 +227,15 @@ function UserComparePage() {
 
         {/* Compare Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-8">
-          
           {/* user01 */}
           <div className="w-full bg-gray-50 shadow-xl rounded-lg p-4 md:p-8">
             {renderUserCard(user1)}
           </div>
 
           {/* user02 */}
-            <h1 className="block md:hidden text-center font-bold lg:text-3xl md:pt-8">{user2?.name || "User 2"}</h1>
+          <h1 className="block md:hidden text-center font-bold lg:text-3xl md:pt-8">
+            {user2?.name || "User 2"}
+          </h1>
           <div className="w-full bg-gray-50 shadow-xl rounded-lg p-4 md:p-8">
             {renderUserCard(user2)}
           </div>

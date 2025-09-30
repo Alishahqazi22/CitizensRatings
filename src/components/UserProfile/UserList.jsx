@@ -5,6 +5,7 @@ import UserFilterBar from "./UserFilterBar";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
 import { showError } from "../../Toast/useToast";
 import { axiosInstance } from "../../Config/axiosInstance";
+import Loader from "../Loader";
 
 function UserList() {
   const { category } = useParams();
@@ -21,10 +22,16 @@ function UserList() {
     setSavedIds(saved.map((u) => u.id));
   }, []);
 
+  const loginUser = JSON.parse(localStorage.getItem("user"));
+
   const handleBookmark = (e, user) => {
     e.preventDefault();
 
-    let saved = JSON.parse(localStorage.getItem("savedUsers")) || [];
+    if (!loginUser?.id) return showError("Please login first!");
+
+    let saved =
+      JSON.parse(localStorage.getItem(`savedUsers_${loginUser.id}`)) || [];
+
     const isSaved = saved.some((u) => u.id === user.id);
 
     if (isSaved) {
@@ -35,7 +42,7 @@ function UserList() {
       showError("Item Added To Saved List!");
     }
 
-    localStorage.setItem("savedUsers", JSON.stringify(saved));
+    localStorage.setItem(`savedUsers_${loginUser.id}`, JSON.stringify(saved));
     setSavedIds(saved.map((u) => u.id));
   };
 
@@ -85,7 +92,7 @@ function UserList() {
         setSearchResults(users);
       }
     } else {
-      setSearchResults([]); 
+      setSearchResults([]);
     }
 
     if (updatedFilters.sortOrder === "low") {
@@ -119,9 +126,7 @@ function UserList() {
       </h1>
 
       {loading ? (
-        <div className="flex justify-center items-center py-20">
-          <div className="w-12 h-12 border-4 border-gray-300 border-t-primary rounded-full animate-spin"></div>
-        </div>
+        <Loader />
       ) : (
         <div className="w-full flex flex-col gap-6 mt-14">
           {filteredUsers.length > 0 ? (

@@ -10,11 +10,11 @@ import Login from "../Forms/Login";
 
 function ProfileUser() {
   const [activeTab, setActiveTab] = useState("Profile");
-  const user = JSON.parse(localStorage.getItem("user"));
   const [savedUsers, setSavedUsers] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  
   const savedAcademicRatings = savedUsers.filter(
     (u) => u.type === "academic" && u.ratings && u.reviews
   );
@@ -32,20 +32,18 @@ function ProfileUser() {
   );
 
   useEffect(() => {
-    if (user?.id) {
-      const saved =
-        JSON.parse(localStorage.getItem(`savedUsers_${user.id}`)) || [];
-      setSavedUsers(saved);
-      console.log("saved user for this user", saved);
-    } else {
-      setSavedUsers([]);
-    }
-  }, [user?.id]);
+  const loginUser = JSON.parse(localStorage.getItem("user"));
+  if (loginUser?.id) {
+    const saved = JSON.parse(localStorage.getItem(`savedUsers_${loginUser.id}`)) || [];
+    setSavedUsers(saved.map((u) => u.id));
+  }
+}, []);
+
 
   const handleUpdateSaved = (updated) => {
     setSavedUsers(updated);
     if (user?.id) {
-      localStorage.setItem(`saved_${user?.id}`, JSON.stringify(updated));
+      localStorage.setItem(`savedUsers_${user?.id}`, JSON.stringify(updated));
     }
   };
 
@@ -134,9 +132,8 @@ function ProfileUser() {
   };
 
   if (!user) {
-    return <Login />; 
+    return <Login />;
   }
-
 
   return (
     <div className="p-4 md:p-6 max-w-4xl mx-auto mt-20 md:mt-28">
@@ -541,7 +538,7 @@ function ProfileUser() {
                           const file = event.currentTarget.files[0];
                           form.setFieldValue("image", file);
                         }}
-                        className="border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
+                        className="w-full border border-gray-300 rounded-md p-[9px] font-light focus:ring-1 focus:outline-none focus:ring-primary"
                       />
                     </div>
                   )}
@@ -569,6 +566,7 @@ function ProfileUser() {
           )}
         </Formik>
       )}
+
       {/* Account Settings Tab*/}
       {activeTab === "Account Settings" && (
         <AccountSettings user={user?.email} />

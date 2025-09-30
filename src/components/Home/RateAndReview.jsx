@@ -11,7 +11,7 @@ function RateAndReview() {
     try {
       const response = await axiosInstance.get("/category");
       const apiCategories = response?.data?.data || [];
-      // console.log("rate and review" ,response?.data?.data);
+      console.log("rate and review" ,response?.data?.data);
       setCategories(apiCategories || []);
     } catch (error) {
       console.log(error);
